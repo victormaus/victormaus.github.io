@@ -128,7 +128,6 @@ def main():
                 bib_response = requests.get(f"https://doi.org/{doi}", headers=doi_headers)
                 bib_response.raise_for_status()
                 
-                # --- CRUCIAL ENCODING STEP ---
                 # Force requests to re-evaluate text using ISO-8859-1 (Latin-1) 
                 # if standard UTF-8 fails. This often resolves misencoded strings
                 # before cleanup. We prioritize UTF-8 detection but fall back.
@@ -139,7 +138,6 @@ def main():
                     bib_response.encoding = 'iso-8859-1'
                     raw_bib_text = bib_response.text.strip()
                     
-                # --- APPLY GENERIC CLEANUP ---
                 bib_text = cleanup_bibtex_entry(raw_bib_text)
                 
                 # Save individual file using slugified DOI
