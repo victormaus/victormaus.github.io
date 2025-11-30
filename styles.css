@@ -1,0 +1,10 @@
+/* styles.css */
+a {
+  color: #6c757d; /* Grey */
+  text-decoration: none; /* Optional: removes underline */
+}
+
+a:hover {
+  color: #343a40; /* Darker grey on hover */
+  text-decoration: underline; /* Optional: adds underline on hover */
+}
