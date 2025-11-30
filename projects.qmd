@@ -1,0 +1,8 @@
+---
+title: "Projects"
+listing:
+  contents: projects
+  sort: "date desc"
+  type: grid
+  fields: [image, title, subtitle, date] # Added this line
+---

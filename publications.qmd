@@ -1,0 +1,40 @@
+---
+title: "Publications"
+bibliography: assets/references.bib
+csl: http://www.zotero.org/styles/apa-cv
+link-citations: true
+nocite: "@*"
+---
+
+<style>
+/* CSS to Enumerate the Reference List */
+#refs {
+counter-reset: pub-counter;
+}
+
+div.csl-entry {
+position: relative;
+padding-left: 5em;
+margin-bottom: 1em;
+}
+
+div.csl-entry:before {
+counter-increment: pub-counter;
+content: counter(pub-counter) ".";
+position: absolute;
+left: 0;
+top: 0;
+font-weight: bold;
+width: 2em;
+text-align: right;
+}
+</style>
+
+
+
+Publications automatically retrieved from my ORCID profile.
+
+[Download all references (.bib)](assets/references.bib){.btn .btn-outline-primary}
+
+::: {#refs .refs-ordered}
+:::

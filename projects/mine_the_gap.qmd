@@ -1,0 +1,38 @@
+---
+layout: page
+title: MINE-THE-GAP
+description: Enabling Global-Scale Mine-Level Indicators from Satellite Observations
+image: ../assets/img/mtg-illustration.svg
+importance: 1
+category: work
+date: 2025-06-01
+subtitle: "June 2025 – May 2030 <br> <a href='/projects/mine_the_gap.html#hiring' style='display: inline-block; margin-top: 10px; color: #d9534f; font-weight: bold; font-size: 0.8em; text-decoration: none;'>We are hiring!</a>"
+categories: ["ERC Grant", "Remote Sensing", "Deep Learning", "Mining"]
+---
+
+**MINE-THE-GAP** is an ERC Consolidator Grant project aimed at scaling monitoring environmental impacts of the mining sector globally. The surge in mining has uncovered a critical gap in our understanding of its environmental and social impacts. Essential indicators, such as precise geographical locations, waste generation, and details of extracted minerals, are surprisingly scant worldwide. MINE-THE-GAP will unlock new avenues in sustainability research, overcoming obstacles caused by the lack of essential geoinformation. It will create the basis for monitoring mining sites globally, which is essential for transparency and for providing mine-level environmental metrics to support decision making.
+
+<div id="hiring" style="height: 20px; margin-top: -20px;"></div>
+## We are hiring!
+
+The MINE-THE-GAP team at WU Vienna is expanding. We are seeking motivated candidates for the following positions:
+
+* **3 PhD Positions in Data Science (AI & Earth Observation)**
+    Research focuses on developing scalable models for mining land use, waste generation, and mineral detection using multimodal satellite imagery.
+    <br> <i class="bi bi-file-earmark-pdf"></i> [Download Job Announcement](../assets/pdf/MTG-20251125-PhDs.pdf){target="_blank"}
+
+* **Postdoctoral Researcher (Radar Data Analysis)**
+    Lead research on mapping mining waste using radar data, integrating 3D terrain modeling and AI.
+    <br> <i class="bi bi-file-earmark-pdf"></i> [Download Job Announcement](../assets/pdf/MTG-20251125-postdoc-01-dara.pdf){target="_blank"}
+
+* **Student Research Assistant (20h/week)**
+    Support research with data screening, geospatial database management, and preparation of training data for AI models.
+    <br> <i class="bi bi-file-earmark-pdf"></i> [Download Job Announcement](../assets/pdf/MTG-20251125-student-RA.pdf){target="_blank"}
+
+
+---
+
+*Funded by the European Union (Horizon Europe). Grant agreement ID: 101170578.*
+
+<i class="bi bi-box-arrow-up-right"></i> [View Project on CORDIS](https://doi.org/10.3030/101170578){target="_blank"}
+

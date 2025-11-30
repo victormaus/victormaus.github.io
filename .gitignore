@@ -1,0 +1,13 @@
+# Quarto internal cache and configuration
+/.quarto/
+
+# The rendered output website (keep source branch clean)
+/_site/
+
+# Python cache files (since you are using Python scripts)
+__pycache__/
+*.py[cod]
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+

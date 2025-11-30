@@ -1,0 +1,40 @@
+project:
+  type: website
+  pre-render: generate_orcid_bib.py
+  post-render: post_process.py
+
+website:
+  title: "Dr. Victor Maus"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: publications.qmd
+        text: Publications
+      - href: projects.qmd
+        text: Projects
+      - href: teaching.qmd
+        text: Teaching
+      - href: cv.qmd
+        text: CV
+    right:
+      - icon: github
+        href: https://github.com/vwmaus
+        target: _blank
+      - text: '<i class="ai ai-google-scholar"></i>'
+        href: https://scholar.google.com/citations?user=wN2LseQAAAAJ
+        target: _blank
+      - text: '<i class="fa-brands fa-orcid"></i>'
+        href: https://orcid.org/0000-0002-7385-4723
+        target: _blank
+      - icon: linkedin
+        href: https://www.linkedin.com/in/victormaus
+        target: _blank
+
+format:
+  html:
+    css: styles.css
+    include-in-header:
+      - text: |
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.3/css/academicons.min.css">

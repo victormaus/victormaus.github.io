@@ -1,0 +1,82 @@
+---
+title: "Dr. Victor Maus"
+image: profile.png
+about:
+  template: trestles
+  image-shape: round
+  image-width: 13em
+---
+
+I lead the spatial data science for sustainability laboratory at the Institute for Ecological Economics at WU Vienna University of Economics and Business. My research advances spatial analytics and scalable AI with new methods and algorithms to transform raw data into decision-grade environmental metrics and support the development of Earth Intelligence systems. Key contributions of my work include the development of the Time-Weighted Dynamic Time Warping (TWDTW) algorithm and pioneering global assessments of mine-specific impacts, uncovering critical, previously overlooked data gaps in the sector's footprints. By bridging the gap between technical innovation and application, my teams's research contributes to building the foundation and empirical knowledge necessary to monitor global environmental change and support evidence-based decision-making.
+
+<br>
+<a href="/projects/mine_the_gap.html#hiring" style="color: #d9534f; font-weight: bold; text-decoration: none; font-size: 1.1em;">
+  We are hiring!
+</a>
+
+```{python}
+
+#| echo: false
+#| results: 'asis'
+#| cache: true
+
+import requests
+import urllib3
+from IPython.display import display, Markdown
+
+# Silence SSL warnings
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+# DOIs list
+DOIS = [
+    "10.1038/d41586-023-04090-3", 
+    "10.1038/s43017-025-00683-w",
+    "10.1038/s41597-022-01547-4",
+    "10.1109/jstars.2016.2517118",
+]
+
+def get_citation_from_doi(doi):
+    """Fetches citation data from CrossRef."""
+    url = f"https://api.crossref.org/v1/works/{doi}"
+    
+    headers = {'Accept': 'application/json'}
+    
+    try:
+        headers['User-Agent'] = 'VictorMausWebsite (mailto:your.email@example.com)'
+        
+        response = requests.get(url, headers=headers, verify=False, timeout=10)
+        response.raise_for_status()
+        
+        data = response.json().get('message', {})
+        title = data.get('title', ['No Title'])[0]
+        
+        # Get year safely
+        date_parts = data.get('issued', {}).get('date-parts', [[None]])
+        year = date_parts[0][0] if date_parts else None
+        
+        # Handle journal title list safely
+        container = data.get('container-title', [])
+        journal = container[0] if container else None
+        
+        # --- FIXED: Use HTML with target="_blank" instead of Markdown links ---
+        citation_text = f'**<a href="https://doi.org/{doi}" target="_blank">{title}</a>**'
+        
+        if journal:
+            citation_text += f", *{journal}*"
+        if year:
+            citation_text += f" ({year})"
+            
+        return f'{citation_text}'
+            
+    except Exception as e:
+        # --- FIXED: Added target="_blank" to error link as well ---
+        return f'* Error fetching citation: {e}. See: <a href="https://doi.org/{doi}" target="_blank">doi.org/{doi}</a>'
+
+# --- Main Execution ---
+display(Markdown("## Selected Publications\n"))
+
+for doi in DOIS:
+    res = get_citation_from_doi(doi)
+    display(Markdown(res))
+
+```
