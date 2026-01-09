@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>.font100[Global Mining and Sustainability]</title>
+    <title>.font90[Global-Scale Mining Land Use Monitoring]</title>
     <meta charset="utf-8" />
     <meta name="author" content=" Dr Victor Maus" />
     <script src="index_files/header-attrs/header-attrs.js"></script>
@@ -18,10 +18,7 @@
 class: top, left, title-slide
 
 .title[
-# .font100[<strong>Global Mining and Sustainability</strong>]
-]
-.subtitle[
-## .font90[Leveraging Satellite Earth Observation to Monitor Impacts of Mineral Extraction]
+# .font90[<strong>Global-Scale Mining Land Use Monitoring</strong>]
 ]
 .author[
 ### <br>Dr Victor Maus
@@ -30,7 +27,7 @@ class: top, left, title-slide
 ### .font70[Institute for Ecological Economics<br> <span style="display:block; margin-top:-10px;">Vienna University of Economics and Business</span><br> <span style="display:block; margin-top:-44px;"><a href="mailto:victor.maus@wu.ac.at" class="email">victor.maus@wu.ac.at</a></span><br> <span style='display:block; margin-top:-45px;'><a href='https://victormaus.github.io'>victormaus.github.io</a><br>]</span>
 ]
 .date[
-### .lut-illustration[].wu-logo-mtg[].copyright-bottom-right.font60[Lappeenranta–Lahti University of Technology, Finland, May 15<sup>th</sup>, 2024]
+### .lut-illustration[].wu-logo-mtg[].copyright-bottom-right.font60[OECD Forum on Responsible Mineral Supply Chains, Paris, May 22<sup>nd</sup>, 2024]
 ]
 
 ---
@@ -40,21 +37,26 @@ class: clear
 
 
 
-
-.center[
-&lt;img src="./img/pnas-sonter2023.png" width="75%" /&gt;
+.pull-left[
+&lt;img src="./img/maus2024-nature.png" alt="" width="90%" /&gt;
+&lt;img src="./img/gap_grid_map.png" alt="" width="90%" /&gt;
 ]
 
-.footnote-left[Source: [Sonter et al., 2023 PNAS](http://doi.org/10.1073/pnas.2307006120)]
+.footnote-left[Source: [Maus &amp; Werner, 2024](http://doi.org/10.1038/d41586-023-04090-3)]
 
+--
 
-
+.pull-right[
+&lt;img src="https://media.nature.com/lw767/magazine-assets/d41586-023-04090-3/d41586-023-04090-3_26550018.png?as=webp" alt="" width="85%" /&gt;
+]
 
 ---
 layout: false
 class: clear, center
 background-image: url(https://www.esa.int/var/esa/storage/images/applications/observing_the_earth/copernicus/sentinel-2/19729272-10-eng-GB/Sentinel-2_pillars.jpg)
 background-size: cover
+
+# .font-light.font90[Due Diligence Needs Systematically Produced Data]
 
 .cc-bottom-left.font-light[Image: © &lt;a href="https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2"&gt;European Space Agency (ESA)&lt;/a&gt;]
 
@@ -82,123 +84,38 @@ background-size: cover
 
 
 ---
-
-# Deforestation Due to Mining
-
-.left-column[
-&lt;img src="./img/wwf-report.png" width="100%" /&gt;
-.footnote-left[Source: [WWF et al., 2023](https://www.wwf.de/fileadmin/fm-wwf/Publikationen-PDF/Wald/WWF-Studie-Extracted-Forests.pdf)]
-]
-
-
-.right-column[
-&lt;img src="./img/wwf-report-result.png" width="95%" /&gt;
-]
-
-
----
-
-# Indirect Forest Cover Loss
-
-.center[
-&lt;img src="./img/pnas-ind-def.png" width="75%" /&gt;
-]
-
-.footnote-left[Source: [Giljum et al., 2022 PNAS](http://doi.org/10.1073/pnas.2118273119)]
-
-
----
-# Forest Loss on Minerals Supply Chain
-
-.center[
-&lt;img src="./img/forest-loss-mrio-res.png" width="90%" /&gt;
-]
-
-.footnote-left[Source: Luckeneder et al., (Under Review)]
-
-
----
-# Earth System Impact of Mining
-
-&lt;img src="./img/ESI-mining.png" width="100%" /&gt;
-
-.footnote-left[Source: [Crona et al., 2023](https://doi.org/10.1016/j.jclepro.2023.139523)]
-
-
-
----
-
-# Mining and Development
-
-.center[
-&lt;img src="./img/brazil-mining-dev.png" width="85%" /&gt;
-]
-
-.footnote-left[Source: Luckeneder et al., (Under Review)]
-
-
----
 &lt;img src="/assets/talks/img/mine-time-tag.png" height="550"/&gt;
 
 ## How to keep track of existing mines and new ones?
 
-
 ---
 layout: false
 
-# What is Mine Land Use?
-
+## AI Algorithms Excel at Detecting Regular Patterns
 .pull-left.center[
 &lt;div class="copyright-container"&gt;
-  &lt;img src="https://images.saymedia-content.com/.image/t_share/MTc0MTExODE4NDE4MzAwNDgy/key-concepts-of-the-philosophy-of-plato.jpg" height="450"&gt;
+  &lt;img src="/assets/talks/img/dog-by-Tiina-Hayha-CC-BY-SA-4-0.jpg" height="500"/&gt;
+  &lt;div class="copyright-bottom-left2"&gt;Photo by Tiina Häyhä &lt;a href='https://creativecommons.org/licenses/by-sa/4.0'&gt;CC BY-SA 4.0 license&lt;/a&gt;&lt;/div&gt;
 &lt;/div&gt;
-**Plato**
 ]
 
 .pull-right.center[
 &lt;div class="copyright-container"&gt;
-  &lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Ludwig_Wittgenstein_1929.jpg/220px-Ludwig_Wittgenstein_1929.jpg" height="450"/&gt;
+  &lt;img src="/assets/talks/img/carajas-mine-satellite-dog.png" height="500"/&gt;
+  &lt;div class="copyright-bottom-left2"&gt;Screenshots of &lt;a href="https://goo.gl/maps/xDkqyGdMAn8ZJTZJ7"&gt;Google Maps&lt;/a&gt;&lt;/div&gt;
 &lt;/div&gt;
-**Ludwig Wittgenstein**
 ]
 
----
-layout: false
-
-# Mine
-
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-.font150["*An excavation or system of excavations made underground for the extraction of metals or metallic ores, coal, salt, precious stones, (less commonly) building stone, clay, etc.; an open-air excavation for the extraction of such substances. Also: a place where such excavations are conducted. Source: Oxford English Dictionay*"]
 
 ---
 
 # Semantic Segmentation Using AI
 
 .center[
-&lt;img src="./img/segment-anything.png" width="90%" /&gt;
+&lt;img src="./img/segment-anything.png" alt="" width="90%" /&gt;
 ]
 
 .footnote-left[Source: Jasansky &amp; Maus (Ongoing)]
-
-
----
-layout: false
-class: clear
-
-.pull-left[
-&lt;img src="./img/maus2024-nature.png" width="90%" /&gt;
-&lt;img src="./img/gap_grid_map.png" width="90%" /&gt;
-]
-
-.footnote-left[Source: [Maus &amp; Werner, 2024](http://doi.org/10.1038/d41586-023-04090-3)]
-
---
-
-.pull-right[
-&lt;img src="https://media.nature.com/lw767/magazine-assets/d41586-023-04090-3/d41586-023-04090-3_26550018.png?as=webp" width="85%" /&gt;
-]
 
 
 
@@ -206,68 +123,22 @@ class: clear
 class: title, no-number
 
 # Thank you!
-.lut-illustration-large[].wu-logo-mtg[].copyright-bottom-right.font60[Lappeenranta–Lahti University of Technology, Finland, May 15&lt;sup&gt;th&lt;/sup&gt;, 2024]
+.lut-illustration-large[].wu-logo-mtg[].copyright-bottom-right.font60[OECD Forum on Responsible Mineral Supply Chains, Paris, May 22&lt;sup&gt;th&lt;/sup&gt;, 2024]
 
 
 .pull-left.left[
 Dr Victor Maus&lt;br&gt;.font90[Institute for Ecological Economics&lt;br&gt;Vienna University of Economics and Business]&lt;br&gt;.font90[victor.maus@wu.ac.at]&lt;br&gt;.font90[&lt;a href='https://vwmaus.github.io'&gt;vwmaus.github.io&lt;/a&gt;]&lt;br&gt;
 &lt;img src="./../img/qrcode_www.victor-maus.com.png" height="190"/&gt;
 ]
-
-
----
-
-# Indirect Deforestation Modelling
-
-.center[
-&lt;img src="./img/pnas-def-model.png" width="60%" /&gt;
-
-]
-
-.footnote-left[Source: [Giljum et al., 2022 PNAS](http://doi.org/10.1073/pnas.2118273119)]
-
-
----
-# Minerals Supply Chain Modelling
-
-.center[
-&lt;img src="./img/forest-loss-mrio.png" width="80%" /&gt;
-]
-
-.footnote-left[Source: Luckeneder et al., (Under Review)]
-
-
----
-# Visual Interpretation of Mining Areas
-
-.pull-left.center[
-.font100[
-**Open cut of the Carajás Iron Mine, Brazil**
-]
-&lt;div class="copyright-container"&gt;
-  &lt;img src="/assets/talks/img/carajas-mine-satellite.png" height="400"&gt;
-  &lt;div class="copyright-bottom-left2 font-light"&gt;Figure: &lt;a href="https://www.fineprint.global/viewer"&gt;FINEPRINT Viewer&lt;/a&gt;&lt;/div&gt;
-&lt;/div&gt;
-]
-
-.pull-right.center[
-.font100[
-**Parauapebas municipality, Brazil**
-]
-&lt;div class="copyright-container"&gt;
-  &lt;img src="/assets/talks/img/parauapebas-city-satellite.png" height="400"/&gt;
-  &lt;div class="copyright-bottom-left2 font-light"&gt;Figure: &lt;a href="https://www.fineprint.global/viewer"&gt;FINEPRINT Viewer&lt;/a&gt;&lt;/div&gt;
-&lt;/div&gt;
-]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="./libs/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"ratio": "16:9",
-"highlightStyle": "github",
-"highlightLines": true,
-"countIncrementalSlides": false,
-"slideNumberFormat": "%current%"
+  "ratio": "16:9",
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "slideNumberFormat": "%current%"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

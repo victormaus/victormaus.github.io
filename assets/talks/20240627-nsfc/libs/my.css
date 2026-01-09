@@ -68,7 +68,7 @@ content: "";
     width: 220px;
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url(https://www.victor-maus.com/assets/img/prof_pic.png);
+    background-image: url(src="/assets/img/prof_pic.png);
 }
 
 .pi-photo-huw{
@@ -80,7 +80,7 @@ content: "";
     width: 220px;
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url(https://www.victor-maus.com/assets/img/prof_pic.png);
+    background-image: url(src="/assets/img/prof_pic.png);
 }
 
 .pi-photo:after {
@@ -136,7 +136,7 @@ illustration: 3840 × 2377 pixels -> 500 x 309
   width: 350px;
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url(https://www.victor-maus.com/assets/talks/2024-05-15-lut/img/mtg-illustration.svg);
+  background-image: url(src="/assets/talks/2024-05-15-lut/img/mtg-illustration.svg);
 }
 
 .mtg-illustration{
