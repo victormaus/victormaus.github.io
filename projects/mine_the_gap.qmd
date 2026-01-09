@@ -19,20 +19,21 @@ The MINE-THE-GAP team at WU Vienna is expanding. We are seeking motivated candid
 
 * **3 PhD Positions in Data Science (AI & Earth Observation)**
     Research focuses on developing scalable models for mining land use, waste generation, and mineral detection using multimodal satellite imagery.
-    <br> <i class="bi bi-file-earmark-pdf"></i> [Download Job Announcement](../assets/pdf/MTG-20251125-PhDs.pdf){target="_blank"}
+    <br> <i class="bi bi-file-earmark-pdf"></i> [Download Job Announcement](../assets/pdf/PhDs-call-MTG-20251125.pdf){target="_blank"}
 
 * **Postdoctoral Researcher (Radar Data Analysis)**
     Lead research on mapping mining waste using radar data, integrating 3D terrain modeling and AI.
-    <br> <i class="bi bi-file-earmark-pdf"></i> [Download Job Announcement](../assets/pdf/MTG-20251125-postdoc-01-dara.pdf){target="_blank"}
+    <br> <i class="bi bi-file-earmark-pdf"></i> [Download Job Announcement](../assets/pdf/postdoc-01-radar-call-MTG-20251125){target="_blank"}
 
-* **Student Research Assistant (20h/week)**
-    Support research with data screening, geospatial database management, and preparation of training data for AI models.
-    <br> <i class="bi bi-file-earmark-pdf"></i> [Download Job Announcement](../assets/pdf/MTG-20251125-student-RA.pdf){target="_blank"}
 
 
 ---
 
-*Funded by the European Union (Horizon Europe). Grant agreement ID: 101170578.*
+<sub>*Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Research Council Executive Agency. Neither the European Union nor the granting authority can be held responsible for them. This work is supported by European Research Council (ERC) project MINE-THE-GAP (grant agreement no. <a href="https://doi.org/10.3030/101170578" target="_blank" style="text-decoration: underline;">101170578</a>)*</sub>
 
-<i class="bi bi-box-arrow-up-right"></i> [View Project on CORDIS](https://doi.org/10.3030/101170578){target="_blank"}
+<img src="https://erc.europa.eu/sites/default/files/2025-08/LOGO_ERC-FLAG_EU.png" 
+    alt="ERC & EU Flag" 
+    class="erc-logo" 
+    style="margin: 0; height: 50px; width: auto; display: block;">
+
 

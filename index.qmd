@@ -7,7 +7,7 @@ about:
   image-width: 13em
 ---
 
-I lead the spatial data science for sustainability laboratory at the Institute for Ecological Economics at WU Vienna University of Economics and Business. My research advances spatial analytics and scalable AI with new methods and algorithms to transform raw data into decision-grade environmental metrics and support the development of Earth Intelligence systems. Key contributions of my work include the development of the Time-Weighted Dynamic Time Warping (TWDTW) algorithm and pioneering global assessments of mine-specific impacts, uncovering critical, previously overlooked data gaps in the sector's footprints. By bridging the gap between technical innovation and application, my teams's research contributes to building the foundation and empirical knowledge necessary to monitor global environmental change and support evidence-based decision-making.
+I lead the spatial data science for sustainability lab at the Institute for Ecological Economics at WU Vienna University of Economics and Business. My research advances spatial analytics and scalable AI with new methods and algorithms to transform raw data into decision-grade environmental metrics and support the development of Earth Intelligence systems. Key contributions of my work include the development of the Time-Weighted Dynamic Time Warping (TWDTW) algorithm and pioneering global scale assessments of mine-specific impacts, uncovering critical, previously overlooked data gaps in the sector's footprints. By bridging the gap between technical innovation and application, my teams's research contributes to building the foundation and empirical knowledge necessary to monitor global environmental change and support evidence-based decision-making.
 
 <br>
 <a href="/projects/mine_the_gap.html#hiring" style="color: #d9534f; font-weight: bold; text-decoration: none; font-size: 1.1em;">
@@ -29,8 +29,8 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # DOIs list
 DOIS = [
+    "10.1016/j.jclepro.2025.147437",
     "10.1038/d41586-023-04090-3", 
-    "10.1038/s43017-025-00683-w",
     "10.1038/s41597-022-01547-4",
     "10.1109/jstars.2016.2517118",
 ]
