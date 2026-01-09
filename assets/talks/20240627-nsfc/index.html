@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Enabling Scalable Land Use Monitoring in Global Mining Areas Based on Satellites and AI</title>
+    <meta charset="utf-8" />
+    <script src="index_files/header-attrs-2.27/header-attrs.js"></script>
+    <link href="index_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="libs/huw.css" type="text/css" />
+    <link rel="stylesheet" href="libs/huw-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="libs/my.css" type="text/css" />
+    <link rel="stylesheet" href="libs/tachyons-min.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: top, left, title-slide
+
+.title[
+# <strong>Enabling Scalable Land Use Monitoring in Global Mining Areas Based on Satellites and AI</strong>
+]
+.date[
+### .wu-logo-mtg[].lut-illustration[].copyright-bottom-left.font40[Host Institution: China University of Mining and Technology, CUMT, Xuzhou]
+]
+
+---
+
+&lt;style type="text/css"&gt;
+  a {
+    color: inherit;
+    text-decoration: none; /* Optional: Remove underline if desired */
+  }
+  .bg_map {
+    position: relative;
+    z-index: 1;
+  }
+  .bg_map::before {    
+        content: "";
+        background-image: url('./img/outreach.png');
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.4;
+        z-index: -1;
+  }
+&lt;/style&gt;
+
+# Education and Work Experience (Brazil and the EU)
+
+.pull-left.font90[
+- BSc in Engineering, Franciscan University, Brazil
+- MSc in Computer Science, Federal University of Juiz de Fora, Brazil
+- PhD in Earth System Science, **INPE - Institute for Space Research**, Brazil
+]
+.pull-right[
+&lt;img src="https://www.refugiosnointerior.com.br/sistema/_lib/file/img/lugar/6027/capa_instituto_nacional_de_pesquisas_espaciais(1).webp" width="70%" /&gt;
+&lt;div style="position: relative; height: 100%;"&gt;
+  &lt;img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Inpelogo.png" 
+       style="position: absolute; top: -260px; right: 0px; width: 30%;" /&gt;
+&lt;/div&gt;
+]
+
+--
+
+## .font80.font-huw-red-light[10 years of work experience in the EU, in Austria, Germany, and Sweden]
+.pull-left[
+&lt;img src="https://iiasa.ac.at/sites/default/files/styles/social_media/public/2021-11/15300419120_ce7fc56b9a_c.jpg?itok=D74B29jL" width="90%" /&gt;
+### .font80[IIASA International Institute for Applied Systems Analysis]
+]
+.pull-right[
+&lt;img src="https://www.wu.ac.at//fileadmin/wu/_processed_/9/e/csm_LC_aussen_12f50b2a93.jpg" width="70%" /&gt;
+### .font80[WU Vienna University of Economics and Business]
+]
+
+---
+
+# Major Academic Achievements
+
+.pull-left[
+**Scientific Software and Data**
+&lt;a href="https://www.scimagojr.com/journalsearch.php?q=12137&amp;amp;tip=sid&amp;amp;exact=no" title="SCImago Journal &amp;amp; Country Rank"&gt;
+    &lt;img border="0" src="https://www.scimagojr.com/journal_img.php?id=12137" alt="SCImago Journal &amp;amp; Country Rank" width="120" /&gt;
+&lt;/a&gt;
+&lt;a href="https://www.scimagojr.com/journalsearch.php?q=21100451321&amp;amp;tip=sid&amp;amp;exact=no" title="SCImago Journal &amp;amp; Country Rank"&gt;
+    &lt;img border="0" src="https://www.scimagojr.com/journal_img.php?id=21100451321" alt="SCImago Journal &amp;amp; Country Rank" width="120" /&gt;
+&lt;/a&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="https://www.victor-maus.com/assets/talks/20240530-lut/img/dtwsat.png" width="95%" /&gt;
+&lt;br&gt;
+&lt;img src="https://www.victor-maus.com/assets/talks/20240530-lut/img/sits-color.png" width="90%" /&gt;
+&lt;br&gt;
+&lt;img src="./img/sci-data-maus2020.png" width="95%" /&gt;
+]
+
+--
+
+.pull-right[
+**Insights on Global Mining Impacts**
+&lt;a href="https://www.scimagojr.com/journalsearch.php?q=21206&amp;amp;tip=sid&amp;amp;exact=no" title="SCImago Journal &amp;amp; Country Rank"&gt;
+    &lt;img border="0" src="https://www.scimagojr.com/journal_img.php?id=21206" alt="SCImago Journal &amp;amp; Country Rank" width="120" /&gt;
+&lt;/a&gt;
+&lt;a href="https://www.scimagojr.com/journalsearch.php?q=21121&amp;amp;tip=sid&amp;amp;exact=no" title="SCImago Journal &amp;amp; Country Rank"&gt;
+    &lt;img border="0" src="https://www.scimagojr.com/journal_img.php?id=21121" alt="SCImago Journal &amp;amp; Country Rank" width="120" /&gt;
+&lt;/a&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="https://www.victor-maus.com/assets/talks/20240522-oecd-eo/img/maus2024-nature.png" width="65%" /&gt;
+&lt;br&gt;
+&lt;img src="https://www.victor-maus.com/assets/talks/20240530-lut/img/pnas-sonter2023.png" width="95%" /&gt;
+&lt;br&gt;
+&lt;img src="https://www.victor-maus.com/assets/talks/20240530-lut/img/pnas-giljum2022.png" width="95%" /&gt;
+]
+
+
+
+---
+class: bg_map
+
+# Academic Influence
+
+## International Recognition
+ - .font110[Young Scientist Award from the International Society for Mine Surveying]
+ - .font110[WU-Vienna's Researcher of the Month, January 2022]
+
+## Third Mission (transfer of academic knowledge)
+- .font110[**OECD** Forum on Responsible Mineral Supply Chains]
+- .font110[**UNEP** Workshop on Remote Sensing to Detect Illegal Mining]
+- .font110[**FAO** Crop Monitoring Under]
+- .font110[**World Bank** Coal Mining Mapping]
+
+## Media Coverage
+
+- .font110[National and international coverage (e.g. **The Guardian** and **BBC**)]
+
+&lt;br&gt;
+.font-huw-red-light.font120[**My research on the impacts of mining has had global visibility**]
+
+---
+# Knowledge Gap
+
+.pull-left[
+&lt;img src="https://www.victor-maus.com/assets/talks/20240522-oecd-eo/img/maus2024-nature.png" width="90%" /&gt;
+&lt;img src="https://www.victor-maus.com/assets/talks/20240522-oecd-eo/img/gap_grid_map.png" width="90%" /&gt;
+]
+
+.pull-right[
+&lt;img src="https://media.nature.com/lw767/magazine-assets/d41586-023-04090-3/d41586-023-04090-3_26550018.png?as=webp" width="85%" /&gt;
+]
+
+.font-huw-red-light.font130[**
+EO and AI open an opportunity to fill knowledge gaps in mining land use 
+**]
+
+
+ 
+.footnote-right[Source: [Maus &amp; Werner, *Nature* 2024](http://doi.org/10.1038/d41586-023-04090-3)]
+
+---
+layout: false
+class: clear, middle, inverse
+background-image: url(https://www.victor-maus.com/assets/talks/2024-05-15-lut/img/global-mining-map.png)
+background-size: cover
+
+# .font120.center.bg-washed-blue.bw0.br3.pr3.font-dark[Current AI models for mapping mining land use do not generalize globally]
+
+.footnote-right[.font-light.font120[[Maus et al. (2020, 2022) Nature Scientific Data](http://doi.org/10.1038/s41597-022-01547-4)]]
+
+---
+# Hypothesis
+
+.font-huw-red-light.font110[**
+  Integrating multimodal EO data with extensive global 
+  training datasets can reliably expand the area of applicability 
+  of AI models to map mining land use.
+**]
+
+--
+
+# Innovative Approach
+
+&lt;img src="./img/nsfc-project-overview.png" width="95%" /&gt;
+
+
+---
+# Feasibility
+
+## PI's Solid Research Foundation
+
+- Geoinformatics
+- AI and big-EO data analytics
+- Large labelled data collections
+- Mining land use assessments
+- Extensive international network of collaborators
+
+--
+
+## Excellent Research Team and Support from CUMT
+
+- Researchers with a vast experience on satellite and mining
+- Highly skilled MSc and PhD students to support the project
+- Computing Center: high-performance computing clusters for AI
+- "CUMT Nanhu" of AS-01 SAR satellite
+
+
+
+&lt;div style="position: relative; height: 100%;"&gt;
+  &lt;img src="./img/cumt-meeting-yang-victor.png" 
+       style="position: absolute; top: -500px; right: 5px; width: 45%;" /&gt;
+  &lt;div class="font-huw-red-light" style="position: absolute; top: -500px; right: 0px; width: 45%; font-size: 150%; font-weight: bold"&gt;
+    Research visit to CUMT
+  &lt;/div&gt;
+  &lt;div class="font-dark" style="position: absolute; top: -285px; left: 660px; width: 45%; font-size: 60%; font-weight: bold"&gt;
+    Nov 2023, Xuzhou, China
+  &lt;/div&gt;
+  &lt;img src="./img/as-01sar.png" 
+       style="position: absolute; top: 20px; left: 0px; width: 45%;" /&gt;
+  &lt;img src="./img/cumt-ai.png" 
+       style="position: absolute; top: 55px; left: 420px; width: 45%;" /&gt;
+  &lt;img src="./img/cumt-mining.png" 
+       style="position: absolute; top: 0px; left: 420px; width: 45%;" /&gt;
+&lt;/div&gt;
+
+
+
+---
+class: title, no-number
+
+# Summary
+.lut-illustration[].copyright-bottom-right.font60[June 27&lt;sup&gt;th&lt;/sup&gt;, 2024]
+
+- .font90[**PI demonstrated** independent, high-quality research and international influence]
+- .font90[**Project addresses the urgent need** for spatial data on global mining regions]
+- .font90[**Innovative synthesis** combining multimodal imagery and large AI training datasets]
+- .font90[**High gains and low risk** due to the extensive experience of PI and CUMT researchers]
+
+&lt;br&gt;
+.pull-left.left[
+**Dr Victor Wegner Maus**
+.font70[Institute for Ecological Economics&lt;br&gt;
+  &lt;span style='display:block; margin-top:-2px;'&gt;Vienna University of Economics and Business&lt;/span&gt;&lt;br&gt;
+  &lt;span style='display:block; margin-top:-22px;'&gt;victor.maus@wu.ac.at&lt;/span&gt;&lt;br&gt;
+  &lt;span style='display:block; margin-top:-22px;'&gt;&lt;a href='https://vwmaus.github.io'&gt;vwmaus.github.io&lt;/a&gt;&lt;br&gt;]&lt;/span&gt;
+  &lt;img src="./../img/qrcode_www.victor-maus.com.png" height="190"/&gt;
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="./libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "4:3",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

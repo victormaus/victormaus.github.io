@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Challenges in Big-Earth Observation Data Analytics for Global-Scale Mining Land Use Surveying .wu-logo-right[]</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr Victor Maus .font80[Institute for Ecological Economics Vienna University of Economics and Business] .font80[victor.maus@wu.ac.at] .font80[vwmaus.github.io]" />
+    <script src="index_files/header-attrs/header-attrs.js"></script>
+    <link href="index_files/remark-css/default.css" rel="stylesheet" />
+    <link href="index_files/panelset/panelset.css" rel="stylesheet" />
+    <script src="index_files/panelset/panelset.js"></script>
+    <link rel="stylesheet" href="libs/huw.css" type="text/css" />
+    <link rel="stylesheet" href="libs/huw-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="libs/my.css" type="text/css" />
+    <link rel="stylesheet" href="libs/tachyons-min.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: top, left, title-slide
+
+.title[
+# Challenges in Big-Earth Observation Data Analytics for Global-Scale Mining Land Use Surveying .wu-logo-right[]
+]
+.subtitle[
+## <b><br></b>
+]
+.author[
+### Dr Victor Maus<br>.font80[Institute for Ecological Economics<br>Vienna University of Economics and Business]<br>.font80[<a href="mailto:victor.maus@wu.ac.at" class="email">victor.maus@wu.ac.at</a>]<br>.font80[<a href='https://vwmaus.github.io'>vwmaus.github.io</a>]
+]
+.date[
+### .right[.font80[XVIII International Congress for Mine Surveying, Oct 28, 2023, Xuzhou, China].footnote-right-title[Except where otherwise noted, content on these slides is licensed under <a href='https://creativecommons.org/licenses/by-sa/4.0'>CC BY-SA 4.0 license</a>]]
+]
+
+???
+<ul>
+<li>
+My name is Victor Maus
+</li>
+<br>
+<li>
+I’m a researcher at the Vienna University of Economics and Business (WU)
+</li>
+<br>
+<li>
+And I will talk about the challenges to scale mining land use mapping
+</li>
+<br>
+<li>
+But first, I want to tell you why we need reseach on global mining land use
+</li>
+<br>
+<li>
+And also why this is an important topic for IMS
+</li>
+</ul>
+
+---
+
+layout: false
+class: clear
+
+
+
+
+.center[
+&lt;img src="./pnas-sonter2023-paths.png" width="70%" /&gt;&lt;img src="./pnas-sonter2023.png" width="70%" /&gt;
+]
+
+
+???
+
+- To start with, I invite you to think of mining as a global process embedded in our economy
+
+- Mining footprint spread globally
+
+- Some nations have more of it -- some have less
+
+- But in fact, mining present everywhere 
+
+- And assessing global impacts of mining is critical
+
+- In particularly for energy traistion as impacts from nations will happend across their borders
+
+- And I can ensure you, actors across supply value chains will require compliance
+
+
+
+???
+
+- So, if you are a research trying to understand the impact of energy transition
+
+- A policy maker or even an investor that wants to make environmentally and sicially consious choses 
+
+- What you do?
+
+
+---
+layout: false
+class: clear, middle, center
+background-image: url("https://www.victor-maus.com/assets/talks/img/esa-cci-land-cover.png")
+background-size: 100% 105%environmnt
+.footnote-right[Screenshot of [ESA CCI Land cover viewer](http://maps.elie.ucl.ac.be/CCI/viewer/)]
+
+
+.bg-washed-blue.b--dark-blue.ba.bw0.br3.shadow-5.mh1.mt0.center.font-huw-red-dark.font200[**Global data sets do not address mining land use**]
+
+???
+
+- Well one would probably start with global data sets
+
+- But they do not address mining land use
+
+- Actually, it is worse than that, global maps commision mining land use into other land covewr types
+
+---
+background-size: contain
+background-size: 95% 95%
+background-image: url("https://www.victor-maus.com/assets/talks/img/esa-cci-carajas.png")
+
+???
+
+- Particularly, urban areas
+
+- As we can see in this map, one of the largest iron ore mine globally
+
+- Located in Brazil
+
+- Is mapped as urban area
+
+- We will probably agree that, anyo of us would correctly label satellite images of this two areas
+
+
+---
+layout: false
+class: clear, middle, center
+
+# Identifying mining activities in satellite images &lt;br&gt;requires minimal training
+
+.pull-left.center[
+.bg-washed-blue.b--dark-blue.ba.bw0.br3.shadow-5.mh1.mt0.font100[
+**Open cut of the Carajás Iron Mine, Brazil**
+]
+&lt;div class="copyright-container"&gt;
+  &lt;img src="https://www.victor-maus.com/assets/talks/img/carajas-mine-satellite.png" height="350"&gt;
+  &lt;div class="copyright-bottom-left2 font-light"&gt;Figure: &lt;a href="https://www.fineprint.global/viewer"&gt;FINEPRINT Viewer&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+]
+
+.pull-right.center[
+.bg-washed-blue.b--dark-blue.ba.bw0.br3.shadow-5.mh1.mt0.font100[
+**Parauapebas municipality, Brazil**
+]
+&lt;div class="copyright-container"&gt;
+  &lt;img src="https://www.victor-maus.com/assets/talks/img/parauapebas-city-satellite.png" height="350"/&gt;
+  &lt;div class="copyright-bottom-left2 font-light"&gt;Figure: &lt;a href="https://www.fineprint.global/viewer"&gt;FINEPRINT Viewer&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+]
+
+.center.font-huw-red-dark.font150[
+  **However, delineating mine areas is extremelly time-consuming**
+]
+
+
+???
+
+- That is because we are pre-trained to this task
+
+- Nevertheless, 
+
+
+---
+layout: false
+class: clear, middle, center
+background-image: url("https://www.victor-maus.com/assets/talks/img/global-mining-map.png")
+
+
+.footnote-right.font-light[[Maus et al. (2020, 2022)](http://doi.org/10.1038/s41597-022-01547-4) *Nature Scientific Data*]
+
+&lt;!-- .bg-washed-blue.b--dark-blue.ba.bw0.br3.shadow-5.mh1.mt0.center.font-huw-red-dark.font200[**How to keep track of existing mines and new ones?**] --&gt;
+
+
+---
+layout: false
+class: clear
+
+&lt;img src="https://www.victor-maus.com/assets/talks/img/mine-time-tag.png" height="550"/&gt;
+
+&lt;!-- .footnote-right[Maus &amp; Luckeneder (Ongoing)] --&gt;
+
+## How to keep track of existing mines and new ones? AI
+
+
+---
+layout: false
+
+# What is a mine?
+
+.pull-left.center[
+&lt;div class="copyright-container"&gt;
+  &lt;img src="https://images.saymedia-content.com/.image/t_share/MTc0MTExODE4NDE4MzAwNDgy/key-concepts-of-the-philosophy-of-plato.jpg" height="450"&gt;
+&lt;/div&gt;
+**Plato**
+]
+
+.pull-right.center[
+&lt;div class="copyright-container"&gt;
+  &lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Ludwig_Wittgenstein_1929.jpg/220px-Ludwig_Wittgenstein_1929.jpg" height="450"/&gt;
+&lt;/div&gt;
+**Ludwig Wittgenstein**
+]
+
+---
+layout: false
+
+# Mine
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+.font150["*An excavation or system of excavations made underground for the extraction of metals or metallic ores, coal, salt, precious stones, (less commonly) building stone, clay, etc.; an open-air excavation for the extraction of such substances. Also: a place where such excavations are conducted. Source: Oxford English Dictionay*"]
+
+---
+layout: false
+
+## Mine land use composed of various land cover types
+
+.center[&lt;img src="https://ars.els-cdn.com/content/image/1-s2.0-S0959378019305023-gr3.jpg" height="450"/&gt;]
+
+.footnote-right.font-light[[Werner et al. (2020)](https://doi.org/10.1016/j.gloenvcha.2019.102007)]
+
+.center.font-huw-red-dark.font150[
+  **High intra-class variability *VS* inter-class separability**
+]
+
+---
+layout: false
+class: clear, middle, center
+.pull-left[
+.font-dark.left.font160.left[
+AI algorithms trained with non-representative spatial distribution samples produce unreliable results!
+]]
+
+.pull-right.center[
+&lt;div class="copyright-container"&gt;
+  &lt;img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-022-29838-9/MediaObjects/41467_2022_29838_Fig1_HTML.png?as=webp" height="600"/&gt;
+  &lt;div class="copyright-bottom-left2 font-light"&gt;&lt;a href="https://www.nature.com/articles/s41467-022-29838-9"&gt;Meyer &amp; Pebesma, 2022&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+]
+
+
+---
+layout: false
+
+# Summary
+
+## What is mine land use?
+
+## What is the separability limit for mine land use?
+
+## How to unbias training and validation of models?
+
+
+---
+layout: false
+
+### Can AI (computer vision) treat mines like dogs?
+.pull-left.center[
+&lt;div class="copyright-container"&gt;
+  &lt;img src="https://www.victor-maus.com/assets/talks/img/dog-by-Tiina-Hayha-CC-BY-SA-4-0.jpg" height="350"/&gt;
+  &lt;div class="copyright-bottom-left2"&gt;Photo by Tiina Häyhä &lt;a href='https://creativecommons.org/licenses/by-sa/4.0'&gt;CC BY-SA 4.0 license&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+# Thank you!
+.font100[victor.maus@wu.ac.at]&lt;br&gt;
+.font100[&lt;a href='https://vwmaus.github.io'&gt;vwmaus.github.io&lt;/a&gt;]
+]
+
+.pull-right.center[
+&lt;div class="copyright-container"&gt;
+  &lt;img src="https://www.victor-maus.com/assets/talks/img/carajas-mine-satellite-dog.png" height="350"/&gt;
+  &lt;div class="copyright-bottom-left2"&gt;Screenshots of &lt;a href="https://goo.gl/maps/xDkqyGdMAn8ZJTZJ7"&gt;Google Maps&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;img src="https://www.victor-maus.com/assets/talks/img/qrcode_www.victor-maus.com.png" height="190"/&gt;&lt;br&gt;
+]
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="./libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

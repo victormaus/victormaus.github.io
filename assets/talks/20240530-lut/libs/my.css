@@ -1,0 +1,626 @@
+br1 {
+  display: block;
+  line-height: 80%;
+}
+
+.lc {
+  width: 30%;
+  height: 78%;
+  float: left;
+}
+
+.cc {
+  width: 30%;
+  height: 78%;
+  float: center;
+}
+
+.rc {
+  width: 30%;
+  height: 78%;
+  float: right;
+}
+
+.br {
+  width: 98%;
+  height: 20%;
+  float: left;
+}
+
+.hide-count .remark-slide-number {
+  display: none;
+}
+
+.my-logo-right {
+content: "";
+    position: absolute;
+    top: 15px;
+    right:  0px;
+    height: 108px;
+    width: 324px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/9/97/Logo_Wirtschaftsuniversit%C3%A4t_Wien.svg);
+}
+
+.wu-logo-right {
+content: "";
+    position: absolute;
+    top: 15px;
+    right:  0px;
+    height: 108px;
+    width: 324px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/9/97/Logo_Wirtschaftsuniversit%C3%A4t_Wien.svg);
+}
+
+/*
+photo-01: 2749 × 2867 pixels -> 200 x 208 / 220 x 229
+
+*/
+.pi-photo{
+content: "";
+    position: absolute;
+    bottom: 120px;
+    left:  100px;
+    height: 229px;
+    width: 220px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(./../img/pi-photo-02.jpg);
+}
+
+.pi-photo-huw{
+content: "";
+    position: absolute;
+    bottom: 120px;
+    left:  100px;
+    height: 229px;
+    width: 220px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(./../img/pi-photo-02.jpg);
+}
+
+.pi-photo:after {
+    content: "Victor Wegner Maus";
+    align-content: right;
+    position: absolute;
+    bottom: -40px;
+    left: 0px;
+}
+
+.pi-photo-huw:after {
+    content: "Victor Wegner Maus";
+    font-size: 85%;
+    align-content: center;
+    position: absolute;
+    bottom: -40px;
+    left: 0px;
+}
+
+/*
+illustration: 3840 × 2377 pixels -> 500 x 309
+
+*/
+.lecture-illustration{
+    position: absolute;
+    bottom: 100px;
+    right:  100px;
+    height: 216px;
+    width: 350px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(./../img/earth-cube.png);
+}
+
+.lut-illustration-large{
+  position: absolute;
+  bottom: 100px;
+  right:  50px;
+  height: 350px;
+  width: 567px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(./../img/mtg-illustration.svg);
+}
+
+.lut-illustration{
+  position: absolute;
+  bottom: 100px;
+  right:  50px;
+  height: 216px;
+  width: 350px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(./../img/mtg-illustration.svg);
+}
+
+.mtg-illustration{
+    position: absolute;
+    bottom: 50px;
+    right:  160px;
+    height: 309px;
+    width: 500px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(./../img/illustration-mtg.jpg);
+}
+
+.mtg-illustration:after {
+    content: "An amazing illustration of the project";
+    align-content: right;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+.wu-logo-mtg {
+content: "";
+    position: absolute;
+    opacity: 70%;
+    top: 50px;
+    right:  0px;
+    height: 86px;
+    width: 258px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/9/97/Logo_Wirtschaftsuniversit%C3%A4t_Wien.svg);
+}
+
+.erc-logo-left {
+content: "";
+    position: absolute;
+    top: 15px;
+    left:  50px;
+    height: 108px;
+    width: 324px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(https://erc.europa.eu/sites/default/files/LOGO_ERC.png);
+}
+
+.fineprint-logo-left {
+content: "";
+    position: absolute;
+    top: 15px;
+    left:  150px;
+    height: 108px;
+    width: 324px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(https://www.fineprint.global/wp-content/uploads/2017/10/fineprint.png);
+}
+
+.iiasa-logo-right {
+content: "";
+    position: absolute;
+    top: 15px;
+    right:  100px;
+    height: 108px;
+    width: 324px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(https://ar16.iiasa.ac.at/wp-content/uploads/sites/2/2017/06/ii-logo-423x600.jpg);
+}
+
+.font50 {
+  font-size: 50%;
+}
+
+.font60 {
+  font-size: 60%;
+}
+
+.font70 {
+  font-size: 70%;
+}
+
+.font80 {
+  font-size: 80%;
+}
+
+.font90 {
+  font-size: 90%;
+}
+
+.font100 {
+  font-size: 100%;
+}
+
+.font110 {
+  font-size: 110%;
+}
+
+.font120 {
+  font-size: 120%;
+}
+
+.font130 {
+  font-size: 130%;
+}
+
+.font140 {
+  font-size: 140%;
+}
+
+.font150 {
+  font-size: 150%;
+}
+
+.font160 {
+  font-size: 160%;
+}
+
+.font170 {
+  font-size: 170%;
+}
+
+.font180 {
+  font-size: 180%;
+}
+
+.font190 {
+  font-size: 190%;
+}
+
+.font200 {
+  font-size: 200%;
+}
+
+.font250 {
+  font-size: 200%;
+}
+
+.font300 {
+  font-size: 300%;
+}
+
+.font400 {
+  font-size: 300%;
+}
+
+.font1000 {
+  font-size: 2500%;
+}
+
+.center-middle-container {
+  width: 75%;         /* Set the width of the container */
+  height: 100vh;      /* Set the height to full viewport height */
+  margin: 0 auto;     /* Center the container horizontally */
+  position: absolute; /* Position the container absolutely within a relative parent or the body */
+  top: 50%;           /* Position the top edge of the element at the center of the parent */
+  left: 50%;          /* Position the left edge of the element at the center of the parent */
+  transform: translate(-50%, -50%); /* Move the container back by half its own width and height */
+  display: flex;      /* Use flexbox to center content */
+  align-items: center; /* Align content vertically in the center */
+  justify-content: center; /* Align content horizontally in the center */
+  text-align: center; /* Ensure text within is centered */
+  padding: 1em;       /* Add padding inside the container */
+}
+
+.center-middle-up-container {
+  width: 75%;         /* Set the width of the container */
+  height: 100vh;      /* Set the height to full viewport height */
+  margin: 0 auto;     /* Center the container horizontally */
+  position: absolute; /* Position the container absolutely within a relative parent or the body */
+  top: 25%;           /* Position the top edge of the element at the center of the parent */
+  left: 50%;          /* Position the left edge of the element at the center of the parent */
+  transform: translate(-50%, -50%); /* Move the container back by half its own width and height */
+  display: flex;      /* Use flexbox to center content */
+  align-items: center; /* Align content vertically in the center */
+  justify-content: center; /* Align content horizontally in the center */
+  text-align: center; /* Ensure text within is centered */
+  padding: 1em;       /* Add padding inside the container */
+}
+
+.copyright-container {
+  position: relative;
+  text-align: center;
+  color: #FAFAFA;
+}
+
+.copyright-bottom-right2 {
+  font-size: 80%;
+  position: absolute;
+  bottom: 8px;
+  right: 570px;
+}
+
+.copyright-bottom-right {
+  font-size: 80%;
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+.copyright-bottom-left {
+  font-size: 80%;
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+.copyright-bottom-left2 {
+  font-size: 80%;
+  position: absolute;
+  bottom: 8px;
+  left: 50px;
+}
+
+.cc-bottom-right {
+  font-size: 60%;
+  position: absolute;
+  bottom: 8px;
+  right: 46px;
+}
+
+.cc-bottom-right2 {
+  font-size: 60%;
+  position: absolute;
+  bottom: 8px;
+  right: 100px;
+}
+
+.cc-bottom-right3 {
+  font-size: 60%;
+  position: absolute;
+  bottom: 0px;
+  right: 100px;
+}
+
+.cc-bottom-left {
+  font-size: 60%;
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+.cc-bottom-left2 {
+  font-size: 60%;
+  position: absolute;
+  bottom: 8px;
+  left: 100px;
+}
+
+.grid-3-1 {
+  display: grid;
+  height: 10em;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+  text-align: center;
+  grid-gap: 1em;
+  padding: 1em;
+  padding-top: 1em;
+}
+
+.grid-1-1-r {
+  display: grid;
+  height: 2em;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  text-align: center;
+  grid-gap: 0em;
+  padding: 0em;
+  padding-top: 0em;
+  margin-right: 0.7em;
+  margin-left: 0.7em;
+}
+
+.grid-3-1-s {
+  display: grid;
+  height: 2em;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+  text-align: center;
+  grid-gap: 1em;
+  padding: 1em;
+  padding-top: 1em;
+}
+
+.grid-1-3 {
+  display: grid;
+  height: 10em;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
+  text-align: center;
+  grid-gap: 1em;
+  padding: 0em;
+  padding-top: 2em;
+}
+
+.grid-4-1-img {
+  display: grid;
+  height: 10em;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+  text-align: center;
+  grid-gap: 0em;
+  padding: 0em;
+}
+
+.grid-4-1 {
+  display: grid;
+  height: 10em;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+  text-align: center;
+  grid-gap: 1em;
+  padding: 1em;
+}
+
+.grid-courses-3-2 {
+  display: grid;
+  height: 10em;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  text-align: center;
+  grid-gap: 1em;
+  padding: 1em;
+  padding-top: 1;
+  padding-bottom: 0;
+}
+
+.extension-tile-course {
+	height: 100%;
+	width: 100%;
+	align-items: top;
+	padding-top: 1em;
+	justify-content: center;
+	display: flex;
+	font-family: 'Fira sans';
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+.grid-3-2 {
+  display: grid;
+  height: calc(100%);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  text-align: center;
+  grid-gap: 1em;
+  padding: 1em;
+  padding-top: 1;
+  padding-bottom: 0;
+}
+
+.bd {
+	font-weight: bold;
+}
+
+.extension-tile {
+	height: 100%;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	font-family: 'Fira sans';
+	font-weight: bold;
+	font-size: 2em;
+}
+
+.bg-dr-white {
+  background: #FAFAFAED;
+  color: #1A292C;
+  margin-top: 12rem;
+  padding-top: 0.01rem;
+  padding-bottom: 0.01rem;
+  font-weight: bold;
+}
+
+.bg1-purple-light {
+  background: #8380B6;
+  color: white;
+}
+
+.bg1-purple-light-opac {
+  opacity: 0.5;
+  background: #8380B6;
+  color: white;
+}
+
+.prussian-blue { background-color: #003049ff;}
+.maximum-red { background-color: #d62828ff;}
+.prussian-orange { background-color:  #f77f00ff;}
+.maximum-yellow-red { background-color: #fcbf49ff;}
+.lemon-meringue { background-color: #eae2b7ff;}
+.l-gray { background-color: #DCDCDC;}
+.d-gray { background-color: #B0B0B0;}
+
+.bg1-orange {
+  background-color: #F17F29;
+  color: white;
+}
+
+.bg1-orange-opac {
+  opacity: 0.5;
+  background-color: #F17F29;
+  color: white;
+}
+
+.bg1-blue {
+  background-color: #79C7C5;
+  background-color: #1381B0;
+  color: white;
+}
+
+.bg1-blue-opac {
+  opacity: 0.5;
+  background-color: #79C7C5;
+  background-color: #1381B0;
+  color: white;
+}
+
+.bg1-green {
+  background: #97D8C4;
+}
+
+.bg1-green-opac {
+  opacity: 0.5;
+  background: #97D8C4;
+}
+
+.bg1-purple {
+  background-color: #795277;
+  color: white;
+}
+
+.bg1-purple-opac {
+  opacity: 0.5;
+  background-color: #795277;
+  color: white;
+}
+
+.bg1-pink {
+  background-color: #EE6D91;
+  color: white;
+}
+
+.bg1-pink-opac {
+  opacity: 0.5;
+  background-color: #EE6D91;
+  color: white;
+}
+
+.bg1-grey {
+  background-color: #DCDCDC;
+  color: white;
+}
+
+.footnote-left {
+  opacity: 0.8;
+  color: #1A292C;
+  position: absolute;
+  bottom: 1em;
+  left: 3em;
+  font-size: 80%;
+}
+
+.footnote-right {
+  opacity: 0.8;
+  color: #1A292C;
+  position: absolute;
+  bottom: 1em;
+  right: 3em;
+  font-size: 80%;
+}
+
+.font-dark {
+  color: #23373B;
+  text-shadow: none;
+}
+
+.font-light {
+  color: #FAFAFA;
+  text-shadow: none;
+}

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Mapping global mining activities using  open Earth observation data .erc-logo-left[] .fineprint-logo-left[] .wu-logo-right[]</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr Victor Maus .font80[Institute for Ecological Economics Vienna University of Economics and Business] .font80[victor.maus@wu.ac.at] .font80[vwmaus.github.io]" />
+    <script src="index_files/header-attrs/header-attrs.js"></script>
+    <link href="index_files/remark-css/default.css" rel="stylesheet" />
+    <link href="index_files/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="index_files/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link href="index_files/panelset/panelset.css" rel="stylesheet" />
+    <script src="index_files/panelset/panelset.js"></script>
+    <link rel="stylesheet" href="../libs/my.css" type="text/css" />
+    <link rel="stylesheet" href="../libs/tachyons-min.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Mapping global mining activities using <br>open Earth observation data .erc-logo-left[] .fineprint-logo-left[] .wu-logo-right[]
+]
+.subtitle[
+## <b></b>
+]
+.author[
+### Dr Victor Maus<br>.font80[Institute for Ecological Economics<br>Vienna University of Economics and Business]<br>.font80[<a href="mailto:victor.maus@wu.ac.at" class="email">victor.maus@wu.ac.at</a>]<br>.font80[<a href='https://vwmaus.github.io'>vwmaus.github.io</a>]
+]
+.date[
+### .right[.font80[UNODC and UNEP, Apr 19, 2023, Vienna].footnote-right[Except where otherwise noted, content on these slides is licensed under <a href='https://creativecommons.org/licenses/by-sa/4.0'>CC BY-SA 4.0 license</a>]]
+]
+
+---
+
+layout: false
+class: clear, center
+background-image: url(./../img/kayapo_gold_mining-Ibama-via-Wikimedia-CC-BY-SA-2-0.jpg)
+
+
+
+
+.cc-bottom-right.font-light[Illegal gold mine in the Kayapo indigenous territory in Brazil by IBAMA via Wikimedia Commons
+&lt;a href="https://creativecommons.org/licenses/by-sa/2.0/deed.en"&gt;CC BY-SA 2.0&lt;/a&gt;]
+.font-dark.center.font250.font-light[**Currently, there is not enough geospatial information available to conduct comprehensive sustainability assessments for mining**]
+
+???
+
+- A link to the slides will be provided at the end of the talk, so you don't need to bother taking notes
+
+- Companies and governments do not disclose sufficient geospatial information
+
+- This hinders comprehensive sustainability and risk assessments of the sectors activities, particularly at global scale
+
+---
+layout: false
+class: clear, center
+background-image: url(https://www.esa.int/var/esa/storage/images/applications/observing_the_earth/copernicus/sentinel-2/19729272-10-eng-GB/Sentinel-2_pillars.jpg)
+background-size: cover
+.cc-bottom-left.font-light[Image: © &lt;a href="https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2"&gt;European Space Agency (ESA)&lt;/a&gt;]
+
+.center.font150.font-light[**Earth observation is the only viable data source for monitoring mining areas**]
+
+???
+
+- Earth observation satellites are the only viable data source to close this information gap
+
+- And the open data policy by several space agencies makes it easy to access and use satellite images for a range of applications, including mapping mines
+
+---
+layout: false
+class: clear, middle, center
+
+.center.font180[**With little training, humans can identify mining in satellite images**]
+
+.pull-left.center[
+.bg-washed-blue.b--dark-blue.ba.bw0.br3.shadow-5.mh1.mt0.font100[
+**Open cut of the Carajás Iron Mine, Brazil**
+]
+&lt;div class="copyright-container"&gt;
+  &lt;img src="./../img/carajas-mine-satellite.png" height="450"/&gt;
+  &lt;div class="copyright-bottom-left2 font-light"&gt;Figure: &lt;a href="https://www.fineprint.global/viewer"&gt;FINEPRINT Viewer&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+]
+
+.pull-right.center[
+.bg-washed-blue.b--dark-blue.ba.bw0.br3.shadow-5.mh1.mt0.font100[
+**Gold mining in Kayapo indigenous territory, Brazil**
+]
+&lt;div class="copyright-container"&gt;
+  &lt;img src="./../img/mining-Kayapo-indigenous-territory-brazil.png" height="450"/&gt;
+  &lt;div class="copyright-bottom-left2 font-light"&gt;Figure: &lt;a href="https://www.fineprint.global/viewer"&gt;FINEPRINT Viewer&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+]
+
+???
+
+- My research team has been exploring this rich open satellite data archives to map mines
+
+- As currently there are no automated algorithms that can map mines globally
+
+- We have mapped small-scale and industrial mines via visual interpretation of satellite images
+
+- Automated global scale mapping mines is an open scientific challenge
+
+---
+layout: false
+class: clear, middle, center
+background-image: url(./../img/mine-app-gui.png)
+background-size: contain
+
+.footnote-right[.font-light[[User interface of the open-source mine mapping tool](https://doi.org/10.5281/zenodo.3580739)]]
+
+???
+
+- We then develop a tool to support systematic visual interpretation of mining regions
+
+- The tool brings several layers together to support experts interpretation of images
+
+---
+layout: false
+class: clear, middle, center
+background-image: url(./../img/mine-app-data-sources.png)
+background-size: contain
+
+.footnote-right[.font-light[[User interface of the open-source mine mapping tool](https://doi.org/10.5281/zenodo.3580739)]]
+
+???
+
+- We then develop a tool to support systematic visual interpretation of mining regions
+
+- The tool brings several layers together to support experts interpretation of images
+
+---
+layout: false
+class: clear, middle, center
+background-image: url(./../img/global-mining-map.png)
+
+.footnote-right[.font-light[Figure: [FINEPRINT Viewer www.fineprint.global/viewer](https://www.fineprint.global/viewer)]]]
+.footnote-left[[Maus et al. (2020, 2022)](http://doi.org/10.1038/s41597-022-01547-4)]
+
+.left-column.pl1.mt0.font120.left.bottom.font-light[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+**45,000 Polygons**
+
+**100,000 km²**
+
+]
+
+???
+
+- As a result we constructed a database including about 45,000 polygons covering about 100,000 km² of mines globally
+
+- In this map you can see the spatial distribution of the polygons
+
+- This database untapped a range of global land use and ecological assessments
+
+
+
+
+---
+layout: false
+class: clear, middle, center
+
+.center.font120[**The database includes industrial mining as well as small-scale artisanal mining globally**]
+
+&lt;div class="copyright-container"&gt;
+  &lt;img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41597-022-01547-4/MediaObjects/41597_2022_1547_Fig1_HTML.png?as=webp" height="500"/&gt;
+  &lt;div class="copyright-bottom-left font-dark"&gt;&lt;a href=http://doi.org/10.1038/s41597-022-01547-4&gt;Maus et al., 2022&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+???
+
+- In this slide we see the examples from South America, in Chile and Brazil
+
+- And it also may include illegal mining
+
+---
+layout: false
+class: clear, middle, center
+
+.center.font180[**Mining land use distribution across countries**]
+
+&lt;div class="copyright-container"&gt;
+  &lt;img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41597-022-01547-4/MediaObjects/41597_2022_1547_Fig3_HTML.png?as=webp" height="500"/&gt;
+  &lt;div class="copyright-bottom-left font-dark"&gt;&lt;a href=http://doi.org/10.1038/s41597-022-01547-4&gt;Maus et al., 2022&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+???
+
+- The polygons are distributed across 145 countries
+
+- And the area is unevenly distributed, 6 countries account for more than 50% of the mapped mining area
+
+- This includes, Russia, China, Australia, United States, Indonesia, and Brazil
+
+- It is important to note that, the database covers LSM and SAM globally
+
+
+---
+layout: false
+class: clear, middle, center
+
+.center.font180[**Mining in indigenous land in Brazil**]
+
+.pull-left.center[
+&lt;div class="copyright-container"&gt;
+  &lt;img src="./../img/illegal-mining-munduruku.png" height="450"/&gt;
+  &lt;div class="copyright-bottom-left font-dark"&gt;Map by Matthias Humer&lt;/div&gt;
+&lt;/div&gt;
+.bg-washed-blue.b--dark-blue.ba.bw0.br3.shadow-5.mh1.mt0.font100[
+**Munduruku indigenous territory, Brazil**
+]
+]
+
+.pull-right.center[
+&lt;div class="copyright-container"&gt;
+  &lt;img src="./../img/illegal-mining-kayapo.png" height="450"/&gt;
+  &lt;div class="copyright-bottom-left font-dark"&gt;Map by Matthias Humer&lt;/div&gt;
+&lt;/div&gt;
+.bg-washed-blue.b--dark-blue.ba.bw0.br3.shadow-5.mh1.mt0.font100[
+**Kayapó indigenous territory, Brazil**
+]
+]
+
+???
+
+- As we can see the mining areas in red in this slide are within protected areas, outside the consecrations in orange
+
+- Although, we have not check this areas with Brazilian authorities, they are likely illegal activities
+
+- My team is currently conducting a more comprehensive study to check how much mining is outside concession
+
+- But this is still challenging for several countries as we do not always have open information about concessions
+
+- Our database has also served as bassis for other studies, for example
+
+---
+layout: false
+class: clear, middle, center
+
+.center.font180[**Mining-related forest loss by country accumulated from 2001 to 2019**]
+
+&lt;div class="copyright-container"&gt;
+  &lt;img src="./../img/top-10-contry-mrd.png" height="500"/&gt;
+  &lt;div class="copyright-bottom-left font-dark"&gt;&lt;a href=https://www.wwf.de/fileadmin/fm-wwf/Publikationen-PDF/Wald/WWF-Studie-Extracted-Forests.pdf&gt;Kramer et al., 2023&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+???
+
+- Based on this database, we have published last week a new study together with WWF Germany
+
+- Where we have quantified the mining related deforestation globally
+
+- Some main highlights of this study are shown in this map
+
+- Showing the countries contribution to mining related deforestation from 2001 to 2019
+
+- In this study we have also linked deforestation to individual commodities
+
+
+---
+layout: false
+class: clear, middle, center
+
+.center.font180[**Mining-related forest loss by commodity, 2001-2019**]
+
+&lt;div class="copyright-container"&gt;
+  &lt;img src="./../img/mineral-commodity-deforestation-wwf.png" height="500"/&gt;
+  &lt;div class="copyright-bottom-left font-dark"&gt;&lt;a href=https://www.wwf.de/fileadmin/fm-wwf/Publikationen-PDF/Wald/WWF-Studie-Extracted-Forests.pdf&gt;Kramer et al., 2023&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+
+???
+
+&lt;!-- --- --&gt;
+&lt;!-- layout: false --&gt;
+&lt;!-- class: clear --&gt;
+
+&lt;!-- .font-light.font200.center.bd[Monitoring mining requires] --&gt;
+
+&lt;!-- .middle.center[ --&gt;
+&lt;!--   &lt;img src="./../img/example-cnn-coal-mine-classification.png" height="300"/&gt; --&gt;
+&lt;!--   &lt;br&gt;.font180[**Deep neural networks show promising results in delineating coal mining open pit with overall accuracy between 85% and 90%**] --&gt;
+&lt;!-- ] --&gt;
+
+&lt;!-- .footnote-left[Maus et al. (Ongoing)] --&gt;
+
+&lt;!-- ??? --&gt;
+
+&lt;!-- - Automatizing mining monitoring shows promising results using a class of algorithms called, Convolution Neural Networks --&gt;
+
+---
+layout: false
+class: clear, center, middle
+background-image: url(./../img/towards-automated-mining-monitoring.png)
+background-size: contain
+
+.font.dark.font120[**Towards monitoring legal/illegal mining**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;]
+
+
+???
+
+- Sentinel-2 images provide sufficient spatial and temporal resolution for near real time monitoring, but supporting information with higher spatial resolution is critical
+
+- Current automated approaches work well for homogeneous regions and mining types but not for large scales applications
+
+- Cloud cover in tropical regions can substantially delay the detection
+
+- Local expert knowledge is critical
+
+- Open Earth observation images (Sentinel-2) provide sufficient spatial and temporal resolution for near real time monitoring
+
+- However, higher spatial resolution is very useful, e.g. openly available for the tropics from Norway's International Climate and Forests Initiative Satellite Data Program
+
+- How can we transition from snapshots of mining land use to monitoring mining activities over time?
+
+- Our global mining database was very useful to calculate some ecological footprints 
+
+- However, can only provide snapshots of land use, as it is very time-consuming
+
+- Monitoring mining activities requires automation
+
+
+&lt;!-- &lt;div class="copyright-container"&gt; --&gt;
+&lt;!--   &lt;video height="320" autoplay muted loop&gt; --&gt;
+&lt;!--     &lt;source src="https://assets.planet.com/web/videos/nicfi/nicfi_tropics_basemap_map_large_video_d2-1.mp4" type="video/mp4"&gt; --&gt;
+&lt;!--   &lt;/video&gt; --&gt;
+&lt;!-- &lt;/div&gt; --&gt;
+&lt;!-- &lt;div class="copyright-bottom-left2 font-light"&gt;Video: &lt;a href="https://www.planet.com/nicfi"&gt;NICFI https://www.planet.com/nicfi&lt;/a&gt;&lt;/div&gt; --&gt;
+
+---
+layout: false
+class: clear, hide-count, middle, left
+
+.erc-logo-left[] .fineprint-logo-left[] .wu-logo-right[]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+.pull-left.left[
+Dr Victor Maus&lt;br&gt;.font100[Institute for Ecological Economics&lt;br&gt;Vienna University of Economics and Business]&lt;br&gt;.font100[victor.maus@wu.ac.at]&lt;br&gt;.font100[&lt;a href='https://vwmaus.github.io'&gt;vwmaus.github.io&lt;/a&gt;]&lt;br&gt;
+&lt;img src="./../img/qrcode_www.victor-maus.com.png" height="190"/&gt;
+]
+
+
+.right[
+  .font80[UNODC and UNEP, Apr 19, 2023, Vienna]&lt;br&gt;
+  .font150[Thank you!]
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="./../libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
