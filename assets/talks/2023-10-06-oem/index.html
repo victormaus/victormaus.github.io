@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Overcoming Data Scarcity in Land Use Monitoring with Time-Weighted Dynamic Time Warping .wu-logo-right[]</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr Victor Maus .font80[Institute for Ecological Economics Vienna University of Economics and Business] .font80[victor.maus@wu.ac.at] .font80[vwmaus.github.io]" />
+    <script src="index_files/header-attrs/header-attrs.js"></script>
+    <link href="index_files/remark-css/default.css" rel="stylesheet" />
+    <link href="index_files/panelset/panelset.css" rel="stylesheet" />
+    <script src="index_files/panelset/panelset.js"></script>
+    <script src="index_files/kePrint/kePrint.js"></script>
+    <link href="index_files/lightable/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="libs/huw.css" type="text/css" />
+    <link rel="stylesheet" href="libs/huw-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="libs/my.css" type="text/css" />
+    <link rel="stylesheet" href="libs/tachyons-min.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: top, left, title-slide
+
+.title[
+# Overcoming Data Scarcity in Land Use Monitoring with Time-Weighted Dynamic Time Warping .wu-logo-right[]
+]
+.subtitle[
+## <b><br></b>
+]
+.author[
+### Dr Victor Maus<br>.font80[Institute for Ecological Economics<br>Vienna University of Economics and Business]<br>.font80[<a href="mailto:victor.maus@wu.ac.at" class="email">victor.maus@wu.ac.at</a>]<br>.font80[<a href='https://vwmaus.github.io'>vwmaus.github.io</a>]
+]
+.date[
+### .right[.font80[Open Earth Monitor, Global Workshop, Oct 6, 2023, Bolzano].footnote-right-title[Except where otherwise noted, content on these slides is licensed under <a href='https://creativecommons.org/licenses/by-sa/4.0'>CC BY-SA 4.0 license</a>]]
+]
+
+???
+<ul>
+<li>
+XXXXXXXXX
+</li>
+<br>
+<li>
+XXXXXX
+</li>
+</ul>
+
+---
+
+layout: false
+background-image: url("https://upload.wikimedia.org/wikipedia/en/d/d2/Back_to_the_Future.jpg")
+background-size: contain
+
+
+
+
+
+
+---
+
+# Time Series Classification
+
+&lt;br&gt;
+.center[
+&lt;img src="/assets/talks/img/source_petitjean_2012.png" width="80%" /&gt;
+]
+
+.footnote-right[Figure: [Tan et al., 2017](https://doi.org/10.1137/1.9781611974973.32)]
+
+
+---
+layout: false
+
+# Dimensionality
+
+.pull-left[
+## 1-D Array
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; b1_t1 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; b1_t2 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; b1_tm &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; b2_t1 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; b2_t2 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; b2_tm &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; bn_tm &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+.pull-right[
+## 2-D Array
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; band_1 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; band_2 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; band_3 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; band_n &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; time_1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; time_2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; time_3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; [...] &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; time_m &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; . &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+
+---
+layout: false
+
+# Dynamic Time Warping (DTW)
+
+&lt;br&gt;
+.center[
+&lt;img src="https://www.tandfonline.com/cms/asset/5a80ca23-5dec-4da6-99db-69972a37c2dc/tcag_a_890071_f0006_c.jpg" width="80%" /&gt;
+]
+
+.center.font-huw-red-dark.font150[
+  **Allows out-of-season alignments**
+]
+
+
+.footnote-right[Figure: [Ranacher &amp; Tzavella, 2014](https://doi.org/10.1080/15230406.2014.890071)]
+
+---
+layout: false
+
+# Time-Weighted-DTW
+
+.pull-left.font200[
+  &lt;br&gt;
+  `\(\omega(t_i,t_j) = \frac{1}{1 + e^{-{\alpha} (g(t_i,t_j){i,j} - {\beta})}}\)`
+  &lt;br&gt;&lt;br&gt;
+  .font-huw-red-dark.font100[**Keep alignments within the correct season**]
+]
+
+.pull-right[
+&lt;img src="index_files/figure-html/unnamed-chunk-5-1.png" width="90%" /&gt;
+]
+
+.footnote-left[[Maus et al., 2016](http://doi.org/10.1109/JSTARS.2016.2517118)]
+
+
+---
+layout: false
+
+# Advantages
+
+.pull-left[
+- ### Irregularly sampled time series
+
+- ### Time series with different length
+
+- ### No need for gap-filling
+
+- ### .font-huw-red-dark.font100[Requires a small set of training samples]
+]
+
+.pull-right[
+&lt;img src="dtw-advnatages.png" width="120%" /&gt;
+]
+
+--
+.font-huw-red-dark.font150[
+  **Dynamic Time Warping (DTW) and 1-Nearest Neighbor (1NN)**
+]
+
+
+---
+layout: false
+
+# Leave-all but one out cross-validation
+
+&lt;br&gt;
+.center[
+![](index_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Patterns from literature
+
+.pull-left[
+&lt;img src="/assets/img/literature-patterns.png" width="100%" /&gt;
+]
+.pull-right[
+&lt;img src="/assets/img/literature-patterns-maps.png" width="70%" /&gt;
+]
+
+.footnote-left[[Maus et al., 2016](http://doi.org/10.1109/JSTARS.2016.2517118)]
+
+
+---
+layout: false
+
+# Sample generation
+
+.pull-left[
+&lt;img src="https://ars.els-cdn.com/content/image/1-s2.0-S0303243420309077-gr1_lrg.jpg" width="100%" /&gt;
+]
+.pull-right[
+&lt;img src="https://ars.els-cdn.com/content/image/1-s2.0-S0303243420309077-gr4_lrg.jpg" width="90%" /&gt;
+]
+
+.footnote-left[[Belgiu et al., 2021](https://doi.org/10.1016/j.jag.2020.102264)]
+
+
+---
+layout: false
+
+# Samples
+
+.center[
+![](index_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
+]
+
+.font-huw-red-dark.font150.center[
+  **High computational cost**
+]
+
+---
+layout: false
+
+# Patterns
+
+.center[
+![](index_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+]
+
+.footnote-left[[Maus et al., 2019](http://doi.org/10.18637/jss.v088.i05)]
+
+.font-huw-red-dark.font150.center[
+  **Reduced number of comparisons**
+]
+
+---
+layout: false
+
+# Twenty-year maize distribution in China
+
+.center[
+&lt;img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41597-023-02573-6/MediaObjects/41597_2023_2573_Fig8_HTML.png?as=webp" width="60%" /&gt;
+]
+
+.footnote-left[[Peng et al., 2023](https://doi.org/10.1038/s41597-023-02573-6)]
+
+
+---
+layout: false
+
+# CRAN
+
+.pull-left[
+## R package `dwtSat (≥ 1.0-0)`
+
+- Fortran 90 and C++ versions
+
+### Land use mapping useing `stars`
+
+```r
+install.packages("dtwSat")
+
+vignette("landuse-mapping", "dtwSat")
+```
+
+### Future versions:
+
+- `gdalcubes`
+- `sits`
+]
+
+--
+
+.pull-right[
+&lt;img src="./../img/qrcode_www.victor-maus.com.png" height="190"/&gt;&lt;br&gt;
+.font100[victor.maus@wu.ac.at]&lt;br&gt;
+.font100[&lt;a href='https://vwmaus.github.io'&gt;vwmaus.github.io&lt;/a&gt;]
+]
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="./libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

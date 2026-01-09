@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>index.knit</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr Victor Maus .font80[Institute for Ecological Economics Vienna University of Economics and Business] .font80[victor.maus@wu.ac.at] .font80[www.victor-maus.com]" />
+    <script src="index_files/header-attrs/header-attrs.js"></script>
+    <link href="index_files/remark-css/default.css" rel="stylesheet" />
+    <link href="index_files/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="index_files/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link href="index_files/panelset/panelset.css" rel="stylesheet" />
+    <script src="index_files/panelset/panelset.js"></script>
+    <link rel="stylesheet" href="../libs/my.css" type="text/css" />
+    <link rel="stylesheet" href="../libs/tachyons-min.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Geoinformatics and spatial data science<br>for sustainable development
+</div>
+<div class="wu-logo-right">
+
+</div>
+<div class="iiasa-logo-right">
+
+</div>
+## <br>
+### Dr Victor Maus<br>.font80[Institute for Ecological Economics<br1>Vienna University of Economics and Business]<br>.font80[<a href="mailto:victor.maus@wu.ac.at" class="email">victor.maus@wu.ac.at</a>]<br1>.font80[<a href='https://victormaus.github.io'>victormaus.github.io</a>]
+### .right[.font80[14 March 2022, Stockholm Resilience Centre]]
+<div class='footnote-right'>
+Except where otherwise noted, content on these slides is licensed under <a href='https://creativecommons.org/licenses/by-sa/4.0'>CC BY-SA 4.0 license</a>
+
+---
+
+
+
+layout: false
+class: clear, middle, center
+background-image: url(./../img/global-mining-map-v2.png)
+background-size: contain
+
+.footnote-right[.font-light[Figure: Screenshot of [FINEPRINT Viewer](https://www.fineprint.global/viewer) Data sources: v1 [Maus et al. (2020)](https://www.nature.com/articles/s41597-020-00624-w) v2 Maus et al. (Under review)]]
+
+.left-column.pl1.mt0.font120.left.bottom.font-light[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+**45,000 Polygons**
+
+**100,000 km²**
+
+]
+
+---
+
+# Time warping for land use change analysis
+
+.footnote-left[[Maus et al. (2016)](https://doi.org/10.1109/JSTARS.2016.2517118) and [Maus et al. (2019)](http://dx.doi.org/10.18637/jss.v088.i05)]
+
+.pull-left.center[
+  ### Time-weighted Dynamic Time Warping
+  &lt;img src="./../img/sits-color.png" height="270"/&gt;
+  #### Classify satellite image time series to produce land-use and land-cover information. 
+  - R package installation `install.package("dtwSat")`
+  - Development version [github.com/vwmaus/dtwSat](https://github.com/vwmaus/dtwSat)
+]
+&lt;br&gt;
+.pull-right.center[
+  ### Land use change analysis in the Brazilian Amazon
+  &lt;img src="./../img/mt-map.png" height="400"/&gt;
+]
+
+---
+layout: false
+class: inverse, top, left
+
+## I look forward to exploring partnerships for proposals and collaborations on geospatial analysis
+
+&lt;!-- geoinformatics and spatial data science for sustainable development --&gt;
+
+&lt;!-- - My research focus is geoinformatics and spatial data science for sustainable development --&gt;
+
+&lt;!-- - I have experience with large spatial datasets, in particular satellite Earth observations --&gt;
+
+&lt;!-- - Looking for partnerships for proposals and collaborations on geospatial analysis --&gt;
+
+&lt;!-- - I am happy to help with handling and analyzing spatial datasets in different domains --&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+Victor Maus&lt;br&gt;&lt;a href='https://victormaus.github.io'&gt;victor.maus@wu.ac.at&lt;/a&gt;&lt;br1&gt;&lt;a href='https://victormaus.github.io'&gt;www.victor-maus.com&lt;/a&gt;
+.right[
+  .font80[14 March 2022, Stockholm Resilience Centre]&lt;br&gt;
+  .font150[Thank you!]
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="./../libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
