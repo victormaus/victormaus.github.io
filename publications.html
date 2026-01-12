@@ -24,7 +24,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -188,7 +187,8 @@ div.csl-indent {
 
 <style>
 /* CSS to Enumerate the Reference List */
-#refs {
+/* Apply counter reset to both the main refs div and our custom refs-other div */
+#refs, #refs-other {
 counter-reset: pub-counter;
 }
 
@@ -209,113 +209,212 @@ width: 2em;
 text-align: right;
 }
 </style>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Articles</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Other publications</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>Publications automatically retrieved from my ORCID profile.</p>
 <p><a href="assets/references.bib" class="btn btn-outline-primary">Download all references (.bib)</a></p>
 <div id="refs" class="refs-ordered references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
 <div id="ref-Maus_2026" class="csl-entry" role="listitem">
-<strong>Maus</strong>, V. (2026). A data-driven approach to mapping global commodity-specific mining land-use. <em>Journal of Cleaner Production</em>, <em>540</em>, 147437. <a href="https://doi.org/10.1016/j.jclepro.2025.147437">https://doi.org/10.1016/j.jclepro.2025.147437</a>
+<strong>Maus</strong>, V. (2026). A data-driven approach to mapping global commodity-specific mining land-use. <em>Journal of Cleaner Production</em>, <em>540</em>, 147437. <a target="_blank" href="https://doi.org/10.1016/j.jclepro.2025.147437">&#128279;</a>
 </div>
 <div id="ref-Yang_2026" class="csl-entry" role="listitem">
-Yang, G., Zhang, H., <strong>Maus</strong>, V., Su, C., &amp; Zhang, X. (2026). Dynamic coupling of habitat quality and landscape ecological risk for sustainable ecosystem management in open-pit mining area. <em>Environmental Monitoring and Assessment</em>, <em>198</em>(2). <a href="https://doi.org/10.1007/s10661-025-14923-5">https://doi.org/10.1007/s10661-025-14923-5</a>
+Yang, G., Zhang, H., <strong>Maus</strong>, V., Su, C., &amp; Zhang, X. (2026). Dynamic coupling of habitat quality and landscape ecological risk for sustainable ecosystem management in open-pit mining area. <em>Environmental Monitoring and Assessment</em>, <em>198</em>(2). <a target="_blank" href="https://doi.org/10.1007/s10661-025-14923-5">&#128279;</a>
 </div>
 <div id="ref-Giljum_2025" class="csl-entry" role="listitem">
-Giljum, S., <strong>Maus</strong>, V., Sonter, L., Luckeneder, S., Werner, T., Lutter, S., Gershenzon, J., Cole, M. J., Siqueira-Gay, J., &amp; Bebbington, A. (2025). Metal mining is a global driver of environmental change. <em>Nature Reviews Earth <span>&amp;</span> Environment</em>, <em>6</em>(7), 441–455. <a href="https://doi.org/10.1038/s43017-025-00683-w">https://doi.org/10.1038/s43017-025-00683-w</a>
+Giljum, S., <strong>Maus</strong>, V., Sonter, L., Luckeneder, S., Werner, T., Lutter, S., Gershenzon, J., Cole, M. J., Siqueira-Gay, J., &amp; Bebbington, A. (2025). Metal mining is a global driver of environmental change. <em>Nature Reviews Earth <span>&amp;</span> Environment</em>, <em>6</em>(7), 441–455. <a target="_blank" href="https://doi.org/10.1038/s43017-025-00683-w">&#128279;</a>
 </div>
 <div id="ref-Jasansky_2025" class="csl-entry" role="listitem">
-Jasansky, S., <strong>Maus</strong>, V., Popa, M., &amp; Wilbik, A. (2025). <em>Semantic segmentation of mining areas in satellite images: Towards a global approach</em>. <a href="https://doi.org/10.2139/ssrn.5108343">https://doi.org/10.2139/ssrn.5108343</a>
+Jasansky, S., <strong>Maus</strong>, V., Popa, M., &amp; Wilbik, A. (2025). <em>Semantic segmentation of mining areas in satellite images: Towards a global approach</em>. <a target="_blank" href="https://doi.org/10.2139/ssrn.5108343">&#128279;</a>
 </div>
 <div id="ref-Luckeneder_2025" class="csl-entry" role="listitem">
-Luckeneder, S., <strong>Maus</strong>, V., Siqueira-Gay, J., Krisztin, T., &amp; Kuhn, M. (2025). Forest loss and uncertain economic gains from industrial and garimpo mining in brazilian municipalities. <em>Nature Communications</em>, <em>16</em>(1). <a href="https://doi.org/10.1038/s41467-025-61930-8">https://doi.org/10.1038/s41467-025-61930-8</a>
+Luckeneder, S., <strong>Maus</strong>, V., Siqueira-Gay, J., Krisztin, T., &amp; Kuhn, M. (2025). Forest loss and uncertain economic gains from industrial and garimpo mining in brazilian municipalities. <em>Nature Communications</em>, <em>16</em>(1). <a target="_blank" href="https://doi.org/10.1038/s41467-025-61930-8">&#128279;</a>
 </div>
 <div id="ref-https://doi.org/10.57938/441b6e21-b914-4565-a2af-623f78ed92c6" class="csl-entry" role="listitem">
-Lutter, S., <strong>Maus</strong>, V., Luckeneder, S., &amp; Tost, M. (2025). <em>Increasing water use in global copper production threatens freshwater availability</em>. Vienna University of Economics; Business. <a href="https://doi.org/10.57938/441B6E21-B914-4565-A2AF-623F78ED92C6">https://doi.org/10.57938/441B6E21-B914-4565-A2AF-623F78ED92C6</a>
+Lutter, S., <strong>Maus</strong>, V., Luckeneder, S., &amp; Tost, M. (2025). <em>Increasing water use in global copper production threatens freshwater availability</em>. Vienna University of Economics; Business. <a target="_blank" href="https://doi.org/10.57938/441B6E21-B914-4565-A2AF-623F78ED92C6">&#128279;</a>
 </div>
 <div id="ref-Maus_2025" class="csl-entry" role="listitem">
-<strong>Maus</strong>, V. (2025). <em>A data-driven approach to mapping global commodity-specific mining land-use</em>. <a href="https://doi.org/10.2139/ssrn.5408302">https://doi.org/10.2139/ssrn.5408302</a>
+<strong>Maus</strong>, V. (2025). <em>A data-driven approach to mapping global commodity-specific mining land-use</em>. <a target="_blank" href="https://doi.org/10.2139/ssrn.5408302">&#128279;</a>
 </div>
 <div id="ref-Sonter_2025" class="csl-entry" role="listitem">
-Sonter, L. J., Nursamsi, I., Bennun, L., Graham, J., <strong>Maus</strong>, V., Rainey, H., Starkey, M., Turner, J. A., Watson, J. E. M., &amp; Prescott, G. W. (2025). Global land cover maps do not reveal mining pressures to biodiversity. <em>Scientific Reports</em>, <em>15</em>(1). <a href="https://doi.org/10.1038/s41598-025-01959-3">https://doi.org/10.1038/s41598-025-01959-3</a>
+Sonter, L. J., Nursamsi, I., Bennun, L., Graham, J., <strong>Maus</strong>, V., Rainey, H., Starkey, M., Turner, J. A., Watson, J. E. M., &amp; Prescott, G. W. (2025). Global land cover maps do not reveal mining pressures to biodiversity. <em>Scientific Reports</em>, <em>15</em>(1). <a target="_blank" href="https://doi.org/10.1038/s41598-025-01959-3">&#128279;</a>
 </div>
 <div id="ref-Sun_2025" class="csl-entry" role="listitem">
-Sun, X., Giljum, S., <strong>Maus</strong>, V., Schomberg, A., Zhang, S., &amp; You, F. (2025). Robust assessments of lithium mining impacts embodied in global supply chain require spatially explicit analyses. <em>Environmental Science <span>&amp;</span> Technology</em>, <em>59</em>(14), 7081–7094. <a href="https://doi.org/10.1021/acs.est.4c12749">https://doi.org/10.1021/acs.est.4c12749</a>
+Sun, X., Giljum, S., <strong>Maus</strong>, V., Schomberg, A., Zhang, S., &amp; You, F. (2025). Robust assessments of lithium mining impacts embodied in global supply chain require spatially explicit analyses. <em>Environmental Science <span>&amp;</span> Technology</em>, <em>59</em>(14), 7081–7094. <a target="_blank" href="https://doi.org/10.1021/acs.est.4c12749">&#128279;</a>
 </div>
 <div id="ref-Xu_2025" class="csl-entry" role="listitem">
-Xu, S., Zhou, J., Wang, K., Giljum, S., <strong>Maus</strong>, V., Werner, T. T., Tang, L., Guo, J., &amp; Xiao, W. (2025). <em>Global surface mining and land reclamation of time series from 1985–2022</em>. <a href="https://doi.org/10.5194/essd-2025-583">https://doi.org/10.5194/essd-2025-583</a>
+Xu, S., Zhou, J., Wang, K., Giljum, S., <strong>Maus</strong>, V., Werner, T. T., Tang, L., Guo, J., &amp; Xiao, W. (2025). <em>Global surface mining and land reclamation of time series from 1985–2022</em>. <a target="_blank" href="https://doi.org/10.5194/essd-2025-583">&#128279;</a>
 </div>
 <div id="ref-https://doi.org/10.57938/b890eed0-1ab4-43af-b577-df48f43290a6" class="csl-entry" role="listitem">
-Luckeneder, S., Giljum, S., <strong>Maus</strong>, V., Sonter, L. J., &amp; Lenzen, M. (2024). <em>EU consumption’s hidden link to global deforestation caused by mining</em>. Vienna University of Economics; Business. <a href="https://doi.org/10.57938/B890EED0-1AB4-43AF-B577-DF48F43290A6">https://doi.org/10.57938/B890EED0-1AB4-43AF-B577-DF48F43290A6</a>
+Luckeneder, S., Giljum, S., <strong>Maus</strong>, V., Sonter, L. J., &amp; Lenzen, M. (2024). <em>EU consumption’s hidden link to global deforestation caused by mining</em>. Vienna University of Economics; Business. <a target="_blank" href="https://doi.org/10.57938/B890EED0-1AB4-43AF-B577-DF48F43290A6">&#128279;</a>
 </div>
 <div id="ref-Maus_2024" class="csl-entry" role="listitem">
-<strong>Maus</strong>, V., &amp; Werner, T. T. (2024). Impacts for half of the world’s mining areas are undocumented. <em>Nature</em>, <em>625</em>(7993), 26–29. <a href="https://doi.org/10.1038/d41586-023-04090-3">https://doi.org/10.1038/d41586-023-04090-3</a>
+<strong>Maus</strong>, V., &amp; Werner, T. T. (2024). Impacts for half of the world’s mining areas are undocumented. <em>Nature</em>, <em>625</em>(7993), 26–29. <a target="_blank" href="https://doi.org/10.1038/d41586-023-04090-3">&#128279;</a>
 </div>
 <div id="ref-Crona_2023" class="csl-entry" role="listitem">
-Crona, B., Parlato, G., Lade, S., Fetzer, I., &amp; <strong>Maus</strong>, V. (2023). Going beyond carbon: An <span>“earth system impact”</span> score to better capture corporate and investment impacts on the earth system. <em>Journal of Cleaner Production</em>, <em>429</em>, 139523. <a href="https://doi.org/10.1016/j.jclepro.2023.139523">https://doi.org/10.1016/j.jclepro.2023.139523</a>
+Crona, B., Parlato, G., Lade, S., Fetzer, I., &amp; <strong>Maus</strong>, V. (2023). Going beyond carbon: An <span>“earth system impact”</span> score to better capture corporate and investment impacts on the earth system. <em>Journal of Cleaner Production</em>, <em>429</em>, 139523. <a target="_blank" href="https://doi.org/10.1016/j.jclepro.2023.139523">&#128279;</a>
 </div>
 <div id="ref-Jasansky_2023" class="csl-entry" role="listitem">
-Jasansky, S., Lieber, M., Giljum, S., &amp; <strong>Maus</strong>, V. (2023). An open database on global coal and metal mine production. <em>Scientific Data</em>, <em>10</em>(1). <a href="https://doi.org/10.1038/s41597-023-01965-y">https://doi.org/10.1038/s41597-023-01965-y</a>
+Jasansky, S., Lieber, M., Giljum, S., &amp; <strong>Maus</strong>, V. (2023). An open database on global coal and metal mine production. <em>Scientific Data</em>, <em>10</em>(1). <a target="_blank" href="https://doi.org/10.1038/s41597-023-01965-y">&#128279;</a>
 </div>
 <div id="ref-Sonter_2023" class="csl-entry" role="listitem">
-Sonter, L. J., Maron, M., Bull, J. W., Giljum, S., Luckeneder, S., <strong>Maus</strong>, V., McDonald-Madden, E., Northey, S. A., Sánchez, L. E., Valenta, R., Visconti, P., Werner, T. T., &amp; Watson, J. E. M. (2023). How to fuel an energy transition with ecologically responsible mining. <em>Proceedings of the National Academy of Sciences</em>, <em>120</em>(35). <a href="https://doi.org/10.1073/pnas.2307006120">https://doi.org/10.1073/pnas.2307006120</a>
+Sonter, L. J., Maron, M., Bull, J. W., Giljum, S., Luckeneder, S., <strong>Maus</strong>, V., McDonald-Madden, E., Northey, S. A., Sánchez, L. E., Valenta, R., Visconti, P., Werner, T. T., &amp; Watson, J. E. M. (2023). How to fuel an energy transition with ecologically responsible mining. <em>Proceedings of the National Academy of Sciences</em>, <em>120</em>(35). <a target="_blank" href="https://doi.org/10.1073/pnas.2307006120">&#128279;</a>
 </div>
 <div id="ref-Werner_2023" class="csl-entry" role="listitem">
-Werner, T. T., Toumbourou, T., <strong>Maus</strong>, V., Lukas, M. C., Sonter, L. J., Muhdar, M., Runting, R. K., &amp; Bebbington, A. (2023). Patterns of infringement, risk, and impact driven by coal mining permits in indonesia. <em>Ambio</em>, <em>53</em>(2), 242–256. <a href="https://doi.org/10.1007/s13280-023-01944-y">https://doi.org/10.1007/s13280-023-01944-y</a>
+Werner, T. T., Toumbourou, T., <strong>Maus</strong>, V., Lukas, M. C., Sonter, L. J., Muhdar, M., Runting, R. K., &amp; Bebbington, A. (2023). Patterns of infringement, risk, and impact driven by coal mining permits in indonesia. <em>Ambio</em>, <em>53</em>(2), 242–256. <a target="_blank" href="https://doi.org/10.1007/s13280-023-01944-y">&#128279;</a>
 </div>
 <div id="ref-https://doi.org/10.57938/d7d6e6d9-2e14-4448-999a-2963c725e6f7" class="csl-entry" role="listitem">
-Wimmer, L., <strong>Maus</strong>, V., &amp; Luckeneder, S. (2023). <em>Investigating social inequality of urban green spacedistribution using sentinel-2: The case of vienna</em>. Vienna University of Economics; Business. <a href="https://doi.org/10.57938/D7D6E6D9-2E14-4448-999A-2963C725E6F7">https://doi.org/10.57938/D7D6E6D9-2E14-4448-999A-2963C725E6F7</a>
+Wimmer, L., <strong>Maus</strong>, V., &amp; Luckeneder, S. (2023). <em>Investigating social inequality of urban green spacedistribution using sentinel-2: The case of vienna</em>. Vienna University of Economics; Business. <a target="_blank" href="https://doi.org/10.57938/D7D6E6D9-2E14-4448-999A-2963C725E6F7">&#128279;</a>
 </div>
 <div id="ref-Giljum_2022" class="csl-entry" role="listitem">
-Giljum, S., <strong>Maus</strong>, V., Kuschnig, N., Luckeneder, S., Tost, M., Sonter, L. J., &amp; Bebbington, A. J. (2022). A pantropical assessment of deforestation caused by industrial mining. <em>Proceedings of the National Academy of Sciences</em>, <em>119</em>(38). <a href="https://doi.org/10.1073/pnas.2118273119">https://doi.org/10.1073/pnas.2118273119</a>
+Giljum, S., <strong>Maus</strong>, V., Kuschnig, N., Luckeneder, S., Tost, M., Sonter, L. J., &amp; Bebbington, A. J. (2022). A pantropical assessment of deforestation caused by industrial mining. <em>Proceedings of the National Academy of Sciences</em>, <em>119</em>(38). <a target="_blank" href="https://doi.org/10.1073/pnas.2118273119">&#128279;</a>
 </div>
 <div id="ref-Maus_2022" class="csl-entry" role="listitem">
-<strong>Maus</strong>, V., Giljum, S., Silva, D. M. da, Gutschlhofer, J., Rosa, R. P. da, Luckeneder, S., Gass, S. L. B., Lieber, M., &amp; McCallum, I. (2022). An update on global mining land use. <em>Scientific Data</em>, <em>9</em>(1). <a href="https://doi.org/10.1038/s41597-022-01547-4">https://doi.org/10.1038/s41597-022-01547-4</a>
+<strong>Maus</strong>, V., Giljum, S., Silva, D. M. da, Gutschlhofer, J., Rosa, R. P. da, Luckeneder, S., Gass, S. L. B., Lieber, M., &amp; McCallum, I. (2022). An update on global mining land use. <em>Scientific Data</em>, <em>9</em>(1). <a target="_blank" href="https://doi.org/10.1038/s41597-022-01547-4">&#128279;</a>
 </div>
 <div id="ref-https://doi.org/10.1594/pangaea.942325" class="csl-entry" role="listitem">
-<strong>Maus</strong>, V., Silva, D. M. da, Gutschlhofer, J., Rosa, R. da, Giljum, S., Gass, S. L. B., Luckeneder, S., Lieber, M., &amp; McCallum, I. (2022). <em>Global-scale mining polygons (version 2)</em>. PANGAEA. <a href="https://doi.org/10.1594/PANGAEA.942325">https://doi.org/10.1594/PANGAEA.942325</a>
+<strong>Maus</strong>, V., Silva, D. M. da, Gutschlhofer, J., Rosa, R. da, Giljum, S., Gass, S. L. B., Luckeneder, S., Lieber, M., &amp; McCallum, I. (2022). <em>Global-scale mining polygons (version 2)</em>. PANGAEA. <a target="_blank" href="https://doi.org/10.1594/PANGAEA.942325">&#128279;</a>
 </div>
 <div id="ref-Luckeneder_2021" class="csl-entry" role="listitem">
-Luckeneder, S., Giljum, S., Schaffartzik, A., <strong>Maus</strong>, V., &amp; Tost, M. (2021). Surge in global metal mining threatens vulnerable ecosystems. <em>Global Environmental Change</em>, <em>69</em>, 102303. <a href="https://doi.org/10.1016/j.gloenvcha.2021.102303">https://doi.org/10.1016/j.gloenvcha.2021.102303</a>
+Luckeneder, S., Giljum, S., Schaffartzik, A., <strong>Maus</strong>, V., &amp; Tost, M. (2021). Surge in global metal mining threatens vulnerable ecosystems. <em>Global Environmental Change</em>, <em>69</em>, 102303. <a target="_blank" href="https://doi.org/10.1016/j.gloenvcha.2021.102303">&#128279;</a>
 </div>
 <div id="ref-Maus_2020" class="csl-entry" role="listitem">
-<strong>Maus</strong>, V., Giljum, S., Gutschlhofer, J., Silva, D. M. da, Probst, M., Gass, S. L. B., Luckeneder, S., Lieber, M., &amp; McCallum, I. (2020). A global-scale data set of mining areas. <em>Scientific Data</em>, <em>7</em>(1). <a href="https://doi.org/10.1038/s41597-020-00624-w">https://doi.org/10.1038/s41597-020-00624-w</a>
+<strong>Maus</strong>, V., Giljum, S., Gutschlhofer, J., Silva, D. M. da, Probst, M., Gass, S. L. B., Luckeneder, S., Lieber, M., &amp; McCallum, I. (2020). A global-scale data set of mining areas. <em>Scientific Data</em>, <em>7</em>(1). <a target="_blank" href="https://doi.org/10.1038/s41597-020-00624-w">&#128279;</a>
 </div>
 <div id="ref-https://doi.org/10.1594/pangaea.910894" class="csl-entry" role="listitem">
-<strong>Maus</strong>, V., Giljum, S., Gutschlhofer, J., Silva, D. M. da, Probst, M., Gass, S. L. B., Luckeneder, S., Lieber, M., &amp; McCallum, I. (2020). <em>Global-scale mining polygons (version 1)</em>. PANGAEA. <a href="https://doi.org/10.1594/PANGAEA.910894">https://doi.org/10.1594/PANGAEA.910894</a>
+<strong>Maus</strong>, V., Giljum, S., Gutschlhofer, J., Silva, D. M. da, Probst, M., Gass, S. L. B., Luckeneder, S., Lieber, M., &amp; McCallum, I. (2020). <em>Global-scale mining polygons (version 1)</em>. PANGAEA. <a target="_blank" href="https://doi.org/10.1594/PANGAEA.910894">&#128279;</a>
 </div>
 <div id="ref-https://doi.org/10.5281/zenodo.3938974" class="csl-entry" role="listitem">
-Tsendbazar, N.-E., Tarko, A., Li, L., Herold, M., Lesiv, M., Fritz, S., &amp; <strong>Maus</strong>, V. (2020). <em>Copernicus global land service: Land cover 100m: Version 3 globe 2015-2019: Validation report</em>. Zenodo. <a href="https://doi.org/10.5281/ZENODO.3938974">https://doi.org/10.5281/ZENODO.3938974</a>
+Tsendbazar, N.-E., Tarko, A., Li, L., Herold, M., Lesiv, M., Fritz, S., &amp; <strong>Maus</strong>, V. (2020). <em>Copernicus global land service: Land cover 100m: Version 3 globe 2015-2019: Validation report</em>. Zenodo. <a target="_blank" href="https://doi.org/10.5281/ZENODO.3938974">&#128279;</a>
 </div>
 <div id="ref-Bruckner_2019" class="csl-entry" role="listitem">
-Bruckner, M., Häyhä, T., Giljum, S., <strong>Maus</strong>, V., Fischer, G., Tramberend, S., &amp; Börner, J. (2019). Quantifying the global cropland footprint of the european union’s non-food bioeconomy. <em>Environmental Research Letters</em>, <em>14</em>(4), 045011. <a href="https://doi.org/10.1088/1748-9326/ab07f5">https://doi.org/10.1088/1748-9326/ab07f5</a>
+Bruckner, M., Häyhä, T., Giljum, S., <strong>Maus</strong>, V., Fischer, G., Tramberend, S., &amp; Börner, J. (2019). Quantifying the global cropland footprint of the european union’s non-food bioeconomy. <em>Environmental Research Letters</em>, <em>14</em>(4), 045011. <a target="_blank" href="https://doi.org/10.1088/1748-9326/ab07f5">&#128279;</a>
 </div>
 <div id="ref-Maus_2019" class="csl-entry" role="listitem">
-<strong>Maus</strong>, V., Câmara, G., Appel, M., &amp; Pebesma, E. (2019). dtwSat: Time-weighted dynamic time warping for satellite image time series analysis in r. <em>Journal of Statistical Software</em>, <em>88</em>(5). <a href="https://doi.org/10.18637/jss.v088.i05">https://doi.org/10.18637/jss.v088.i05</a>
+<strong>Maus</strong>, V., Câmara, G., Appel, M., &amp; Pebesma, E. (2019). dtwSat: Time-weighted dynamic time warping for satellite image time series analysis in r. <em>Journal of Statistical Software</em>, <em>88</em>(5). <a target="_blank" href="https://doi.org/10.18637/jss.v088.i05">&#128279;</a>
 </div>
 <div id="ref-Stanimirova_2019" class="csl-entry" role="listitem">
-Stanimirova, R., Arévalo, P., Kaufmann, R. K., <strong>Maus</strong>, V., Lesiv, M., Havlík, P., &amp; Friedl, M. A. (2019). Sensitivity of global pasturelands to climate variation. <em>Earth’s Future</em>, <em>7</em>(12), 1353–1366. <a href="https://doi.org/10.1029/2019ef001316">https://doi.org/10.1029/2019ef001316</a>
+Stanimirova, R., Arévalo, P., Kaufmann, R. K., <strong>Maus</strong>, V., Lesiv, M., Havlík, P., &amp; Friedl, M. A. (2019). Sensitivity of global pasturelands to climate variation. <em>Earth’s Future</em>, <em>7</em>(12), 1353–1366. <a target="_blank" href="https://doi.org/10.1029/2019ef001316">&#128279;</a>
 </div>
 <div id="ref-Hadi_2018" class="csl-entry" role="listitem">
-Hadi, Krasovskii, A., <strong>Maus</strong>, V., Yowargana, P., Pietsch, S., &amp; Rautiainen, M. (2018). Monitoring deforestation in rainforests using satellite data: A pilot study from kalimantan, indonesia. <em>Forests</em>, <em>9</em>(7), 389. <a href="https://doi.org/10.3390/f9070389">https://doi.org/10.3390/f9070389</a>
+Hadi, Krasovskii, A., <strong>Maus</strong>, V., Yowargana, P., Pietsch, S., &amp; Rautiainen, M. (2018). Monitoring deforestation in rainforests using satellite data: A pilot study from kalimantan, indonesia. <em>Forests</em>, <em>9</em>(7), 389. <a target="_blank" href="https://doi.org/10.3390/f9070389">&#128279;</a>
 </div>
 <div id="ref-Furlan_2017" class="csl-entry" role="listitem">
-Furlan, V. J. M., <strong>Maus</strong>, V., Batista, I., &amp; Bandarra, N. M. (2017). Production of docosahexaenoic acid by aurantiochytrium sp. ATCC PRA-276. <em>Brazilian Journal of Microbiology</em>, <em>48</em>(2), 359–365. <a href="https://doi.org/10.1016/j.bjm.2017.01.001">https://doi.org/10.1016/j.bjm.2017.01.001</a>
+Furlan, V. J. M., <strong>Maus</strong>, V., Batista, I., &amp; Bandarra, N. M. (2017). Production of docosahexaenoic acid by aurantiochytrium sp. ATCC PRA-276. <em>Brazilian Journal of Microbiology</em>, <em>48</em>(2), 359–365. <a target="_blank" href="https://doi.org/10.1016/j.bjm.2017.01.001">&#128279;</a>
 </div>
 <div id="ref-See_2017" class="csl-entry" role="listitem">
-See, L., Laso Bayas, J., Schepaschenko, D., Perger, C., Dresel, C., <strong>Maus</strong>, V., Salk, C., Weichselbaum, J., Lesiv, M., McCallum, I., Moorthy, I., &amp; Fritz, S. (2017). LACO-wiki: A new online land cover validation tool demonstrated using GlobeLand30 for kenya. <em>Remote Sensing</em>, <em>9</em>(7), 754. <a href="https://doi.org/10.3390/rs9070754">https://doi.org/10.3390/rs9070754</a>
+See, L., Laso Bayas, J., Schepaschenko, D., Perger, C., Dresel, C., <strong>Maus</strong>, V., Salk, C., Weichselbaum, J., Lesiv, M., McCallum, I., Moorthy, I., &amp; Fritz, S. (2017). LACO-wiki: A new online land cover validation tool demonstrated using GlobeLand30 for kenya. <em>Remote Sensing</em>, <em>9</em>(7), 754. <a target="_blank" href="https://doi.org/10.3390/rs9070754">&#128279;</a>
 </div>
 <div id="ref-Camara_2016" class="csl-entry" role="listitem">
-Camara, G., Maciel, A., <strong>Maus</strong>, V., Vinhas, L., &amp; Sanchez, A. (2016). Using dynamic geospatial ontologies to support information extraction from big earth observation data sets. <em>International Conference on GIScience Short Paper Proceedings</em>, <em>1</em>. <a href="https://doi.org/10.21433/b3115w54k25v">https://doi.org/10.21433/b3115w54k25v</a>
+Camara, G., Maciel, A., <strong>Maus</strong>, V., Vinhas, L., &amp; Sanchez, A. (2016). Using dynamic geospatial ontologies to support information extraction from big earth observation data sets. <em>International Conference on GIScience Short Paper Proceedings</em>, <em>1</em>. <a target="_blank" href="https://doi.org/10.21433/b3115w54k25v">&#128279;</a>
 </div>
 <div id="ref-Maus_2016" class="csl-entry" role="listitem">
-<strong>Maus</strong>, V., Camara, G., Cartaxo, R., Sanchez, A., Ramos, F. M., &amp; Queiroz, G. R. de. (2016). A time-weighted dynamic time warping method for land-use and land-cover mapping. <em>IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing</em>, <em>9</em>(8), 3729–3739. <a href="https://doi.org/10.1109/jstars.2016.2517118">https://doi.org/10.1109/jstars.2016.2517118</a>
+<strong>Maus</strong>, V., Camara, G., Cartaxo, R., Sanchez, A., Ramos, F. M., &amp; Queiroz, G. R. de. (2016). A time-weighted dynamic time warping method for land-use and land-cover mapping. <em>IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing</em>, <em>9</em>(8), 3729–3739. <a target="_blank" href="https://doi.org/10.1109/jstars.2016.2517118">&#128279;</a>
 </div>
 <div id="ref-Maus_2015" class="csl-entry" role="listitem">
-<strong>Maus</strong>, V., Camara, G., Cartaxo, R., Ramos, F. M., Sanchez, A., &amp; Ribeiro, G. Q. (2015). Open boundary dynamic time warping for satellite image time series classification. <em>2015 IEEE International Geoscience and Remote Sensing Symposium (IGARSS)</em>, 3349–3352. <a href="https://doi.org/10.1109/igarss.2015.7326536">https://doi.org/10.1109/igarss.2015.7326536</a>
+<strong>Maus</strong>, V., Camara, G., Cartaxo, R., Ramos, F. M., Sanchez, A., &amp; Ribeiro, G. Q. (2015). Open boundary dynamic time warping for satellite image time series classification. <em>2015 IEEE International Geoscience and Remote Sensing Symposium (IGARSS)</em>, 3349–3352. <a target="_blank" href="https://doi.org/10.1109/igarss.2015.7326536">&#128279;</a>
 </div>
 <div id="ref-See_2015" class="csl-entry" role="listitem">
-See, L., Schepaschenko, D., Lesiv, M., McCallum, I., Fritz, S., Comber, A., Perger, C., Schill, C., Zhao, Y., <strong>Maus</strong>, V., Siraj, M. A., Albrecht, F., Cipriani, A., Vakolyuk, M., Garcia, A., Rabia, A. H., Singha, K., Marcarini, A. A., Kattenborn, T., … Obersteiner, M. (2015). Building a hybrid land cover map with crowdsourcing and geographically weighted regression. <em>ISPRS Journal of Photogrammetry and Remote Sensing</em>, <em>103</em>, 48–56. <a href="https://doi.org/10.1016/j.isprsjprs.2014.06.016">https://doi.org/10.1016/j.isprsjprs.2014.06.016</a>
+See, L., Schepaschenko, D., Lesiv, M., McCallum, I., Fritz, S., Comber, A., Perger, C., Schill, C., Zhao, Y., <strong>Maus</strong>, V., Siraj, M. A., Albrecht, F., Cipriani, A., Vakolyuk, M., Garcia, A., Rabia, A. H., Singha, K., Marcarini, A. A., Kattenborn, T., … Obersteiner, M. (2015). Building a hybrid land cover map with crowdsourcing and geographically weighted regression. <em>ISPRS Journal of Photogrammetry and Remote Sensing</em>, <em>103</em>, 48–56. <a target="_blank" href="https://doi.org/10.1016/j.isprsjprs.2014.06.016">&#128279;</a>
 </div>
 <div id="ref-FURLAN_2014" class="csl-entry" role="listitem">
-FURLAN, V. J. M., PAULO, M. D. C., MAUS, V. W., FERREIRA, J., BATISTA, I., &amp; BANDARRA, N. M. (2014). PRODUCTION OF DOCOSAHEXAENOIC ACID (DHA) FROM thraustochytrium sp. ATCC 26185 USING DIFFERENTS NITROGEN CONCENTRATIONS. <em>Boletim Do Centro de Pesquisa de Processamento de Alimentos</em>, <em>32</em>(1). <a href="https://doi.org/10.5380/cep.v32i1.36925">https://doi.org/10.5380/cep.v32i1.36925</a>
+FURLAN, V. J. M., PAULO, M. D. C., MAUS, V. W., FERREIRA, J., BATISTA, I., &amp; BANDARRA, N. M. (2014). PRODUCTION OF DOCOSAHEXAENOIC ACID (DHA) FROM thraustochytrium sp. ATCC 26185 USING DIFFERENTS NITROGEN CONCENTRATIONS. <em>Boletim Do Centro de Pesquisa de Processamento de Alimentos</em>, <em>32</em>(1). <a target="_blank" href="https://doi.org/10.5380/cep.v32i1.36925">&#128279;</a>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><a href="assets/bib/other_publications.bib" class="btn btn-outline-primary">Download other references (.bib)</a></p>
+<div id="refs-other" class="references csl-bib-body hanging-indent refs-ordered" data-line-spacing="2" role="list">
+<div id="ref-giljum_driving_2025" class="csl-entry" role="listitem">
+Giljum, S., <strong>Maus</strong>, V., Kreimel, J., Weber, L., Kroiss, A., Pigneur, J., &amp; Toledano, A. (2025). <em>Driving change, not deforestation: How europe could mitigate the negative impacts of its transport transition</em>. <a target="_blank" href="https://www.fern.org/publications-insight/driving-change-not-deforestation">&#128279;</a>
+</div>
+<div id="ref-Maus:2025phac" class="csl-entry" role="listitem">
+<strong>Maus</strong>, V. (2025). <em>Spatial data integration for mine land use analysis</em> (Version 2.0) [Computer software]. <a target="_blank" href="https://doi.org/10.5281/zenodo.15611392">&#128279;</a>
+</div>
+<div id="ref-Crona2023data" class="csl-entry" role="listitem">
+Crona, B., Parlato, G., Lade, S., Fetzer, I., &amp; <strong>Maus</strong>, V. (2023). <span class="nocase">Going beyond carbon: An <span>“Earth System Impact”</span> score to better capture corporate and investment impacts on the Earth system</span>. <em>Harvard Dataverse</em>. <a target="_blank" href="https://doi.org/10.7910/DVN/HPYDKW">&#128279;</a>
+</div>
+<div id="ref-Giljum2023brief" class="csl-entry" role="listitem">
+Giljum, S., <strong>Maus</strong>, V., Kuschnig, N., Luckeneder, S., Tost, M., Sonter, L. J., &amp; Bebbington, A. J. (2023). Mining causes direct and indirect loss of tropical forests. In <em>Vienna University of Economics and Business (WU)</em>. <a target="_blank" href="https://www.fineprint.global/publications/briefs/mining-deforestation">&#128279;</a>
+</div>
+<div id="ref-Jasansky2023brief" class="csl-entry" role="listitem">
+Jasansky, S., Lieber, M., Giljum, S., &amp; <strong>Maus</strong>, V. (2023). An open source database on global coal and metal mine production. In <em>Vienna University of Economics and Business (WU)</em>. <a target="_blank" href="https://www.fineprint.global/publications/briefs/open-database-global-coal-and-metal-mine-production">&#128279;</a>
+</div>
+<div id="ref-Jasansky2023Open-data-mining" class="csl-entry" role="listitem">
+Jasansky, S., Lieber, M., Giljum, S., &amp; <strong>Maus</strong>, V. (2023). Open database on global coal and metal mine production. <em>Zenodo</em>. <a target="_blank" href="https://doi.org/10.5281/zenodo.6325108">&#128279;</a>
+</div>
+<div id="ref-Kramer2023" class="csl-entry" role="listitem">
+Kramer, M., Kind-Rieper, T., Munayer, R., Giljum, S., Masselink, R., Ackern, P. van, <strong>Maus</strong>, V., Luckeneder, S., Kuschnig, N., Costa, F., &amp; Rüttinger, L. (2023). <em><span class="nocase">Extracted forests: unearthing the role of mining-related deforestation as a driver of global deforestation</span></em>. WWF - World Wide Fund for Nature. <a target="_blank" href="https://www.wwf.de/fileadmin/fm-wwf/Publikationen-PDF/Wald/WWF-Studie-Extracted-Forests.pdf">&#128279;</a>
+</div>
+<div id="ref-Maus2023twdtw" class="csl-entry" role="listitem">
+<strong>Maus</strong>, V. (2023). <em><span class="nocase">twdtw</span>: Time-weighted dynamic time warping</em> (Version 1.0-1) [Computer software]. <a target="_blank" href="https://CRAN.R-project.org/package=twdtw">&#128279;</a>
+</div>
+<div id="ref-Wimmer:2023" class="csl-entry" role="listitem">
+Wimmer, L., <strong>Maus</strong>, V., &amp; Luckeneder, S. (2023). <em>Investigating social inequality of urban green spacedistribution using sentinel-2: The case of vienna</em>. <a target="_blank" href="https://doi.org/10.57938/d7d6e6d9-2e14-4448-999a-2963c725e6f7">&#128279;</a>
+</div>
+<div id="ref-Maus2022dtwsat" class="csl-entry" role="listitem">
+<strong>Maus</strong>, V. (2022). <em>dtwSat: Time-weighted dynamic time warping for satellite image time series analysis</em> (Version 0.2.8) [Computer software]. <a target="_blank" href="https://github.com/vwmaus/dtwSat">&#128279;</a>
+</div>
+<div id="ref-Maus:2022brief" class="csl-entry" role="listitem">
+<strong>Maus</strong>, V., Giljum, S., Gutschlhofer, J., Luckeneder, S., &amp; Lieber, M. (2022). The global economy uses more than 100,000 km² of land for mining. In <em>Vienna University of Economics and Business (WU)</em>. <a target="_blank" href="https://www.fineprint.global/publications/briefs/update_mining_polygons">&#128279;</a>
+</div>
+<div id="ref-Maus2022Global-scale2" class="csl-entry" role="listitem">
+<strong>Maus</strong>, V., Silva, D. M. da, Gutschlhofer, J., Rosa, R. da, Giljum, S., Gass, S. L. B., Luckeneder, S., Lieber, M., &amp; McCallum, I. (2022). Global-scale mining polygons. <em>PANGAEA</em>. <a target="_blank" href="https://doi.org/10.1594/PANGAEA.942325">&#128279;</a>
+</div>
+<div id="ref-Luckeneder:2021b" class="csl-entry" role="listitem">
+Luckeneder, S., Giljum, S., Schaffartzik, A., <strong>Maus</strong>, V., &amp; Tost, M. (2021). Half of all metal mining worldwide occurs at less than 20 km from protected lands. In <em>Vienna University of Economics and Business (WU)</em>. <a target="_blank" href="https://www.fineprint.global/publications/briefs/mining-protected-lands">&#128279;</a>
+</div>
+<div id="ref-Maus:2021a" class="csl-entry" role="listitem">
+<strong>Maus</strong>, V., Kuschnig, N., Luckeneder, S., &amp; Giljum, S. (2021). <span class="nocase">A set of essential variables for modelling environmental impacts of global mining land use</span>. In <em>PANGAEA</em> (Version 1) [Computer software]. <a target="_blank" href="https://doi.org/10.1594/PANGAEA.928573">&#128279;</a>
+</div>
+<div id="ref-tsendbazar.2021.cglslc1v3g22vr" class="csl-entry" role="listitem">
+Tsendbazar, N.-E., Tarko, A., Li, L., Herold, M., Lesiv, M., Fritz, S., &amp; <strong>Maus</strong>, V. (2021). <em><span class="nocase">Copernicus Global Land Service: Land Cover 100m: version 3 Globe 2015-2019: Validation Report</span></em> (Version Dataset v3.0, doc issue 1.10). Zenodo. <a target="_blank" href="https://doi.org/10.5281/zenodo.4723975">&#128279;</a>
+</div>
+<div id="ref-Maus:2020f" class="csl-entry" role="listitem">
+Jakob, G., &amp; <strong>Maus</strong>, V. (2020). <em>Web application for mining area polygonization</em> (Version 1.2) [Computer software]. <a target="_blank" href="https://doi.org/10.5281/zenodo.3580740">&#128279;</a>
+</div>
+<div id="ref-Maus:2020c" class="csl-entry" role="listitem">
+<strong>Maus</strong>, V. (2020). Crafting mines from satellite images. In <em>Behind the Paper, Springer Nature.</em> <a target="_blank" href="https://communities.springernature.com/posts/crafting-mines-from-satellite-images">&#128279;</a>
+</div>
+<div id="ref-Maus:2020" class="csl-entry" role="listitem">
+<strong>Maus</strong>, V., &amp; Giljum, S. (2020). Using satellite earth observations to map global resource extraction and related environmental impacts: Examples from agriculture and mining. In <em>Vienna University of Economics and Business (WU)</em>. <a target="_blank" href="https://www.fineprint.global/publications/briefs/satellite-earth-observations/">&#128279;</a>
+</div>
+<div id="ref-Maus:2020brief12" class="csl-entry" role="listitem">
+<strong>Maus</strong>, V., Giljum, S., Gutschlhofer, J., Luckeneder, S., &amp; Lieber, M. (2020). Global mining uses more than 57,000 <span class="math inline"><em>k</em><em>m</em><sup>2</sup></span> of land. In <em>Vienna University of Economics and Business (WU)</em>. <a target="_blank" href="https://www.fineprint.global/briefs/open-science-and-reproducibility/">&#128279;</a>
+</div>
+<div id="ref-Maus:2020b" class="csl-entry" role="listitem">
+<strong>Maus</strong>, V., Giljum, S., Gutschlhofer, J., Silva, D. M. da, Gass, S. L. B., Luckeneder, S., Lieber, M., &amp; McCallum, I. (2020). <span class="nocase">Global-scale mining polygons</span>. In <em>PANGAEA</em> (Version 1) [Computer software]. <a target="_blank" href="https://doi.org/10.1594/PANGAEA.910894">&#128279;</a>
+</div>
+<div id="ref-Bruckner:2019c" class="csl-entry" role="listitem">
+Bruckner, M., Häyhä, T., Giljum, S., <strong>Maus</strong>, V., Fischer, G., Tramberend, S., &amp; Börner, J. (2019). Europe’s expanding non-food bioeconomy is heavily dependent on foreign land areas. In <em>Vienna University of Economics and Business (WU)</em>. <a target="_blank" href="https://www.fineprint.global/briefs/europes-dependency-on-foreign-land-areas/">&#128279;</a>
+</div>
+<div id="ref-fritz.2019.icobrrdi2" class="csl-entry" role="listitem">
+Fritz, S., Danylo, O., <strong>Maus</strong>, V., See, L., Hofhansl, F., McCallum, I., &amp; Obersteiner, M. (2019). Independent confirmation of brazil’s rapidly rising deforestation in 2019. In <em>Science eLetters</em>. <a target="_blank" href="https://science.sciencemag.org/content/365/6452/419/tab-e-letters">&#128279;</a>
+</div>
+<div id="ref-Fritz:2019" class="csl-entry" role="listitem">
+Fritz, S., Danylo, O., <strong>Maus</strong>, V., See, L., Hofhansl, F., McCallum, I., &amp; Obersteiner, M. (2019). Independent confirmation of brazil’s rapidly rising deforestation in 2019. In <em>Science eLetters</em>. <a target="_blank" href="https://science.sciencemag.org/content/365/6452/419/tab-e-letters">&#128279;</a>
+</div>
+<div id="ref-Maus:2018c" class="csl-entry" role="listitem">
+<strong>Maus</strong>, V., Kuschnig, N., &amp; Giljum, S. (2018). Open science and reproducibility: The FINEPRINT infrastructure. In <em>Vienna University of Economics and Business (WU)</em>. <a target="_blank" href="https://www.fineprint.global/briefs/open-science-and-reproducibility/">&#128279;</a>
+</div>
+<div id="ref-Maus:2017b" class="csl-entry" role="listitem">
+<strong>Maus</strong>, V. (2017). New open-source software supports land-cover monitoring. In <em>Nexus, The Research Blog of IIASA</em> (3). <a target="_blank" href="http://blog.iiasa.ac.at/2017/07/03/new-open-source-software-supports-land-cover-monitoring/">&#128279;</a>
+</div>
+<div id="ref-Maus:2016b" class="csl-entry" role="listitem">
+<strong>Maus</strong>, V. (2016). <em>Land use and land cover monitoring using remote sensing image time series</em> [PhD thesis, <span>National Institute for Space Research</span>]. <a target="_blank" href="http://urlib.net/sid.inpe.br/mtc-m21b/2016/06.01.14.07">&#128279;</a>
+</div>
+<div id="ref-Maus:2014" class="csl-entry" role="listitem">
+<strong>Maus</strong>, V. (2014). <em>Satellite time series analysis for land use/cover change detection</em> [IIASA Interim Report]. IR-14-017. <a target="_blank" href="http://pure.iiasa.ac.at/11251/">&#128279;</a>
+</div>
+<div id="ref-Maus:2011b" class="csl-entry" role="listitem">
+<strong>Maus</strong>, V. (2011). <em>Computational modelling applied to contaminant transport in groundwater</em> [MSc thesis, Federal University of Juiz de Fora]. <a target="_blank" href="https://www2.ufjf.br/pgmc//files/2011/05/dissertacao_victor_maus.pdf">&#128279;</a>
+</div>
+<div id="ref-Maus:2009a" class="csl-entry" role="listitem">
+<strong>Maus</strong>, V. (2009). <em><span class="nocase">Treatment of leachate from municipal solid waste by Fenton process</span></em> [BSc thesis]. Franciscan University.
+</div>
+</div>
+</div>
 </div>
 </div>
 
