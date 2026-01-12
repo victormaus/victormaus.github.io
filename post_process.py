@@ -59,10 +59,33 @@ def process_content(content):
         div_end = entry_match.group(3)
         
         # --- STEP 1: Bold Author Name ---
-        # This remains, as it's the only remaining modification.
         entry_content = re.sub(r'Maus(?![^<]*>)', '<strong>Maus</strong>', entry_content)
 
-        # --- STEP 2: The link insertion logic is removed entirely ---
+        # --- STEP 2: Replace Links with Icon and add target="_blank" ---
+        # Look for <a> tags where the text content looks like a URL (http... or doi.org...)
+        # and replace that text content with a link symbol.
+        
+        # Regex explanation:
+        # <a [^>]+> matches opening anchor tag with attributes
+        # (https?://[^<]+|[^<]*doi\.org[^<]*) matches url-like text inside
+        # </a> closing tag
+        link_pattern = re.compile(
+            r'(<a [^>]*href="[^"]*"[^>]*>)\s*(https?://[^<]+|[^<]*doi\.org[^<]*)\s*(</a>)',
+            re.IGNORECASE
+        )
+        
+        # Replace the matched text (group 2) with the symbol, keeping tags (group 1 & 3)
+        entry_content = link_pattern.sub(r'\1&#128279;\3', entry_content)
+        
+        # --- STEP 3: Ensure all links open in a new tab ---
+        # Find all <a> tags within the entry content and add target="_blank" if missing
+        def add_target_blank(match):
+            tag = match.group(0)
+            if 'target="_blank"' not in tag:
+                return tag.replace('<a ', '<a target="_blank" ')
+            return tag
+
+        entry_content = re.sub(r'<a [^>]+>', add_target_blank, entry_content)
         
         return f"{div_start}{entry_content}{div_end}"
 
@@ -89,7 +112,6 @@ def main():
     else:
         print("Post-process: No HTML changes made.")
 
-    # The bib asset copying remains, as it's still useful.
     copy_bib_assets(file_path)
 
 if __name__ == "__main__":

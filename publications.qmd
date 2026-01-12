@@ -8,7 +8,8 @@ nocite: "@*"
 
 <style>
 /* CSS to Enumerate the Reference List */
-#refs {
+/* Apply counter reset to both the main refs div and our custom refs-other div */
+#refs, #refs-other {
 counter-reset: pub-counter;
 }
 
@@ -30,11 +31,87 @@ text-align: right;
 }
 </style>
 
+::: {.panel-tabset}
 
+## Articles
 
 Publications automatically retrieved from my ORCID profile.
 
 [Download all references (.bib)](assets/references.bib){.btn .btn-outline-primary}
 
 ::: {#refs .refs-ordered}
+:::
+
+## Other publications
+
+[Download other references (.bib)](assets/bib/other_publications.bib){.btn .btn-outline-primary}
+
+```{python}
+#| echo: false
+#| output: asis
+import subprocess
+import os
+import re
+
+# Path to the secondary bibliography
+bib_file = "assets/bib/other_publications.bib"
+# Use the same CSL style as the main document
+csl_url = "http://www.zotero.org/styles/apa-cv"
+
+if os.path.exists(bib_file):
+    # We construct a minimal markdown input that requests all citations
+    input_md = "---\nnocite: '@*'\n---"
+    
+    # We run pandoc explicitly on the other bibliography file
+    # This ensures we get the exact same formatting as the main list
+    cmd = [
+        "pandoc",
+        "--from=markdown",
+        "--to=html",
+        "--citeproc",
+        f"--bibliography={bib_file}",
+        f"--csl={csl_url}"
+    ]
+    
+    try:
+        # Run pandoc to generate the bibliography HTML fragment
+        result = subprocess.run(
+            cmd,
+            input=input_md,
+            capture_output=True,
+            text=True,
+            check=True
+        )
+        html_output = result.stdout
+        
+        # The output contains <div id="refs" ...>. We want to rename it to #refs-other
+        # to avoid ID conflicts and allow separate CSS counter resetting.
+        html_output = re.sub(r'id="refs"', 'id="refs-other"', html_output)
+        
+        # Ensure it has the same classes as the main list for consistent styling
+        # The standard output usually has "references csl-bib-body hanging-indent"
+        # We append "refs-ordered" to match the user's styling hooks
+        if 'class="references csl-bib-body hanging-indent"' in html_output:
+            html_output = html_output.replace(
+                'class="references csl-bib-body hanging-indent"', 
+                'class="references csl-bib-body hanging-indent refs-ordered"'
+            )
+        
+        # Print the HTML directly into the document
+        print(html_output)
+        
+    except subprocess.CalledProcessError as e:
+        print(f"<!-- Error processing other publications: {e} -->")
+        if e.stderr:
+            print(f"<!-- Stderr: {e.stderr} -->")
+        print("<p><em>Could not generate other publications list.</em></p>")
+    except FileNotFoundError:
+        print("<!-- Error: pandoc not found. -->")
+        print("<p><em>Could not generate list (pandoc missing).</em></p>")
+else:
+    print(f"<!-- File not found: {bib_file} -->")
+    print("<p><em>No other publications found.</em></p>")
+
+```
+
 :::
