@@ -8,7 +8,7 @@ import unicodedata
 ORCID_ID = "0000-0002-7385-4723"
 ASSETS_DIR = "assets"
 BIB_SUBDIR = os.path.join(ASSETS_DIR, "bib")
-BIB_FILE = os.path.join(ASSETS_DIR, "references.bib")
+BIB_FILE = os.path.join(ASSETS_DIR, "publications_orcid.bib")
 CACHE_DURATION_HOURS = 24
 
 # Headers
@@ -54,14 +54,6 @@ def ensure_directories():
     if not os.path.exists(BIB_SUBDIR):
         os.makedirs(BIB_SUBDIR)
 
-def is_cache_valid():
-    if not os.path.exists(BIB_FILE):
-        return False
-    file_mod_time = os.path.getmtime(BIB_FILE)
-    if (time.time() - file_mod_time) < (CACHE_DURATION_HOURS * 3600):
-        return True
-    return False
-
 def slugify(text):
     """
     Create a safe filename from a DOI. 
@@ -83,84 +75,149 @@ def cleanup_bibtex_entry(bib_text):
 def main():
     ensure_directories()
 
-    if is_cache_valid():
-        print(f"CACHE HIT: {BIB_FILE} is valid. Skipping download.")
-        return
+    # Skip if output file is fresh (less than CACHE_DURATION_HOURS old)
+    if os.path.exists(BIB_FILE):
+        age_hours = (time.time() - os.path.getmtime(BIB_FILE)) / 3600
+        if age_hours < CACHE_DURATION_HOURS:
+            print(f"Cache is fresh ({age_hours:.1f}h old, limit {CACHE_DURATION_HOURS}h). Skipping ORCID fetch.")
+            return
 
     print(f"Fetching publications for ORCID iD: {ORCID_ID}...")
     publications_to_process = []
 
-    try:
-        # 1. Fetch works (omitted for brevity)
-        orcid_response = requests.get(f"https://pub.orcid.org/v3.0/{ORCID_ID}/works", headers=orcid_headers)
-        orcid_response.raise_for_status()
-        works_data = orcid_response.json()
-        works = works_data.get("group", [])
-        
-        # 2. Extract DOIs (omitted for brevity)
-        for work_group in works:
-            for work_summary in work_group.get("work-summary", []):
-                external_ids = work_summary.get("external-ids", {}).get("external-id", [])
-                doi = None
-                year = 0
-                for ext_id in external_ids:
-                    if ext_id.get("external-id-type") == "doi":
-                        doi = ext_id.get("external-id-value")
-                        pub_date = work_summary.get("publication-date")
-                        if pub_date and pub_date.get("year"):
-                            year_val = pub_date["year"]["value"]
-                            year = int(year_val) if year_val else 0
-                        break
-                if doi:
-                    publications_to_process.append({"doi": doi, "year": year})
-                    break 
+    # 1. Fetch works (omitted for brevity)
+    orcid_response = requests.get(f"https://pub.orcid.org/v3.0/{ORCID_ID}/works", headers=orcid_headers)
+    orcid_response.raise_for_status()
+    works_data = orcid_response.json()
+    works = works_data.get("group", [])
+    
+    # 2. Extract DOIs (omitted for brevity)
+    for work_group in works:
+        if work_group is None:
+            continue
+        for work_summary in work_group.get("work-summary", []):
+            if not work_summary:
+                print("Skipping a None work_summary.")
+                continue
+            external_ids = work_summary.get("external-ids", {}).get("external-id", [])
+            doi = None
+            year = 0
+            for ext_id in external_ids:
+                if ext_id.get("external-id-type") == "doi":
+                    doi = ext_id.get("external-id-value")
+                    pub_date = work_summary.get("publication-date")
+                    if pub_date and pub_date.get("year"):
+                        year_val = pub_date["year"]["value"]
+                        year = int(year_val) if year_val else 0
+                    break
+            if doi:
+                # Append the entire work summary for more context
+                publications_to_process.append(work_summary)
+                break 
+    
+    # 3. Sort by publication year (descending)
+    publications_to_process.sort(
+        key=lambda x: (
+            int(((x.get("publication-date") or {}).get("year") or {}).get("value") or 0)
+        ),
+        reverse=True
+    )
 
-        # 3. Sort (omitted for brevity)
-        publications_to_process.sort(key=lambda x: x.get("year") or 0, reverse=True)
+    # 4. Download BibTeX
+    final_bib_entries = []
+    print(f"Downloading BibTeX for {len(publications_to_process)} publications...")
+    
+    for pub in publications_to_process:
+        doi_info = next((eid for eid in pub.get("external-ids", {}).get("external-id", []) if eid.get("external-id-type") == "doi"), None)
+        if not doi_info:
+            continue
 
-        # 4. Download BibTeX
-        final_bib_entries = []
-        print(f"Downloading BibTeX for {len(publications_to_process)} publications...")
+        doi = doi_info.get("external-id-value")
         
-        for pub in publications_to_process:
-            doi = pub["doi"]
+        try:
+            bib_response = requests.get(f"https://doi.org/{doi}", headers=doi_headers)
+            bib_response.raise_for_status()
+            
             try:
-                bib_response = requests.get(f"https://doi.org/{doi}", headers=doi_headers)
-                bib_response.raise_for_status()
+                bib_response.encoding = 'utf-8'
+                raw_bib_text = bib_response.text.strip()
+            except UnicodeDecodeError:
+                bib_response.encoding = 'iso-8859-1'
+                raw_bib_text = bib_response.text.strip()
                 
-                # Force requests to re-evaluate text using ISO-8859-1 (Latin-1) 
-                # if standard UTF-8 fails. This often resolves misencoded strings
-                # before cleanup. We prioritize UTF-8 detection but fall back.
+            bib_text = cleanup_bibtex_entry(raw_bib_text)
+
+        except requests.exceptions.HTTPError as e:
+            if e.response.status_code == 404:
+                print(f"  DOI {doi} not found. Fetching full metadata from ORCID...")
+                
+                work_path = pub.get("path")
+                if not work_path:
+                    print(f"  Could not find work path for {doi}. Skipping.")
+                    continue
+
                 try:
-                    bib_response.encoding = 'utf-8'
-                    raw_bib_text = bib_response.text.strip()
-                except UnicodeDecodeError:
-                    bib_response.encoding = 'iso-8859-1'
-                    raw_bib_text = bib_response.text.strip()
+                    # Fetch the full work details from ORCID
+                    work_response = requests.get(f"https://pub.orcid.org{work_path}", headers=orcid_headers)
+                    work_response.raise_for_status()
+                    work_data = work_response.json()
                     
-                bib_text = cleanup_bibtex_entry(raw_bib_text)
-                
-                # Save individual file using slugified DOI
-                slug = slugify(doi)
-                individual_path = os.path.join(BIB_SUBDIR, f"{slug}.bib")
-                with open(individual_path, "w", encoding="utf-8") as f:
-                    f.write(bib_text)
-                
-                final_bib_entries.append(bib_text)
-                time.sleep(0.2)
-            except Exception as e:
+                    title = work_data.get("title", {}).get("title", {}).get("value", "No title")
+                    year = work_data.get("publication-date", {}).get("year", {}).get("value", "N.A.")
+                    journal = work_data.get("journal-title", {}).get("value", "N.A.")
+
+                    # Extract and format authors
+                    authors = []
+                    contributors = work_data.get("contributors", {}).get("contributor", [])
+                    for contributor in contributors:
+                        credit_name = contributor.get("credit-name", {}).get("value")
+                        if credit_name:
+                            authors.append(credit_name)
+                    
+                    author_str = " and ".join(authors)
+
+                    slug_title = slugify(title)[:50]
+                    bib_key = f"{slugify(author_str.split(' ')[0])}_{year}"
+                    
+                    bib_text = f"""@article{{{bib_key},
+title = {{{title}}},
+author = {{{author_str}}},
+journal = {{{journal}}},
+year = {{{year}}}
+}}"""
+                except Exception as work_e:
+                    print(f"  Failed to fetch full ORCID data for {doi}: {work_e}")
+                    # Fallback to the simpler placeholder if full metadata fetch fails
+                    title = pub.get("title", {}).get("title", {}).get("value", "No title")
+                    year = pub.get("publication-date", {}).get("year", {}).get("value", "N.A.")
+                    url = pub.get("url", {}).get("value")
+                    slug_title = slugify(title)[:50]
+                    bib_key = f"placeholder_{slug_title}_{year}"
+                    bib_text = f"""@misc{{{bib_key},
+title = {{{title}}},
+author = {{Maus, Victor and others}},
+year = {{{year}}},
+howpublished = {{\\url{{{url}}}}},
+note = {{DOI: {doi} (not yet registered)}}
+}}"""
+
+            else:
                 print(f"  Failed {doi}: {e}")
+                continue
+        
+        # Save individual file using slugified DOI
+        slug = slugify(doi)
+        individual_path = os.path.join(BIB_SUBDIR, f"{slug}.bib")
+        with open(individual_path, "w", encoding="utf-8") as f:
+            f.write(bib_text)
+        
+        final_bib_entries.append(bib_text)
+        time.sleep(0.2)
 
-        # 5. Save master file
-        with open(BIB_FILE, "w", encoding="utf-8") as f:
-            f.write("\n\n".join(final_bib_entries))
-        print(f"Done! Saved to {BIB_FILE}")
-
-    except Exception as e:
-        print(f"Error: {e}")
-        # Ensure file exists to prevent build errors
-        if not os.path.exists(BIB_FILE):
-            open(BIB_FILE, "w").close()
+    # 5. Save master file
+    with open(BIB_FILE, "w", encoding="utf-8") as f:
+        f.write("\n\n".join(final_bib_entries))
+    print(f"Done! Saved to {BIB_FILE}")
 
 if __name__ == "__main__":
     main()

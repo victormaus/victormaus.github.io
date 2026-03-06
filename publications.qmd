@@ -1,6 +1,6 @@
 ---
 title: "Publications"
-bibliography: assets/references.bib
+bibliography: assets/publications_orcid.bib
 csl: http://www.zotero.org/styles/apa-cv
 link-citations: true
 nocite: "@*"
@@ -37,14 +37,14 @@ text-align: right;
 
 Publications automatically retrieved from my ORCID profile.
 
-[Download all references (.bib)](assets/references.bib){.btn .btn-outline-primary}
+[Download all references (.bib)](assets/publications_orcid.bib){.btn .btn-outline-primary}
 
 ::: {#refs .refs-ordered}
 :::
 
 ## Other publications
 
-[Download other references (.bib)](assets/bib/other_publications.bib){.btn .btn-outline-primary}
+[Download other references (.bib)](assets/publications_other.bib){.btn .btn-outline-primary}
 
 ```{python}
 #| echo: false
@@ -54,7 +54,7 @@ import os
 import re
 
 # Path to the secondary bibliography
-bib_file = "assets/bib/other_publications.bib"
+bib_file = "assets/publications_other.bib"
 # Use the same CSL style as the main document
 csl_url = "http://www.zotero.org/styles/apa-cv"
 
