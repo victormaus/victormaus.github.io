@@ -7,12 +7,7 @@ about:
   image-width: 13em
 ---
 
-I lead an interdisciplinary research group in **data science** at the Institute for Ecological Economics, WU Vienna. Supported by competitive national and international funding, most notably an **ERC Consolidator Grant**, my work advances spatial analytics and AI methods by developing **new algorithms and software** that scale to global datasets. These tools transform raw data into spatially explicit environmental metrics, strengthening the foundations of emerging **Earth Intelligence** systems. Among my key contributions are the development of the Time-Weighted Dynamic Time Warping (TWDTW) algorithm for time series classification and pioneering global-scale assessments of mine-specific impacts that reveal critical, previously overlooked knowledge in the sector's environmental footprints. By focusing on **methodological innovation with real-world applications**, my team provides the essential tools and empirical insights needed to monitor global environmental change and support evidence-based sustainability decisions.
-
-<br>
-<a href="/projects/mine_the_gap.html#hiring" style="color: #d9534f; font-weight: bold; text-decoration: none; font-size: 1.1em;">
-  We are hiring!
-</a>
+I lead an interdisciplinary research group in data science at the Institute for Ecological Economics, WU Vienna. With a background in Computational Modelling (MSc) and Earth System Science (PhD), my main research interests are in developing new algorithms and software architectures to meet the scalability requirements of complex spatio-temporal geodata and earth observation. My research is supported by competitive national and international funding, most notably an ERC Consolidator Grant. Among my key contributions are the development of the Time-Weighted Dynamic Time Warping (TWDTW) algorithm for time series classification and the enabling of global-scale analysis, which revealed previously overlooked environmental footprints of mining worldwide. By focusing on the engineering of new algorithms and high-performance software systems, my team provides the essential tools and empirical insights needed to monitor global environmental change and support evidence-based sustainability decisions.
 
 ```{python}
 

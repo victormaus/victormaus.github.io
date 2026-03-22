@@ -127,7 +127,7 @@ def main():
     final_bib_entries = []
     print(f"Downloading BibTeX for {len(publications_to_process)} publications...")
     
-    for pub in publications_to_process:
+    for i, pub in enumerate(publications_to_process):
         doi_info = next((eid for eid in pub.get("external-ids", {}).get("external-id", []) if eid.get("external-id-type") == "doi"), None)
         if not doi_info:
             continue
@@ -146,6 +146,10 @@ def main():
                 raw_bib_text = bib_response.text.strip()
                 
             bib_text = cleanup_bibtex_entry(raw_bib_text)
+            
+            # Regex to find the key and append the counter
+            # Matches '@Type{ExistingKey,' and replaces it with '@Type{ExistingKey_i,
+            bib_text = re.sub(r'^(@\w+\{)([^,]+)', rf'\1\2_{len(publications_to_process)-i}', bib_text)
 
         except requests.exceptions.HTTPError as e:
             if e.response.status_code == 404:
