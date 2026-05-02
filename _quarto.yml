@@ -3,8 +3,7 @@ project:
   pre-render: generate_orcid_bib.py
   post-render: post_process.py
   resources:
-    - assets/talks/
-    - assets/img/
+    - assets/
 
 website:
   title: "Dr. Victor Maus"
