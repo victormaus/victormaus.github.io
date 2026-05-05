@@ -1,0 +1,51 @@
+---
+title: "**Minimal example**"
+subtitle: ".font130[A 4-slide demo of the mtg-slides theme]"
+author: "Your Name · Your Institution"
+date: "2026"
+output:
+  xaringan::moon_reader:
+    chakra: ../../lib/remark-latest.min.js
+    self_contained: false
+    css: [default, ../../lib/theme.css, ../../lib/theme-fonts.css, ../../lib/tachyons-min.css]
+    nature:
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      titleSlideClass: [top, left]
+      slideNumberFormat: "%current%"
+template: ../../lib/default.html
+---
+
+
+
+---
+layout: false
+class: clear
+count: true
+# A clear slide
+
+.font130.font-dark.opac-80[The `.clear` class drops the title bar and lets you put hero content anywhere with absolute positioning.]
+
+
+
+---
+layout: false
+class: outlook-slide
+count: true
+# An outlook slide
+
+.bg-dr-white[
+  .font-dark.opac-80.font250[Big-question framing fits in the translucent panel.]
+]
+
+
+
+---
+layout: false
+class: closing-slide closing-slide-final
+count: false
+# Thank you
+
+.font120.font-dark.opac-80[Replace this text with your contact card.]

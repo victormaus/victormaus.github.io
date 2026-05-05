@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:doi.org)",
+      "WebFetch(domain:meetingorganizer.copernicus.org)",
+      "WebFetch(domain:minethegap.eu)",
+      "Bash(curl -sL https://minethegap.eu/)",
+      "Bash(curl -sL https://minethegap.eu/assets/js/footer.js)",
+      "Bash(Rscript -e 'rmarkdown::render\\(\"index.Rmd\", quiet = TRUE\\)')",
+      "Bash(grep -c '^---$' /home/maus/Cheesebox/TV-workspace/victor/WU/01-Projects/ERC-CoG-2024-MTG/events/EGU2026/CRM-talk/index.Rmd)",
+      "Bash(pandoc --version)",
+      "Bash(Rscript -e 'cat\\(rmarkdown::pandoc_version\\(\\)\\)')",
+      "Bash(curl -sL -H \"Accept: application/vnd.citationstyles.csl+json\" https://doi.org/10.1016/j.jclepro.2025.147437)",
+      "Bash(python3 -c \"import json, sys; d=json.load\\(sys.stdin\\); print\\('TITLE:', d.get\\('title'\\)\\); print\\('YEAR:', \\(d.get\\('issued'\\) or d.get\\('published-print'\\) or d.get\\('published-online'\\) or {}\\).get\\('date-parts'\\)\\); print\\('JOURNAL:', d.get\\('container-title'\\)\\); print\\('VOLUME:', d.get\\('volume'\\)\\); print\\('PAGE:', d.get\\('page'\\)\\); print\\('AUTHORS:'\\); [print\\(' -', a.get\\('given'\\), a.get\\('family'\\)\\) for a in d.get\\('author', []\\)]\")",
+      "Bash(curl -sL \"https://api.crossref.org/works/10.1016/j.jclepro.2025.147437\")",
+      "Bash(python3 -c \"import json, sys; d=json.load\\(sys.stdin\\)['message']; print\\('TITLE:', d.get\\('title', [None]\\)[0]\\); print\\('JOURNAL:', d.get\\('container-title', [None]\\)[0]\\); print\\('VOLUME:', d.get\\('volume'\\)\\); print\\('PAGE:', d.get\\('page'\\)\\); print\\('YEAR:', \\(d.get\\('issued'\\) or d.get\\('published-print'\\) or d.get\\('published-online'\\) or {}\\).get\\('date-parts'\\)\\); print\\('AUTHORS:'\\); [print\\(' -', a.get\\('given'\\), a.get\\('family'\\)\\) for a in d.get\\('author', []\\)]\")",
+      "Bash(curl -sL \"https://api.crossref.org/works/10.48550/arXiv.2604.11656\")",
+      "Bash(python3 -c \"import json, sys; d=json.load\\(sys.stdin\\).get\\('message', {}\\); print\\('TITLE:', d.get\\('title', [None]\\)[0] if d.get\\('title'\\) else None\\); print\\('TYPE:', d.get\\('type'\\)\\); print\\('YEAR:', \\(d.get\\('issued'\\) or d.get\\('posted'\\) or {}\\).get\\('date-parts'\\)\\); print\\('GROUP TITLE:', d.get\\('group-title'\\)\\); print\\('AUTHORS:'\\); [print\\(' -', a.get\\('given'\\), a.get\\('family'\\)\\) for a in d.get\\('author', []\\)]\")",
+      "Bash(curl -sLI \"https://doi.org/10.48550/arXiv.2604.11656\")",
+      "Bash(curl -sL \"https://export.arxiv.org/abs/2604.11656\")",
+      "Bash(curl -sL \"https://arxiv.org/abs/2604.11656\")",
+      "Bash(curl -sL \"https://api.crossref.org/works/10.1038/d41586-023-04090-3\")",
+      "Bash(python3 -c \"import json, sys; d=json.load\\(sys.stdin\\)['message']; print\\('TITLE:', d.get\\('title', [None]\\)[0]\\); print\\('TYPE:', d.get\\('type'\\)\\); print\\('JOURNAL:', d.get\\('container-title', [None]\\)[0]\\); print\\('VOLUME:', d.get\\('volume'\\)\\); print\\('PAGE:', d.get\\('page'\\)\\); print\\('YEAR:', \\(d.get\\('issued'\\) or d.get\\('published-print'\\) or d.get\\('published-online'\\) or {}\\).get\\('date-parts'\\)\\); print\\('AUTHORS:'\\); [print\\(' -', a.get\\('given'\\), a.get\\('family'\\)\\) for a in d.get\\('author', []\\)]\")",
+      "Bash(Rscript -e 'options\\(rmarkdown.pandoc.verbose=TRUE\\); rmarkdown::render\\(\"index.Rmd\", quiet = FALSE\\)')",
+      "Bash(Rscript *)",
+      "Bash(pandoc references.bib -t csljson)",
+      "Bash(pandoc -f markdown -t html5 --citeproc --bibliography=references.bib --csl=libs/mtg-style.csl)",
+      "Bash(grep -oE 'cite-link[^<]*<[^>]*>[^<]*<[^>]*>[^<]{0,80}' /home/maus/Cheesebox/TV-workspace/victor/WU/01-Projects/ERC-CoG-2024-MTG/events/EGU2026/CRM-talk/index.html)"
+    ]
+  }
+}

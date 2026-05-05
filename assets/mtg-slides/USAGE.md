@@ -1,0 +1,300 @@
+# mtg-slides — usage guide
+
+This doc covers everything you need to give a talk: scaffold, write,
+customize, cite, render, and ship. It is intentionally compact;
+each section ends with a one-liner you can copy.
+
+---
+
+## 1. Why three flavors
+
+| flavor | source file              | renders with               | best for                                |
+| ------ | ------------------------ | -------------------------- | --------------------------------------- |
+| rmd    | `index.Rmd`              | `rmarkdown::render()` in R | R figures, ggplot, knitr                |
+| python | `index.md` + `build.py`  | `python build.py`          | matplotlib/plotly figures               |
+| pdf    | `slides.pdf` + `index.qmd` | `quarto render`          | externally-prepared decks (Keynote, …)  |
+
+`rmd` and `python` produce remark.js HTML loading the **same** `theme.css`
++ `default.html`, so visual output is identical. The `pdf` flavor is just
+a thin Quarto landing page that embeds the PDF and exposes metadata to
+the listing.
+
+---
+
+## 2. Create a new talk
+
+```bash
+./assets/mtg-slides/scripts/new-talk.sh talks/20260601-FOO         # rmd
+./assets/mtg-slides/scripts/new-talk.sh talks/20260601-FOO python  # python
+```
+
+This vendors a snapshot of `lib/` into `<talk>/libs/` so future template
+changes will not affect this talk.
+
+What you get:
+
+```
+talks/20260601-FOO/
+├── index.Rmd          (or index.md + build.py + figures.py)
+├── references.bib
+├── custom.css         palette + logo/photo overrides for THIS talk
+├── img/
+└── libs/              vendored snapshot of mtg-slides/lib/
+```
+
+---
+
+## 3. Slide writing reference
+
+Slides are separated by a `---` line. The first chunk after `---` is the
+slide configuration (xaringan / remark.js properties); the body that
+follows is markdown plus the inline class shortcuts.
+
+### Slide layout classes
+
+Place these on `class:` to pick a layout:
+
+| class             | when to use                                                    |
+| ----------------- | -------------------------------------------------------------- |
+| (default content) | normal content slide with H1 title and footer                  |
+| `clear`           | hero slide, drops the title bar (good for full-bleed images)   |
+| `outlook-slide`   | section divider with a single big takeaway                     |
+| `closing-slide`   | "thank you" / closing                                          |
+| `closing-slide closing-slide-final` | last slide; suppresses the footer marker     |
+| `refs-slide`      | bibliography (auto-emitted; you usually don't write this)      |
+
+### Inline class shortcuts (xaringan-style)
+
+```
+.font130[bigger text]
+.opac-80[half-faded text]
+.font-dark[dark text]
+.bg-dr-white[white panel for headline text on a background image]
+.key-point[a single takeaway pinned to the bottom of a content slide]
+.citations[Source: <cite link>]
+```
+
+All `.fontNN[...]` from 50 to 400 are available, plus `.opac-50/70/80`.
+
+### Background image
+
+```markdown
+---
+layout: false
+class: clear
+background-image: url(./img/your-image.png)
+background-size: 120%
+background-position: 70% 30%
+count: true
+# Slide title
+```
+
+### Common patterns
+
+Three-column grid:
+
+```markdown
+.grid-3-2[
+.extension-tile.bg-orange[Item A]
+.extension-tile.bg-blue[Item B]
+.extension-tile.bg-purple[Item C]
+]
+```
+
+A pinned key takeaway at the bottom:
+
+```markdown
+.key-point.font140.font-dark.opac-80[A short, central message.]
+```
+
+A placeholder for a figure you haven't made yet:
+
+```markdown
+<div class="placeholder-box" style="height: 280px;">
+[ Placeholder — figure description ]
+</div>
+```
+
+---
+
+## 4. Citations
+
+Both flavors share the same `references.bib` format and produce the same
+in-body citation rendering and a final auto-generated `# References`
+slide, but the syntax differs slightly:
+
+| flavor | inline cite           |
+| ------ | --------------------- |
+| rmd    | `` `r cite("key")` `` |
+| python | `<<cite:key>>`        |
+
+Pandoc must be on `PATH` (used to convert .bib → CSL-JSON). The `# References`
+slide is appended automatically if at least one cite was used.
+
+---
+
+## 5. Customizing look (per talk)
+
+Every visual choice is in `custom.css`, loaded after `theme.css`. Common cases:
+
+### Re-skin the palette in 4 lines
+
+```css
+:root {
+  --c-accent: #B73239;     /* title color */
+  --c-rule:   #B73239;     /* divider rule */
+  --c-text:   #1A292C;     /* primary text */
+  --slide-footer: "MY-PROJECT";   /* small tag at bottom-left */
+}
+```
+
+### Add a logo to every slide (top-right)
+
+```css
+.my-logo {
+  position: absolute;
+  top: 25px; right: 30px;
+  height: 90px; width: 260px;
+  background: url(./libs/img/logo-erc-eu.png) right top / contain no-repeat;
+}
+```
+
+Then on each slide that should show it: `.my-logo[]`. (Or in YAML
+`date: ".my-logo[]"` to put it on the title slide.)
+
+### Position a portrait on the title slide
+
+```css
+.author-card {
+  position: absolute; bottom: 210px; left: 60px;
+  width: 600px; line-height: 1.3;
+}
+.author-card::before { content: "Your Name"; font-weight: bold; ... }
+.author-card::after  { content: "Your Institution"; ... }
+```
+
+The starter `custom.css` ships these patterns commented out — uncomment to use.
+
+---
+
+## 6. Reusing slides between talks
+
+Three-step recipe:
+
+1. From the source talk's `index.Rmd` / `index.md`, copy the `---`-separated
+   slide block(s) you want.
+2. Copy any referenced images from the source talk's `img/` into the new
+   talk's `img/`.
+3. If the slide depends on a custom decorator class (e.g., `.author-card`),
+   copy that block from the source talk's `custom.css` into the new one.
+
+Because slide blocks are pure markdown + class shortcuts and the theme
+classes (`.font130`, `.bg-dr-white`, `.outlook-slide`, …) are in every
+talk, slides ported across talks render identically.
+
+---
+
+## 7. Render
+
+The site's `quarto render` (and `quarto preview`) auto-renders every talk
+under `assets/talks/<NAME>/` via the `render_talks.py` pre-render hook.
+You almost never need to render a single talk by hand.
+
+```bash
+quarto render                    # rebuild everything that changed
+quarto preview                   # live-reload while editing
+```
+
+The hook is **incremental**: a talk is re-rendered only when *any* file
+in its folder is newer than `index.html`. Override:
+
+```bash
+RENDER_TALKS_FORCE=1 quarto render   # rebuild every talk
+RENDER_TALKS_SKIP=1 quarto render    # skip the talk pass entirely
+```
+
+If you really want to render one talk standalone:
+
+```bash
+Rscript -e 'rmarkdown::render("assets/talks/20260601-FOO/index.Rmd")'   # rmd
+cd assets/talks/20260601-FOO && python3 build.py                        # python
+```
+
+### Live-edit a single talk: `mdpreview`
+
+For tight iteration on one deck, run `mdpreview` from inside the talk
+folder. It auto-detects the flavor, does an initial build, opens the
+deck in your browser, and watches every source file (`.Rmd`/`.md`,
+`.bib`, `custom.css`, `img/`, `libs/`) — saving any of them re-renders
+in ~1 s. Refresh the browser tab to see changes.
+
+```bash
+cd assets/talks/20260506-EGU2026
+mdpreview
+```
+
+Install once:
+
+```bash
+# 1. dependency
+sudo apt install entr            # Debian/Ubuntu
+brew install entr                # macOS
+
+# 2. put mdpreview on PATH (pick one)
+ln -s "$PWD/assets/mtg-slides/scripts/mdpreview" ~/.local/bin/mdpreview
+# or, in ~/.bashrc:
+# export PATH="$HOME/workspace/victormaus.github.io/assets/mtg-slides/scripts:$PATH"
+```
+
+Open the resulting `index.html` in a browser; press `p` for presenter
+notes, `c` for a cloned view, `f` for fullscreen.
+
+### PDF-only talks
+
+For decks made elsewhere (Keynote, PowerPoint, LaTeX Beamer):
+
+```
+assets/talks/20260101-foo/
+├── index.qmd          metadata + embed (start from templates/pdf/index.qmd)
+├── slides.pdf
+└── thumbnail.png
+```
+
+`quarto render` produces `index.html` (PDF embed + listing card); the PDF
+is downloadable. No `render_talks.py` step needed for this flavor.
+
+---
+
+## 8. Updating the template
+
+Because each talk vendors its own `libs/`, updating `assets/mtg-slides/`
+does not affect existing talks. To pull updates into a single talk:
+
+```bash
+cp -r assets/mtg-slides/lib/. talks/<NAME>/libs/
+```
+
+To bulk-update all talks (do this only when you're sure the change is
+safe):
+
+```bash
+for d in talks/*/libs; do cp -r assets/mtg-slides/lib/. "$d/"; done
+```
+
+---
+
+## 9. Troubleshooting
+
+- **Citations show `[? key]`** — the bibtex key is missing from
+  `references.bib`, or pandoc isn't on PATH.
+- **Slide title looks wrong color** — `--c-accent` only colors the
+  title-slide H1; other slides' H1 use `--c-text`. Override
+  `.remark-slide-content h1` in `custom.css` if you want a different rule.
+- **Images don't load** — paths in slide markdown are relative to the
+  talk folder (`./img/foo.png`); paths in CSS are relative to the CSS
+  file's location (so from `custom.css`, use `./libs/img/foo.png` for a
+  template-shared image, `./img/foo.png` for a talk-local one).
+- **Figures regenerated every render** — keep them out of `figures.py`
+  (or run `python build.py --no-figs`).
+- **Old talk broke** — check whether `libs/` was overwritten with a newer
+  template snapshot. Each talk should have its own pinned snapshot.

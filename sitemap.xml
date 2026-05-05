@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://victormaus.github.io/teaching.html</loc>
+    <lastmod>2026-05-02T06:01:18.689Z</lastmod>
+  </url>
+  <url>
     <loc>https://victormaus.github.io/publications.html</loc>
     <lastmod>2026-05-02T06:01:18.689Z</lastmod>
   </url>
   <url>
     <loc>https://victormaus.github.io/projects.html</loc>
-    <lastmod>2026-05-02T06:01:18.689Z</lastmod>
-  </url>
-  <url>
-    <loc>https://victormaus.github.io/projects/mine_the_gap.html</loc>
-    <lastmod>2026-05-02T06:01:18.689Z</lastmod>
-  </url>
-  <url>
-    <loc>https://victormaus.github.io/cv.html</loc>
-    <lastmod>2026-05-02T06:01:18.688Z</lastmod>
+    <lastmod>2026-05-05T08:57:11.529Z</lastmod>
   </url>
   <url>
     <loc>https://victormaus.github.io/index.html</loc>
+    <lastmod>2026-05-02T06:01:18.688Z</lastmod>
+  </url>
+  <url>
+    <loc>https://victormaus.github.io/assets/mtg-slides/templates/pdf/index.html</loc>
+    <lastmod>2026-05-05T12:40:07.175Z</lastmod>
+  </url>
+  <url>
+    <loc>https://victormaus.github.io/cv.html</loc>
     <lastmod>2026-05-02T06:01:18.688Z</lastmod>
   </url>
   <url>
@@ -25,7 +29,11 @@
     <lastmod>2026-05-02T06:01:18.688Z</lastmod>
   </url>
   <url>
-    <loc>https://victormaus.github.io/teaching.html</loc>
+    <loc>https://victormaus.github.io/projects/mine_the_gap.html</loc>
     <lastmod>2026-05-02T06:01:18.689Z</lastmod>
+  </url>
+  <url>
+    <loc>https://victormaus.github.io/talks.html</loc>
+    <lastmod>2026-05-05T12:39:18.074Z</lastmod>
   </url>
 </urlset>
