@@ -4,5 +4,5 @@ listing:
   contents: projects
   sort: "date desc"
   type: grid
-  fields: [image, title, subtitle, date] # Added this line
+  fields: [image, title, subtitle, date]
 ---

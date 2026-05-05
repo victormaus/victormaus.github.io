@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+# mdpreview — re-render an mtg-slides talk every time you save.
+#
+# Run from inside a talk folder; auto-detects flavor:
+#   index.Rmd                 → Rscript -e 'rmarkdown::render(...)'
+#   build.py + index.md       → python3 build.py
+#
+# Opens index.html in the default browser on first build. Refresh the
+# tab after each save (or install a browser auto-reload extension).
+#
+# Requires: entr  (Debian/Ubuntu: sudo apt install entr; macOS: brew install entr)
+
+set -euo pipefail
+
+# ---- detect flavor ------------------------------------------------------
+
+if [ -f "index.Rmd" ]; then
+  CMD='Rscript -e "rmarkdown::render(\"index.Rmd\", quiet = TRUE)"'
+  WHAT="index.Rmd"
+elif [ -f "build.py" ] && [ -f "index.md" ]; then
+  CMD='python3 build.py'
+  WHAT="index.md"
+else
+  echo "mdpreview: no index.Rmd or build.py+index.md in $(pwd)" >&2
+  echo "Run mdpreview from inside a talk folder." >&2
+  exit 1
+fi
+
+if ! command -v entr >/dev/null 2>&1; then
+  echo "mdpreview: 'entr' not found." >&2
+  echo "  Debian/Ubuntu: sudo apt install entr" >&2
+  echo "  macOS:         brew install entr" >&2
+  exit 1
+fi
+
+# ---- initial build + open browser --------------------------------------
+
+echo "[mdpreview] initial build of $WHAT…"
+eval "$CMD"
+
+open_in_browser() {
+  local url="$1"
+  # 1. honor $BROWSER if set and resolvable
+  if [ -n "${BROWSER:-}" ] && command -v "$BROWSER" >/dev/null 2>&1; then
+    "$BROWSER" "$url" >/dev/null 2>&1 &
+    return
+  fi
+  # 2. try common browsers in preference order
+  for b in google-chrome chrome firefox chromium-browser chromium brave-browser; do
+    if command -v "$b" >/dev/null 2>&1; then
+      "$b" "$url" >/dev/null 2>&1 &
+      return
+    fi
+  done
+  # 3. macOS fallback
+  if command -v open >/dev/null 2>&1; then
+    open "$url" >/dev/null 2>&1 &
+    return
+  fi
+  # 4. last resort — system mime handler (may pick wrong app)
+  if command -v xdg-open >/dev/null 2>&1; then
+    xdg-open "$url" >/dev/null 2>&1 &
+    return
+  fi
+  echo "[mdpreview] no browser found; open index.html manually" >&2
+}
+
+[ -f "index.html" ] && open_in_browser "index.html"
+
+# ---- watch loop --------------------------------------------------------
+
+echo "[mdpreview] watching for changes — Ctrl+C to exit"
+echo "[mdpreview] (refresh the browser tab after each save)"
+
+REBUILD="$CMD && echo \"[mdpreview] rebuilt \$(date +%H:%M:%S)\""
+
+{
+  [ -f index.Rmd ]      && echo index.Rmd
+  [ -f index.md ]       && echo index.md
+  [ -f build.py ]       && echo build.py
+  [ -f figures.py ]     && echo figures.py
+  [ -f references.bib ] && echo references.bib
+  [ -f custom.css ]     && echo custom.css
+  [ -d img ]            && find img  -type f
+  [ -d libs ]           && find libs -type f \
+                              \( -name '*.css' -o -name '*.js' \
+                              -o -name '*.html' -o -name '*.R' \)
+} | entr -s "$REBUILD"

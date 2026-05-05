@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>MINE-THE-GAP</title>
+    <meta charset="utf-8" />
+    <meta name="author" content=".pi-maus[]" />
+    <script src="index_files/header-attrs-2.31/header-attrs.js"></script>
+    <link href="index_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="libs/theme.css" type="text/css" />
+    <link rel="stylesheet" href="libs/theme-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="libs/tachyons-min.css" type="text/css" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: top, left, title-slide
+
+.title[
+# <strong>MINE-THE-GAP</strong>
+]
+.subtitle[
+## .font130[Satellite Earth Observation &amp; AI to Map Global Mining Footprints and Support CRM Transparency]
+]
+.author[
+### .pi-maus[]
+]
+.date[
+### .erc-logo-title-right[].wu-logo-huw-mtg[].mtg-illustration[].egu-session-info[EGU General Assembly 2026<br>Session ERE4.3 — Towards Responsible and Innovative<br>Critical Raw Materials Supply<br>Wed 6 May, 17:05–17:15 · Room -2.43]
+]
+
+---
+
+layout: false
+class: clear inverse
+background-image: url(./img/global-mining-map.png)
+background-size: cover
+background-position: center
+count: true
+
+
+
+
+&lt;!-- ###################################################### Global mining footprint --&gt;
+# Global mining land footprint
+.citations[&lt;a class="cite-link" href="https://doi.org/10.1038/s41597-022-01547-4" target="_blank" rel="noopener"&gt;Maus et al. (2022) &lt;em&gt;Scientific Data&lt;/em&gt;&lt;/a&gt;]
+???
+- The mining sector is in the spotlight because of the surge in demand for Critical Raw Materials
+- This is the global footprint of mining as we mapped it from satellite imagery
+- More than 100,000 sites worldwide — open pits, waste rock piles, tailings dams
+- It is the geographical scaffolding on which everything else in this talk builds
+
+
+
+&lt;!-- ###################################################### Knowledge Gap --&gt;
+---
+layout: false
+class: clear
+background-image: url(./img/gap_map-red.png)
+background-size: 120%
+background-position: 70% 30%
+count: true
+# Lack of spatial data
+.citations[&lt;a class="cite-link" href="https://doi.org/10.1038/d41586-023-04090-3" target="_blank" rel="noopener"&gt;Maus &amp;amp; Werner (2024) &lt;em&gt;Nature&lt;/em&gt;&lt;/a&gt;]
+.bg-dr-white[
+  .font-dark.opac-80.font180[Over half of mining areas lack production data, and information on extractive waste is even scarcer]
+]
+???
+- And yet, when we look at the global picture, more than half of the operating mines worldwide lack basic production data
+- the gap is indiscriminate — it occurs across commodities and locations
+- Reports are largely incomplete and voluntary
+- Information on tailings dams, waste rock, and waste volumes — directly relevant to this session — is even scarcer
+
+
+
+&lt;!-- ##################################################### Approach --&gt;
+---
+layout: false
+class:
+count: true
+# MINE-THE-GAP's aim
+
+&lt;img src="./img/MINE-THE-GAP-aim.png" height="140" style="position: absolute; top: 6em; left: 50%; transform: translate(-50%, 0%);"&gt;
+
+&lt;img src="./img/MINE-THE-GAP-innovation.png" height="170" style="position: absolute; top: 14em; left: 50%; transform: translate(-50%, 0%);"&gt;
+
+.key-point.font140.font-dark.opac-80[Integrate multi-sensor satellite Earth observation data using Artificial Intelligence to produce new mining indicators at global scale]
+
+???
+- Our approach pairs the global, continuous coverage of operational satellites
+- with higher-precision data sources that anchor the training of AI models
+- I am keeping the methodological details deliberately at this level today — the project is just starting and we want to give the methods room to mature before we share them in detail
+
+
+
+&lt;!-- ##################################################### Mining data integration --&gt;
+---
+layout: false
+class:
+count: true
+# Mining data integration
+
+&lt;img src="./img/mine_clustering_method.png" height="340" style="position: absolute; top: 7em; left: 50%; transform: translate(-50%, 0%);"&gt;
+
+.key-point.font130.font-dark.opac-80[Unsupervised clustering to link satellite-derived mine land-use and mine operation data reduces subjectivity and increases the linking accuracy]
+.citations[&lt;a class="cite-link" href="https://doi.org/10.1016/j.jclepro.2025.147437" target="_blank" rel="noopener"&gt;Maus (2026) &lt;em&gt;Journal of Cleaner Production&lt;/em&gt;&lt;/a&gt;  ·  &lt;a class="cite-link" href="https://arxiv.org/abs/2604.11656" target="_blank" rel="noopener"&gt;Maus &amp;amp; Borin (2026) &lt;em&gt;arXiv preprint arXiv:2604.11656&lt;/em&gt;&lt;/a&gt;]
+???
+- Mining data come from many sources — corporate reports, regulatory registers, geological surveys, satellite-derived inventories
+- We integrate them via scalable hierarchical clustering on geographic distance
+- The result is a single, site-level inventory consistent across data providers
+
+
+
+&lt;!-- ##################################################### Commodity-specific land use --&gt;
+---
+layout: false
+class:
+count: true
+# Commodity-specific mining land use
+
+.col-fig-gold[
+&lt;img src="./img/mining_commodity_landuse.png"&gt;&lt;/img&gt;
+]
+
+.col-msg-gold[
+.font130.font-dark.opac-80[
+- Integrated data sources reveal a total of 145,738.1 km² of extractive land globally
+- Coal and gold together account for over 43% of global mine land area
+- ~27% of mining land could not be linked to a specific commodity
+]
+]
+
+.citations[&lt;a class="cite-link" href="https://doi.org/10.1016/j.jclepro.2025.147437" target="_blank" rel="noopener"&gt;Maus (2026) &lt;em&gt;Journal of Cleaner Production&lt;/em&gt;&lt;/a&gt;]
+???
+- A data-driven approach to mapping global mining land use by commodity
+- This connects the spatial footprint to its underlying economic driver — what is mined where
+- Foundation for downstream impact accounting along the CRM value chain
+
+&lt;!-- ##################################################### Volumetric scale --&gt;
+---
+layout: false
+class:
+count: true
+# Volumetric assessment
+
+.col-fig[
+&lt;img src="./img/volumetric_changes.png" /&gt;
+]
+
+.col-msg[
+.font120.font-dark.opac-80[According to the DEM Change, excavations within mining sites total **~279 Bn m³** while deposited materials total **~236 Bn m³** globally (2011–2022)]
+]
+
+.citations[&lt;span class="cite-link"&gt;Moudrý et al. (2026) &lt;em&gt;Under review&lt;/em&gt;&lt;/span&gt;  ·  &lt;a class="cite-link" href="https://doi.org/10.1109/IGARSS46834.2022.9883612" target="_blank" rel="noopener"&gt;Lachaise et al. (2022) &lt;em&gt;IGARSS 2022 – 2022 IEEE IGARSS&lt;/em&gt;&lt;/a&gt;]
+???
+- Recent work that I am co-authoring shows the staggering scale of material displacement from surface mining
+- Around 279 billion cubic metres extracted, 236 billion deposited, in just over a decade
+- Extractive waste deposits are a key part of this picture and a frontier for valorisation
+- But the methods behind these numbers do not yet scale consistently to individual sites — that is the gap we want to close
+
+
+
+&lt;!-- ##################################################### Closing slide --&gt;
+---
+layout: false
+class: closing-slide closing-slide-final
+count: true
+# Towards CRM transparency
+
+.font100.font-dark.opac-80[
+&lt;ul style="line-height: 44px;"&gt;
+&lt;li&gt;Methods: Independent, global-scale verification of corporate activities&lt;/li&gt;
+&lt;li&gt;Reporting: Spatial inventory of extractive waste deposits&lt;/li&gt;
+&lt;li&gt;Open science: data and methods sharing for science and decision-making&lt;/li&gt;
+&lt;/ul&gt;
+]
+
+.font130.font-dark.opac-80[
+**Victor Wegner Maus**&lt;br&gt;
+[victor.maus@wu.ac.at](mailto:victor.maus@wu.ac.at)&lt;br&gt;
+Vienna University of Economics and Business
+]
+
+.qr-code-final[]
+.qr-code-label[maps.minethegap.eu]
+
+.erc-eu-logo-closing[]
+.funding-footnote[
+Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Research Council Executive Agency. Neither the European Union nor the granting authority can be held responsible for them.
+&lt;br&gt;&lt;br&gt;
+This work is supported by European Research Council (ERC) project MINE-THE-GAP (grant agreement no. 101170578 — [https://doi.org/10.3030/101170578](https://doi.org/10.3030/101170578)).
+]
+
+???
+- Thank you — and I welcome your questions
+
+
+
+&lt;!-- ##################################################### References --&gt;
+---
+layout: false
+class: refs-slide
+count: true
+# References
+
+&lt;div id="refs"&gt;
+&lt;div class="csl-entry"&gt;Lachaise, M., Gonzalez, C., Rizzoli, P., Schweibhelm, B., &amp;amp; Zink, M. (2022). The new tandem-x DEM change maps product. &lt;em&gt;IGARSS 2022 – 2022 IEEE IGARSS&lt;/em&gt;, 5432-5435. &lt;a href="https://doi.org/10.1109/IGARSS46834.2022.9883612" target="_blank" rel="noopener"&gt;https://doi.org/10.1109/IGARSS46834.2022.9883612&lt;/a&gt;&lt;/div&gt;
+&lt;div class="csl-entry"&gt;Maus, V., Giljum, S., Silva, D. M., Gutschlhofer, J., Rosa, R. P., Luckeneder, S., Gass, S. L. B., Lieber, M., &amp;amp; McCallum, I. (2022). An update on global mining land use. &lt;em&gt;Scientific Data&lt;/em&gt;, 9, 433. &lt;a href="https://doi.org/10.1038/s41597-022-01547-4" target="_blank" rel="noopener"&gt;https://doi.org/10.1038/s41597-022-01547-4&lt;/a&gt;&lt;/div&gt;
+&lt;div class="csl-entry"&gt;Maus, V., &amp;amp; Werner, T. T. (2024). Impacts for half of the world’s mining areas are undocumented. &lt;em&gt;Nature&lt;/em&gt;, 625, 26-29. &lt;a href="https://doi.org/10.1038/d41586-023-04090-3" target="_blank" rel="noopener"&gt;https://doi.org/10.1038/d41586-023-04090-3&lt;/a&gt;&lt;/div&gt;
+&lt;div class="csl-entry"&gt;Maus, V. (2026). A data-driven approach to mapping global commodity-specific mining land-use. &lt;em&gt;Journal of Cleaner Production&lt;/em&gt;, 540, 147437. &lt;a href="https://doi.org/10.1016/j.jclepro.2025.147437" target="_blank" rel="noopener"&gt;https://doi.org/10.1016/j.jclepro.2025.147437&lt;/a&gt;&lt;/div&gt;
+&lt;div class="csl-entry"&gt;Maus, V., &amp;amp; Borin, V. P. (2026). Scalable exact hierarchical agglomerative clustering via sparse geographic distance graphs. &lt;em&gt;arXiv preprint arXiv:2604.11656&lt;/em&gt;. &lt;a href="https://arxiv.org/abs/2604.11656" target="_blank" rel="noopener"&gt;https://arxiv.org/abs/2604.11656&lt;/a&gt;&lt;/div&gt;
+&lt;div class="csl-entry"&gt;Moudrý, V., Gdulová, K., Maus, V., Cord, A. F., Lachaise, M., Pracná, P., Alekseenko, A. V., &amp;amp; Svobodová, K. (2026). Quantifying global material displacement from surface mining. &lt;em&gt;Under review&lt;/em&gt;.&lt;/div&gt;
+&lt;/div&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="./libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "ratio": "16:9",
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

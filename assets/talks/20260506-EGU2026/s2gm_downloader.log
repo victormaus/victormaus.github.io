@@ -1,0 +1,15 @@
+2026-05-05T14:54:41.10 [S2GM][downloader][ipc] INFO Initialising renderer IPC's
+2026-05-05T14:54:42.0 [S2GM][downloader][ipc] INFO Main invoke [SUCCESS] via MAIN_API_READY_RENDERER
+2026-05-05T14:54:42.0 [S2GM][downloader][App] INFO Initialising renderer
+2026-05-05T14:54:42.0 [S2GM][downloader][versioning] INFO Fetching version manifest
+2026-05-05T14:54:42.0 [S2GM][downloader][App] INFO Listening to deeplink
+2026-05-05T14:54:55.5 [S2GM][downloader][ipc] INFO Initialising renderer IPC's
+2026-05-05T14:54:55.5 [S2GM][downloader][ipc] INFO Main invoke [SUCCESS] via MAIN_API_READY_RENDERER
+2026-05-05T14:54:55.6 [S2GM][downloader][App] INFO Initialising renderer
+2026-05-05T14:54:55.6 [S2GM][downloader][versioning] INFO Fetching version manifest
+2026-05-05T14:54:55.6 [S2GM][downloader][App] INFO Listening to deeplink
+2026-05-05T14:56:43.9 [S2GM][downloader][ipc] INFO Initialising renderer IPC's
+2026-05-05T14:56:43.10 [S2GM][downloader][ipc] INFO Main invoke [SUCCESS] via MAIN_API_READY_RENDERER
+2026-05-05T14:56:43.10 [S2GM][downloader][App] INFO Initialising renderer
+2026-05-05T14:56:43.10 [S2GM][downloader][versioning] INFO Fetching version manifest
+2026-05-05T14:56:43.10 [S2GM][downloader][App] INFO Listening to deeplink

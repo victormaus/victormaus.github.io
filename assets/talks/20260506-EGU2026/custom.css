@@ -1,0 +1,138 @@
+/* =============================================================
+   EGU 2026 talk — overrides on top of libs/theme.css
+   ============================================================= */
+
+
+/* --- Palette / footer ------------------------------------------------ */
+
+:root {
+  --slide-footer: "MINE-THE-GAP";
+}
+
+
+/* --- Title slide: author card (used as .pi-maus[]) ------------------ */
+
+.pi-maus {
+  position: absolute;
+  bottom: 180px;
+  left: 60px;
+  width: 600px;
+  height: 70px;
+  line-height: 1.3;
+}
+.pi-maus::before {
+  display: block;
+  content: "Victor Wegner Maus";
+  font-size: 22px;
+  font-weight: bold;
+  color: #1A292C;
+  opacity: 0.85;
+}
+.pi-maus::after {
+  display: block;
+  content: "Vienna University of Economics and Business";
+  font-size: 20px;
+  font-weight: 300;
+  color: #1A292C;
+  opacity: 0.75;
+  margin-top: 4px;
+}
+
+
+/* --- Title slide: MTG illustration (top right) ---------------------- */
+
+.mtg-illustration {
+  position: absolute;
+  top: 240px;
+  right: 80px;
+  height: 410px;
+  width: 305px;
+  background: url(./libs/img/mtg-title-illustration.svg) no-repeat;
+  background-size: contain;
+}
+
+
+/* --- Title slide: ERC + EU logo (top right) ------------------------- */
+
+.erc-logo-title-right {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  height: 90px;
+  width: 260px;
+  background: url(./libs/img/logo-erc-eu.png) right top / contain no-repeat;
+}
+
+
+/* --- WU logo bottom-left footer ------------------------------------- */
+
+.wu-logo-huw-mtg {
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+  height: 70px;
+  width: 210px;
+  opacity: 0.5;
+  background: url(./libs/img/logo-wu.svg) no-repeat;
+  background-size: contain;
+}
+
+
+/* --- EGU session info (title slide bottom-right) -------------------- */
+
+.egu-session-info {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  font-size: 70%;
+  opacity: 0.6;
+  color: #1A292C;
+  text-align: right;
+  line-height: 1.3;
+}
+
+
+/* --- Closing slide: QR code + funding footnote ---------------------- */
+
+.qr-code-final {
+  position: absolute;
+  top: 200px;
+  right: 100px;
+  height: 280px;
+  width: 280px;
+  background: url(https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https%3A%2F%2Fmaps.minethegap.eu%2F) no-repeat;
+  background-size: contain;
+}
+
+.qr-code-label {
+  position: absolute;
+  top: 490px;
+  right: 100px;
+  width: 280px;
+  text-align: center;
+  font-size: 90%;
+  font-weight: bold;
+  color: #1A292C;
+  opacity: 0.8;
+}
+
+.erc-eu-logo-closing {
+  position: absolute;
+  bottom: 110px;
+  left: 60px;
+  height: 60px;
+  width: 220px;
+  background: url(./libs/img/logo-erc-eu.png) bottom left / contain no-repeat;
+}
+
+.funding-footnote {
+  position: absolute;
+  bottom: 25px;
+  left: 60px;
+  right: 380px;
+  font-size: 50%;
+  line-height: 1.3;
+  opacity: 0.65;
+  color: #1A292C;
+  text-align: left;
+}

@@ -1,0 +1,94 @@
+---
+title: "**Talk title**"
+subtitle: ".font130[A short subtitle goes here]"
+author: ".author-card[]"
+date: ".meta-info[Venue · Date · Session info]"
+notes: |
+  <ul>
+  <li>One-line speaker note for the title slide.
+  </ul>
+output:
+  xaringan::moon_reader:
+    chakra: ./libs/remark-latest.min.js
+    self_contained: false
+    css: [default, ./libs/theme.css, ./libs/theme-fonts.css, ./libs/tachyons-min.css, ./custom.css]
+    nature:
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      titleSlideClass: [top, left]
+      slideNumberFormat: "%current%"
+template: ./libs/default.html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup-citations, include=FALSE}
+source("./libs/cite-helper.R")
+mtg_init_citations("references.bib")
+```
+
+
+
+<!-- ##################################################### Section heading -->
+---
+layout: false
+class: clear
+background-image: url(./img/your-background.png)
+background-size: 120%
+background-position: 70% 30%
+count: true
+# A first content slide
+.citations[Source: `r cite("citekey_one")`]
+???
+- Speaker note: open with the framing point.
+
+
+
+<!-- ##################################################### Outlook -->
+---
+layout: false
+class: outlook-slide
+count: true
+# Research question
+
+.bg-dr-white[
+  .font-dark.opac-80.font250[A single-line question, takeaway, or framing.]
+]
+???
+- Speaker note for the outlook slide.
+
+
+
+<!-- ##################################################### Closing slide -->
+---
+layout: false
+class: closing-slide closing-slide-final
+count: false
+# Thank you
+
+.font120.font-dark.opac-80[
+**Your Name**<br>
+[your.email@example.org](mailto:your.email@example.org)<br>
+Your Institution
+]
+
+???
+- Thank you — I welcome questions.
+
+
+
+<!-- ##################################################### References -->
+```{r refs-slide, results='asis', echo=FALSE}
+if (has_citations()) {
+  cat("---\n")
+  cat("layout: false\n")
+  cat("class: refs-slide\n")
+  cat("count: false\n")
+  cat("# References\n\n")
+  cat('<div id="refs">\n')
+  cat(bibliography())
+  cat("\n</div>\n")
+}
+```

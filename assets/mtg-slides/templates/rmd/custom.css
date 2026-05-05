@@ -1,0 +1,131 @@
+/* =============================================================
+   Per-talk overrides.
+   This file is loaded *after* libs/theme.css so anything here
+   wins. Use it for:
+     • palette tweaks (override CSS variables in :root)
+     • talk-specific logos, photos, illustrations (positioned
+       absolutely at fixed pixels so they appear on every slide
+       you opt into via .my-class[])
+     • a slide-footer marker (e.g., the project name)
+   Examples below are commented out — uncomment what you want.
+   ============================================================= */
+
+
+/* --- 1. Palette / branding overrides ------------------------ */
+
+/* :root {
+     --c-accent:     #F6AE2D;
+     --c-rule:       #EB811B;
+     --slide-footer: "MY-TALK";
+   } */
+
+
+/* --- 2. Title-slide author card ----------------------------- */
+/* Use as: .author-card[] inside the YAML 'author:' field.      */
+
+/* .author-card {
+     position: absolute;
+     bottom: 210px;
+     left: 60px;
+     width: 600px;
+     height: 70px;
+     line-height: 1.3;
+   }
+   .author-card::before {
+     display: block;
+     content: "Your Name";
+     font-size: 22px;
+     font-weight: bold;
+     color: #1A292C;
+     opacity: 0.85;
+   }
+   .author-card::after {
+     display: block;
+     content: "Your Institution";
+     font-size: 20px;
+     font-weight: 300;
+     color: #1A292C;
+     opacity: 0.75;
+     margin-top: 4px;
+   } */
+
+
+/* --- 3. Title-slide illustration (top-right) --------------- */
+
+/* .talk-illustration {
+     position: absolute;
+     top: 240px;
+     right: 80px;
+     height: 410px;
+     width: 305px;
+     background-repeat: no-repeat;
+     background-size: contain;
+     background-image: url(./libs/img/mtg-title-illustration.svg);
+   } */
+
+
+/* --- 4. Title-slide meta info (bottom-right) --------------- */
+/* Use as: .meta-info[Venue · Date · Session info]            */
+
+/* .meta-info {
+     position: absolute;
+     bottom: 20px;
+     right: 30px;
+     font-size: 70%;
+     opacity: 0.6;
+     color: #1A292C;
+     text-align: right;
+     line-height: 1.3;
+   } */
+
+
+/* --- 5. ERC + EU funding logo (title slide top-right) ----- */
+
+/* .erc-logo-title-right {
+     position: absolute;
+     top: 25px;
+     right: 30px;
+     height: 90px;
+     width: 260px;
+     background-repeat: no-repeat;
+     background-size: contain;
+     background-position: top right;
+     background-image: url(./libs/img/logo-erc-eu.png);
+   } */
+
+
+/* --- 6. Closing slide: QR code + funding footnote --------- */
+
+/* .qr-code {
+     position: absolute;
+     top: 200px;
+     right: 100px;
+     height: 280px;
+     width: 280px;
+     background-repeat: no-repeat;
+     background-size: contain;
+     background-image: url(https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https%3A%2F%2Fyour-link.example.org%2F);
+   }
+   .qr-code-label {
+     position: absolute;
+     top: 490px;
+     right: 100px;
+     width: 280px;
+     text-align: center;
+     font-size: 90%;
+     font-weight: bold;
+     color: #1A292C;
+     opacity: 0.8;
+   } */
+
+/* .funding-footnote {
+     position: absolute;
+     bottom: 25px;
+     left: 60px;
+     right: 380px;
+     font-size: 50%;
+     line-height: 1.3;
+     opacity: 0.65;
+     color: #1A292C;
+     text-align: left;
+   } */

@@ -1,7 +1,12 @@
 project:
   type: website
-  pre-render: generate_orcid_bib.py
+  pre-render:
+    - generate_orcid_bib.py
+    - render_talks.py
   post-render: post_process.py
+  render:
+    - "*.qmd"
+    - "assets/talks/**/*.qmd"
   resources:
     - assets/
 
@@ -15,10 +20,8 @@ website:
         text: Publications
       - href: projects.qmd
         text: Projects
-      - href: teaching.qmd
-        text: Teaching
-      - href: cv.qmd
-        text: CV
+      - href: talks.qmd
+        text: Talks
     right:
       - icon: github
         href: https://github.com/vwmaus
