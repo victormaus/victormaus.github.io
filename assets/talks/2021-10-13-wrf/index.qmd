@@ -1,0 +1,17 @@
+---
+title: "Coupling Mining and Material Footprints"
+subtitle: "World Resources Forum 2021"
+date: "2021-10-13"
+image: ../img/wu-coal-map.png
+categories: [WRF, mining, MRIO]
+format:
+  html:
+    toc: false
+---
+
+[Open the PDF →](slides.pdf){.btn .btn-primary}
+
+<object data="slides.pdf" type="application/pdf" width="100%" height="700px">
+  <p>Your browser does not support inline PDFs —
+     <a href="slides.pdf">download the slides</a>.</p>
+</object>

@@ -1,0 +1,17 @@
+---
+title: "Mining and Material Footprints"
+subtitle: "ISIE-SEM 2022"
+date: "2022-09-21"
+image: ../img/fineprint-three-country-example.png
+categories: [ISIE, mining, MRIO]
+format:
+  html:
+    toc: false
+---
+
+[Open the PDF →](slides.pdf){.btn .btn-primary}
+
+<object data="slides.pdf" type="application/pdf" width="100%" height="700px">
+  <p>Your browser does not support inline PDFs —
+     <a href="slides.pdf">download the slides</a>.</p>
+</object>

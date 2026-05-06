@@ -1,0 +1,16 @@
+---
+title: "Overcoming Data Scarcity in Land-use Monitoring"
+subtitle: "Time-Weighted Dynamic Time Warping (TWDTW) — Open Earth Monitor"
+date: "2023-10-06"
+image: ../img/twdtw.png
+categories: [OEM, methods, TWDTW]
+path: slides.html
+format:
+  html:
+    page-layout: full
+    toc: false
+---
+
+[Open the slides →](slides.html){.btn .btn-primary target="_blank"}
+
+<iframe src="slides.html" width="100%" height="700px" style="border: 0;"></iframe>
