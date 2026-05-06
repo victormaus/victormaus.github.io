@@ -1,6 +1,12 @@
 ---
 title: "**Talk title**"
 subtitle: ".font130[A short subtitle goes here]"
+listing:                              # consumed by build_talks_listing.py
+  # title: "Override card title"      # optional — defaults to the slide title above
+  subtitle: "Venue · Date · Session info"
+  date: "2026-01-01"
+  image: img/thumbnail.png            # path relative to this talk folder
+  categories: [conference, topic]
 author: ".author-card[]"
 date: ".meta-info[Venue · Date · Session info]"
 notes: |

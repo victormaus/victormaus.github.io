@@ -1,0 +1,16 @@
+---
+title: "Global Mining Indicators from Satellite Imagery"
+subtitle: "Future Earth — Satellite EO for sustainability indicators in mining"
+date: "2025-02-21"
+image: img/erc.jpg
+categories: [Future Earth, mining, EO]
+path: slides.html
+format:
+  html:
+    page-layout: full
+    toc: false
+---
+
+[Open the slides →](slides.html){.btn .btn-primary target="_blank"}
+
+<iframe src="slides.html" width="100%" height="700px" style="border: 0;"></iframe>

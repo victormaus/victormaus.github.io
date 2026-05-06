@@ -2,6 +2,12 @@
 title: "**MINE-THE-GAP**"
 subtitle: ".font165[Where, when, what, and how much is mined]"
 # subtitle: ".font114[Timely, locally relevant, and globally trustworthy mine-level data]"
+listing:                              # consumed by build_talks_listing.py
+  title: "MINE-THE-GAP — ERC interview"
+  subtitle: "Where, when, what, and how much is mined — ERC CoG 2024 interview presentation"
+  date: "2024-09-25"
+  image: img/MINE-THE-GAP-aim.png
+  categories: [ERC, MTG, mining, EO]
 author: ".pi-photo-huw[].pi-maus[]"
 date: ".wu-logo-huw-mtg[].mtg-illustration[]"
 notes: |

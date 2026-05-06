@@ -1,10 +1,9 @@
 ---
-# Front-matter doubles as listing metadata (consumed by build_talks_listing.py).
-title: "Talk title"
-subtitle: "Venue / context"
-date: "2026-01-01"
-image: thumbnail.png            # path relative to this folder
-categories: [conference, topic]
+title: "Mining and Material Footprints"
+subtitle: "ISIE-SEM 2022"
+date: "2022-09-21"
+image: ../img/fineprint-three-country-example.png
+categories: [ISIE, mining, MRIO]
 format:
   html:
     toc: false

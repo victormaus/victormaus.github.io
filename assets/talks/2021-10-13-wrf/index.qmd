@@ -1,10 +1,9 @@
 ---
-# Front-matter doubles as listing metadata (consumed by build_talks_listing.py).
-title: "Talk title"
-subtitle: "Venue / context"
-date: "2026-01-01"
-image: thumbnail.png            # path relative to this folder
-categories: [conference, topic]
+title: "Coupling Mining and Material Footprints"
+subtitle: "World Resources Forum 2021"
+date: "2021-10-13"
+image: ../img/wu-coal-map.png
+categories: [WRF, mining, MRIO]
 format:
   html:
     toc: false

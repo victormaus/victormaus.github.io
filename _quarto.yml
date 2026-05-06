@@ -3,6 +3,7 @@ project:
   pre-render:
     - generate_orcid_bib.py
     - render_talks.py
+    - build_talks_listing.py
   post-render: post_process.py
   render:
     - "*.qmd"

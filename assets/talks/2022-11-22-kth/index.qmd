@@ -1,0 +1,16 @@
+---
+title: "Local vs Global"
+subtitle: "Challenges in geoinformatics and Earth Observation to support sustainable development — KTH"
+date: "2022-11-22"
+image: ../img/global-mining-map.png
+categories: [KTH, EO, sustainability]
+path: slides.html
+format:
+  html:
+    page-layout: full
+    toc: false
+---
+
+[Open the slides →](slides.html){.btn .btn-primary target="_blank"}
+
+<iframe src="slides.html" width="100%" height="700px" style="border: 0;"></iframe>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>.font80[Spatial Data Science for Sustainable Development]</title>
+    <title>.font70[GIS Applications in Planning and Environmental Analysis]</title>
     <meta charset="utf-8" />
     <meta name="author" content=" Dr Victor Maus" />
-    <script src="index_files/header-attrs-2.26/header-attrs.js"></script>
-    <link href="index_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <script src="slides_files/header-attrs/header-attrs.js"></script>
+    <link href="slides_files/remark-css/default.css" rel="stylesheet" />
+    <link href="slides_files/panelset/panelset.css" rel="stylesheet" />
+    <script src="slides_files/panelset/panelset.js"></script>
     <link rel="stylesheet" href="libs/huw.css" type="text/css" />
     <link rel="stylesheet" href="libs/huw-fonts.css" type="text/css" />
     <link rel="stylesheet" href="libs/my.css" type="text/css" />
@@ -16,100 +18,74 @@
 class: top, left, title-slide
 
 .title[
-# .font80[<strong>Spatial Data Science for Sustainable Development</strong>]
+# .font70[<strong>GIS Applications in Planning and Environmental Analysis</strong>]
+]
+.subtitle[
+## .font80[Excerpt from lecture: Data Cubes for Environmental Analysis]
 ]
 .author[
-### <br><strong>Dr Victor Maus</strong>
+### <br>Dr Victor Maus
 ]
 .institute[
 ### .font70[Institute for Ecological Economics<br> <span style="display:block; margin-top:-10px;">Vienna University of Economics and Business</span><br> <span style="display:block; margin-top:-44px;"><a href="mailto:victor.maus@wu.ac.at" class="email">victor.maus@wu.ac.at</a></span><br> <span style='display:block; margin-top:-45px;'><a href='https://victormaus.github.io'>victormaus.github.io</a><br>]</span>
 ]
 .date[
-### .wu-logo-mtg[].copyright-bottom-right.font60[May 30<sup>th</sup>, 2024]
+### .lecture-illustration[].wu-logo-mtg[].copyright-bottom-right[Södertörn University, April 9<sup>th</sup>, 2024]
 ]
 
 ---
 
 layout: false
-class: clear
+class: 
 
-# Research Interest
-&lt;br&gt;
+
+# Learning Outcome
+
+.font150[Recall the concept of space-time data cubes in geographic information systems (GIS).]
+
+# Requirements
+
+.font150[Basic knowledge of GIS data models for representing geographic information as vector and raster formats.]
+
+---
+layout: false
+class: 
 
 .pull-left[
-&lt;img src="/assets/talks/img/what-is-sds.png" width="100%" /&gt;
+# Data Layers
+&lt;div class="left"&gt;
+  &lt;img src="./img/gis.png" height="400"/&gt;
+  .font60[Figure: [U.S. Government Accountability Office](https://education.nationalgeographic.org/resource/geographic-information-system-gis/#undefined)]
+&lt;/div&gt;
 ]
 
---
-
 .pull-right[
-&lt;img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Sustainable_Development_Goals.svg" width="100%" /&gt;
+# Data Cube Structure
+### Dimensions and Attributes
+&lt;div class="left"&gt;
+  &lt;img src="./img/space-time-cube.png" height="330"/&gt;
+  .font60[Figure: [ArcGIS Pro Space Time Cube](https://pro.arcgis.com/en/pro-app/3.1/tool-reference/space-time-pattern-mining/learnmorecreatecube.htm)]
+&lt;/div&gt;
 ]
 
 ---
-.pull-left[
-&lt;img src="./img/twdtw.png" width="100%" /&gt;
-&lt;br&gt;&lt;br&gt;
-&lt;img src="./img/dtwsat.png" width="100%" /&gt;
-&lt;br&gt;&lt;br&gt;
-&lt;img src="./img/sits-color.png" width="100%" /&gt;
-&lt;br&gt;&lt;br&gt;
+layout: false
+class:
+
+# Summary
+
 .font150[
-  `\(\omega(t_i,t_j) = \frac{1}{1 + e^{-{\alpha} (g(t_i,t_j){i,j} - {\beta})}}\)`
-]
-]
-
-
---
-
-.pull-right[
-&lt;img src="/assets/talks/20240522-oecd-eo/img/maus2024-nature.png" width="90%" /&gt;
-&lt;br&gt;&lt;br&gt;
-&lt;img src="./img/pnas-sonter2023.png" width="90%" /&gt;
-&lt;br&gt;&lt;br&gt;
-&lt;img src="./img/pnas-giljum2022.png" width="90%" /&gt;
+- Data cubes are a data structure where data is stored in multidimensional arrays (n-D arrays).
+- Data cubes are discrete and regularly sampled.
+- Enable effective scalability of environmental analysis.
 ]
 
+# Next session
 
----
-background-image: url(./img/network.png)
-background-size: cover
-
-# International Recognition
-
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
-- .font120[**National and International Awards**]
-- .font120[**Collaboration across \&gt;15 countries \&gt;20 organizations**]
-- .font120[**OECD Forum on Responsible Mineral Supply Chains 2024**]
-
----
-## Research funding
-
-- Total acquired fund 450,000.00 EUR (as PI and co-applicant)
-
---
-
-- Ongoing funding 135,000.00 EUR (Sources: FAO, NGO Fern, and WU)
-
---
-
-## Under Consideration
-
-- 2,000,000.00 EUR - ERC Consolidator Grand (Mining Indicators from EO)
-
-
---
-
-- 350,000.00 EUR - EU Horizon-Europe Consortium (Climate Change and Minerals Supply Change)
-
-
---
-
-- 100,000.00 EUR - The World Bank (Mining Land-Use)
-
---
-
-- 50,000.00 EUR - DFG: German Research Foundation (iDiv Research Network on Biodiversity)
+.font150[
+- Construct data cubes using a GIS environment.
+- Perform basic operations with data cubes: filter, apply, reduce, and redimension.
+]
 
 
     </textarea>

@@ -1,6 +1,11 @@
 ---
 title: "**MINE-THE-GAP**"
 subtitle: ".font130[Satellite Earth Observation & AI to Map Global Mining Footprints and Support CRM Transparency]"
+listing:                              # consumed by build_talks_listing.py
+  subtitle: "Satellite Earth Observation & AI to map global mining footprints and support CRM transparency"
+  date: "2026-05-06"
+  image: img/gap_map-red.png
+  categories: [EGU, ERC, mining, EO]
 author: ".pi-maus[]"
 date: ".erc-logo-title-right[].wu-logo-huw-mtg[].mtg-illustration[].egu-session-info[EGU General Assembly 2026<br>Session ERE4.3 — Towards Responsible and Innovative<br>Critical Raw Materials Supply<br>Wed 6 May, 17:05–17:15 · Room -2.43]"
 notes: |

@@ -1,0 +1,16 @@
+---
+title: "From Time Series to Events for Land-use Change"
+subtitle: "GI Forum — University of Münster"
+date: "2021-12-14"
+image: ../img/from-ts-to-events.png
+categories: [GIForum, methods, change detection]
+path: slides.html
+format:
+  html:
+    page-layout: full
+    toc: false
+---
+
+[Open the slides →](slides.html){.btn .btn-primary target="_blank"}
+
+<iframe src="slides.html" width="100%" height="700px" style="border: 0;"></iframe>
