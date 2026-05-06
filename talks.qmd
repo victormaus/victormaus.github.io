@@ -19,6 +19,13 @@ listing:
       path: assets/talks/20250221-future-earth/index.html
       categories: [Future Earth, mining, EO]
 
+    - title: "MINE-THE-GAP — ERC interview"
+      subtitle: "Where, when, what, and how much is mined — ERC CoG 2024 interview presentation"
+      date: "2025-02-18"
+      image: assets/talks/20250218-erc-cog-interview/img/MINE-THE-GAP-aim.png
+      path: assets/talks/20250218-erc-cog-interview/index.html
+      categories: [ERC, MTG, mining, EO]
+
     # ---------- 2024 ------------------------------------------------------
     - title: "Global Mining and Sustainability"
       subtitle: "Leveraging satellite Earth Observation to monitor impacts of mineral extraction — UCL"
