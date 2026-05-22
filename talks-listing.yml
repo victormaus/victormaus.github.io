@@ -1,3 +1,11 @@
+- title: Department of Socioeconomics — Talk
+  subtitle: Skeleton using the WU presentation template
+  date: '2026-05-21'
+  image: assets/talks/20260521-department-talk/libs/img/logo-wu.png
+  path: assets/talks/20260521-department-talk/index.html
+  categories:
+  - WU
+  - department
 - title: '**MINE-THE-GAP**'
   subtitle: Satellite Earth Observation & AI to map global mining footprints and support
     CRM transparency
@@ -38,14 +46,6 @@
   - MTG
   - mining
   - EO
-- title: Spatial Data Science for Sustainable Development
-  subtitle: Lappeenranta University of Technology
-  date: '2024-05-30'
-  image: assets/talks/20240530-lut/img/dtwsat.png
-  path: assets/talks/20240530-lut/slides.html
-  categories:
-  - LUT
-  - methods
 - title: Global-Scale Mining Land Use Monitoring
   subtitle: OECD — Earth Observation workshop
   date: '2024-05-22'
