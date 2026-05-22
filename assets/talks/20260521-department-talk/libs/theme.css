@@ -1,0 +1,586 @@
+/* ==========================================================================
+   mtg-slides theme
+   --------------------------------------------------------------------------
+   A theme for xaringan / remark.js slides, also reusable from a Python
+   build pipeline that produces the same HTML+CSS pairing.
+
+   Sections:
+     1. Variables (palette, sizes)
+     2. Base — body, slide background, headings, links
+     3. Slide layouts (.title-slide, .closing-slide, .outlook-slide,
+        .refs-slide, .clear, .inverse)
+     4. Components (citations, footnotes, key-point, placeholder, qr-code,
+        funding-footnote, slide-footer)
+     5. Typography utilities (.font50…300, .font-dark, .font-light, .opac-*)
+     6. Color palette utilities (.bg-*, .font-*)
+     7. Layout helpers (grids, columns, pulls)
+     8. Tables & blockquotes & code
+     9. Print
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. Variables
+   ========================================================================== */
+
+:root {
+  /* Brand palette — override in a per-talk custom.css to re-skin a deck */
+  --c-bg:            #FAFAFA;   /* slide background */
+  --c-text:          #1A292C;   /* primary text */
+  --c-text-soft:     #23373B;   /* slightly lighter text */
+  --c-accent:        #F6AE2D;   /* title color */
+  --c-rule:          #EB811B;   /* divider rule */
+
+  /* Secondary palette — for emphasis blocks, callouts, tiles */
+  --c-green-dark:    #0a332b;
+  --c-green-light:   #306056;
+  --c-red-dark:      #80021b;
+  --c-red-light:     #cc3e5b;
+  --c-yellow-dark:   #996c1c;
+  --c-yellow-light:  #f6ae2d;
+  --c-blue:          #1381B0;
+  --c-orange:        #F17F29;
+  --c-purple:        #795277;
+  --c-purple-light:  #8380B6;
+  --c-pink:          #EE6D91;
+  --c-teal:          #97D8C4;
+  --c-grey:          #DCDCDC;
+
+  /* Layout scale */
+  --slide-pad:       0em 0em 0em 2em;
+
+  /* Slide-footer text (set per-talk via custom.css; empty = no footer) */
+  --slide-footer:    "";
+}
+
+
+/* ==========================================================================
+   2. Base
+   ========================================================================== */
+
+.remark-slide-content {
+  background-color: var(--c-bg);
+  border-top: 10px solid var(--c-bg);
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.5;
+  padding: var(--slide-pad);
+}
+
+.remark-slide-content h1 { color: var(--c-text); opacity: 0.8; font-size: 45px; }
+.remark-slide-content h2 { color: var(--c-text); font-size: 35px; }
+.remark-slide-content h3 { color: var(--c-text); font-size: 30px; }
+
+a, a:link, a:visited, a:hover, a:active { color: inherit; }
+
+hr,
+.remark-slide-content h1::after,
+.mline h1::after {
+  content: '';
+  display: block;
+  border: none;
+  background-color: var(--c-rule);
+  color: var(--c-rule);
+  height: 0px;
+}
+
+
+/* ==========================================================================
+   3. Slide layouts
+   ========================================================================== */
+
+/* --- Title slide ------------------------------------------------------- */
+
+.title-slide {
+  background-color: var(--c-bg);
+  border-top: 0px solid var(--c-bg);
+  padding: 3em 0em 0em 2em !important;
+}
+
+.title-slide h1 {
+  color: var(--c-accent);
+  font-size: 110px;
+  font-weight: 1500;
+  line-height: 1.1;
+  text-shadow: none;
+  text-align: left;
+  margin-left: 15px;
+  padding-top: 0px;
+}
+
+.title-slide h2 {
+  color: var(--c-text);
+  opacity: 0.7;
+  font-size: 22px;
+  font-weight: 1000;
+  line-height: 1.35;
+  text-shadow: none;
+  text-align: left;
+  margin-left: 22px;
+  margin-bottom: 30px;
+  max-width: 800px;
+}
+
+.title-slide h3 {
+  color: var(--c-text);
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 1.3;
+  text-shadow: none;
+  text-align: left;
+  margin-left: 15px;
+  margin-bottom: -30px;
+}
+
+.title-slide h1::after,
+.title-slide h2::after {
+  content: '';
+  display: block;
+  border: none;
+  background-color: var(--c-rule);
+  height: 0px;
+}
+
+.title-slide .remark-slide-number,
+remark-slide-number,
+.title-slide {
+  font-size: 10pt;
+  color: #FFFFFF;
+  opacity: 1;
+}
+
+/* --- Closing slide ----------------------------------------------------- */
+
+.closing-slide {
+  background-color: var(--c-bg);
+  border-top: 10px solid var(--c-bg);
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.5;
+  padding: var(--slide-pad);
+}
+
+.closing-slide h1 { color: var(--c-text); opacity: 0.8; font-size: 45px; }
+.closing-slide h2 { color: var(--c-text); font-size: 35px; }
+.closing-slide h3 { color: var(--c-text); font-size: 30px; }
+
+/* Suppress the slide-footer marker on the very last slide if you want it */
+.closing-slide-final::after { content: none !important; }
+
+/* --- Outlook slide ----------------------------------------------------- */
+
+.outlook-slide {
+  background-color: var(--c-bg);
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.5;
+  padding: var(--slide-pad);
+}
+
+.outlook-slide h1 {
+  color: var(--c-text);
+  opacity: 0.8;
+  font-size: 70px;
+  font-weight: 1500;
+  text-shadow: none;
+  text-align: left;
+  margin-right: 100px;
+  margin-top: 20px;
+  margin-bottom: -20px;
+}
+
+.outlook-slide h2 { color: var(--c-text); opacity: 0.8; font-size: 45px; }
+
+.outlook-slide h3 {
+  color: var(--c-text);
+  opacity: 0.8;
+  font-size: 30px;
+  font-weight: 1500;
+  text-shadow: none;
+  text-align: left;
+  margin-left: 0px;
+  margin-top: 30px;
+  margin-bottom: -20px;
+}
+
+/* --- References slide -------------------------------------------------- */
+
+.refs-slide #refs {
+  font-size: 60%;
+  line-height: 1.45;
+  margin-top: 0.5em;
+  padding-right: 1em;
+  max-height: 540px;
+  overflow-y: auto;
+}
+
+.refs-slide #refs .csl-entry { margin-bottom: 0.6em; }
+.refs-slide #refs a           { word-break: break-all; }
+
+/* --- Inverse (dark) slide --------------------------------------------- */
+/* Add `class: inverse` to a slide to flip background + text. Re-defines
+   the palette variables locally so components that read --c-bg / --c-text
+   / --c-text-soft (citations, key-point, slide-footer, font-dark, …) all
+   invert automatically. Override --c-bg-inverse in custom.css to re-skin. */
+
+:root {
+  --c-bg-inverse:        #1A292C;
+  --c-text-inverse:      #FAFAFA;
+  --c-text-soft-inverse: #ECECEC;
+}
+
+.inverse {
+  --c-bg:        var(--c-bg-inverse);
+  --c-text:      var(--c-text-inverse);
+  --c-text-soft: var(--c-text-soft-inverse);
+
+  background-color: var(--c-bg);
+  color: var(--c-text);
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.inverse h1,
+.inverse h2,
+.inverse h3 { color: var(--c-text); }
+
+.inverse a { color: var(--c-accent); }
+
+/* --- Slide footer (e.g., project / talk tag) -------------------------- */
+/* Set --slide-footer in custom.css to a short string ("MY-TALK") to enable.
+   Empty string (the default) hides it. */
+
+.remark-slide-content::after,
+.closing-slide::after,
+.outlook-slide::after {
+  content: var(--slide-footer);
+  opacity: 0.5;
+  align-content: right;
+  position: absolute;
+  font-size: 15pt;
+  bottom: 10px;
+  left: 15px;
+}
+
+
+/* ==========================================================================
+   4. Components
+   ========================================================================== */
+
+/* In-body citation rendered as an external link */
+.cite-link {
+  font-size: 85%;
+  opacity: 0.85;
+  text-decoration: none;
+  color: inherit;
+}
+.cite-link:hover { text-decoration: underline; }
+
+/* Citation line at slide bottom-right */
+.citations {
+  opacity: 0.8;
+  color: var(--c-text);
+  position: absolute;
+  bottom: 0.5em;
+  right: 10em;
+  font-size: 100%;
+}
+
+/* Footnotes */
+.footnote-left {
+  opacity: 0.8;
+  color: var(--c-text);
+  position: absolute;
+  bottom: 1em;
+  padding-right: 2em;
+  font-size: 80%;
+}
+.footnote-right {
+  opacity: 0.8;
+  color: var(--c-text);
+  position: absolute;
+  bottom: 1em;
+  right: 3em;
+  font-size: 60%;
+}
+.footnote {
+  position: absolute;
+  bottom: 3em;
+  padding-right: 4em;
+  font-size: 90%;
+}
+
+/* Reusable: a key-point (single-line takeaway) at the bottom of a slide */
+.key-point {
+  position: absolute;
+  bottom: 70px;
+  left: 60px;
+  right: 60px;
+  text-align: center;
+}
+
+/* Translucent panel for headline text on top of a background image */
+.bg-dr-white {
+  background: #FAFAFAED;
+  margin-top: 12rem;
+  padding-top: 0.01rem;
+  padding-bottom: 0.01rem;
+  margin-right: 5em;
+  margin-left: 3em;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5mm;
+}
+
+/* Two-column layout: figure left + message right, in golden ratio
+   (≈1.618 : 1). Use as a pair on a slide with an H1 title:
+
+     # Slide title
+     .col-fig[
+     <img src="./img/foo.png" />
+     ]
+     .col-msg[
+     .font130.font-dark.opac-80[Key takeaway sentence.]
+     ]
+     .citations[...]
+
+   The figure inside .col-fig is auto-fit (object-fit: contain) so wide
+   or tall images both render at the largest size that fits the column. */
+.col-fig, .col-fig-gold {
+  position: absolute;
+  top: 4.5em;
+  bottom: 2.5em;
+  left: 1.5em;
+  right: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.col-fig img, .col-fig svg, .col-fig video,
+.col-fig-gold img, .col-fig-gold svg, .col-fig-gold video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.col-msg, .col-msg-gold {
+  position: absolute;
+  top: 4.5em;
+  bottom: 2.5em;
+  right: 1.5em;
+  width: 35%;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+/* Dashed placeholder box (use during drafting to mark missing figures) */
+.placeholder-box {
+  border: 2px dashed #B0B0B0;
+  background: #F5F5F5;
+  padding: 3em 2em;
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  border-radius: 5mm;
+  font-size: 110%;
+}
+
+
+/* ==========================================================================
+   5. Typography utilities
+   ========================================================================== */
+
+.font50  { font-size: 50%;  }
+.font60  { font-size: 60%;  }
+.font70  { font-size: 70%;  }
+.font80  { font-size: 80%;  }
+.font90  { font-size: 90%;  }
+.font100 { font-size: 100%; }
+.font110 { font-size: 110%; }
+.font114 { font-size: 114%; }
+.font120 { font-size: 120%; }
+.font130 { font-size: 130%; }
+.font140 { font-size: 140%; }
+.font150 { font-size: 150%; }
+.font160 { font-size: 160%; }
+.font165 { font-size: 165%; }
+.font170 { font-size: 170%; }
+.font180 { font-size: 180%; }
+.font190 { font-size: 190%; }
+.font200 { font-size: 200%; }
+.font250 { font-size: 250%; }
+.font300 { font-size: 300%; }
+.font400 { font-size: 400%; }
+
+.font-dark  { color: var(--c-text-soft); text-shadow: none; }
+.font-light { color: #FAFAFA;            text-shadow: none; }
+
+.opac-50 { opacity: 50%; }
+.opac-70 { opacity: 70%; }
+.opac-80 { opacity: 80%; }
+.op80    { opacity: 80%; }  /* legacy alias */
+
+.bd      { font-weight: bold; }
+.indent40 { margin-left: 40px; }
+
+
+/* ==========================================================================
+   6. Color palette utilities
+   ========================================================================== */
+
+/* Solid backgrounds + their 50%-opacity variants */
+.bg-orange         { background-color: var(--c-orange);       color: #fff; }
+.bg-orange-opac    { background-color: var(--c-orange);       color: #fff; opacity: 0.5; }
+.bg-blue           { background-color: var(--c-blue);         color: #fff; }
+.bg-blue-opac      { background-color: var(--c-blue);         color: #fff; opacity: 0.5; }
+.bg-green          { background-color: var(--c-teal); }
+.bg-green-opac     { background-color: var(--c-teal);         opacity: 0.5; }
+.bg-purple         { background-color: var(--c-purple);       color: #fff; }
+.bg-purple-opac    { background-color: var(--c-purple);       color: #fff; opacity: 0.5; }
+.bg-purple-light   { background-color: var(--c-purple-light); color: #fff; }
+.bg-pink           { background-color: var(--c-pink);         color: #fff; }
+.bg-pink-opac      { background-color: var(--c-pink);         color: #fff; opacity: 0.5; }
+.bg-grey           { background-color: var(--c-grey);         color: #fff; }
+
+/* Branded text colors */
+.font-green-dark   { color: var(--c-green-dark);  text-shadow: none; }
+.font-green-light  { color: var(--c-green-light); text-shadow: none; }
+.font-red-dark     { color: var(--c-red-dark);    text-shadow: none; }
+.font-red-light    { color: var(--c-red-light);   text-shadow: none; }
+.font-yellow-dark  { color: var(--c-yellow-dark); text-shadow: none; }
+.font-yellow-light { color: var(--c-yellow-light);text-shadow: none; }
+
+
+/* ==========================================================================
+   7. Layout helpers
+   ========================================================================== */
+
+/* Float-based columns (legacy but useful) */
+.lc { width: 30%; height: 78%; float: left; }
+.cc { width: 30%; height: 78%; float: none; margin: 0 auto; }
+.rc { width: 30%; height: 78%; float: right; }
+.br { width: 98%; height: 20%; float: left; }
+
+.left-column  { color: #777; width: 20%; height: 92%; float: left; }
+.left-column h2:last-of-type, .left-column h3:last-child { color: #000; }
+.right-column { width: 75%; float: right; padding-top: 1em; }
+
+.pull-left  { float: left;  width: 47%; }
+.pull-right { float: right; width: 47%; }
+.pull-right + * { clear: both; }
+
+/* CSS-grid helpers */
+.grid-3-1 {
+  display: grid; height: 10em;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center; text-align: center;
+  grid-gap: 1em; padding: 1em;
+}
+
+.grid-3-1-s {
+  display: grid; height: 2em;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center; text-align: center;
+  grid-gap: 1em; padding: 1em;
+}
+
+.grid-1-1-r {
+  display: grid; height: 2em;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: center; text-align: center;
+  margin-right: 0.7em; margin-left: 0.7em;
+}
+
+.grid-1-3 {
+  display: grid; height: 10em;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center; text-align: center;
+  grid-gap: 1em; padding-top: 2em;
+}
+
+.grid-4-1 {
+  display: grid; height: 10em;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center; text-align: center;
+  grid-gap: 1em; padding: 1em;
+}
+
+.grid-4-1-img {
+  display: grid; height: 10em;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center; text-align: center;
+}
+
+.grid-3-2 {
+  display: grid; height: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+  align-items: center; text-align: center;
+  grid-gap: 1em; padding: 1em 1em 0 1em;
+}
+
+.extension-tile {
+  height: 100%; width: 100%;
+  align-items: center; justify-content: center;
+  display: flex;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.extension-tile-course {
+  height: 100%; width: 100%;
+  align-items: top; justify-content: center;
+  display: flex;
+  padding-top: 1em;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+
+/* ==========================================================================
+   8. Tables, blockquotes, code
+   ========================================================================== */
+
+img, video, iframe { max-width: 100%; }
+
+blockquote {
+  border-left: solid 5px lightgray;
+  padding-left: 1em;
+}
+
+.remark-slide table {
+  margin: auto;
+  border-top:    1px solid #666;
+  border-bottom: 1px solid #666;
+}
+.remark-slide table thead th { border-bottom: 1px solid #ddd; }
+.remark-slide thead, .remark-slide tfoot,
+.remark-slide tr:nth-child(even) { background: #eee; }
+th, td { padding: 5px; }
+
+.remark-code-line-highlighted { background-color: #ffff88; }
+
+
+/* ==========================================================================
+   9. Print
+   ========================================================================== */
+
+@page { margin: 0; }
+@media print {
+  .remark-slide-scaler {
+    width:  100% !important;
+    height: 100% !important;
+    transform: scale(1) !important;
+    top:  0 !important;
+    left: 0 !important;
+  }
+}

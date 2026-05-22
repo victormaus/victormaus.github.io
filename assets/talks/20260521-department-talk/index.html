@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Department of Socioeconomics — Talk</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <script src="index_files/header-attrs-2.31/header-attrs.js"></script>
+    <link href="index_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="libs/theme.css" type="text/css" />
+    <link rel="stylesheet" href="libs/theme-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="libs/tachyons-min.css" type="text/css" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+layout: false
+class: title-slide
+count: false
+
+.wu-logo-white[]
+
+.title-card[
+.title[Environmental Assessments of Global Raw Material Extraction]
+.author[Victor Maus]
+.affiliation[
+Research Group Leader, Spatial Data Science&lt;br&gt;
+Institute for Ecological Economics&lt;br&gt;
+Vienna University of Economics and Business&lt;br&gt;
+[victor.maus@wu.ac.at](mailto:victor.maus@wu.ac.at) &amp;nbsp;·&amp;nbsp; [victormaus.github.io](https://victormaus.github.io)
+]
+]
+
+.accreditation[]
+
+???
+
+
+
+&lt;!-- ###################################################### Mining footprint impacts (Sonter 2023) --&gt;
+---
+layout: false
+class: clear
+count: true
+# Increasing Mining Impacts
+
+.center[
+&lt;img src="./img/pnas-sonter2023.png" width="65%" /&gt;
+]
+
+.citations[&lt;a class="cite-link" href="https://doi.org/10.1073/pnas.2307006120" target="_blank" rel="noopener"&gt;Sonter et al. (2023) &lt;em&gt;PNAS&lt;/em&gt;&lt;/a&gt;]
+
+???
+
+
+
+&lt;!-- ###################################################### Data gap — Nature 2024 piece --&gt;
+---
+layout: false
+class:
+count: true
+# Lack of spatial data
+
+.pull-left[
+&lt;img src="./img/maus2024-nature.png" width="78%" /&gt;
+&lt;img src="./img/gap_grid_map.png" width="78%" /&gt;
+]
+
+.pull-right[
+&lt;img src="https://media.nature.com/lw767/magazine-assets/d41586-023-04090-3/d41586-023-04090-3_26550018.png?as=webp" width="70%" /&gt;
+]
+
+.citations[&lt;a class="cite-link" href="https://doi.org/10.1038/d41586-023-04090-3" target="_blank" rel="noopener"&gt;Maus &amp;amp; Werner (2024) &lt;em&gt;Nature&lt;/em&gt;&lt;/a&gt;]
+
+???
+
+
+
+
+
+&lt;!-- ##################################################### Mine Footprint (SANDBAR slide 2) --&gt;
+---
+layout: false
+class:
+count: true
+# Spatially explicit mining data
+
+&lt;br&gt;
+.pull-left[
+&lt;div style="text-align: center; font-size: 24px; font-weight: 700; line-height: 1.2; margin-bottom: 12px;"&gt;Land use&lt;br/&gt;(Polygons)&lt;/div&gt;
+&lt;img src="./img/indicators-land-use.png" style="width: 100%;" /&gt;
+&lt;div style="font-size: 11px; color: #888; margin-top: 4px; line-height: 1.3;"&gt;
+Maus et al. (2020, 2022) / Nature Scientific Data&lt;br/&gt;
+&lt;a href="https://doi.org/10.1038/s41597-022-01547-4"&gt;https://doi.org/10.1038/s41597-022-01547-4&lt;/a&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div style="text-align: center; font-size: 24px; font-weight: 700; line-height: 1.2; margin-bottom: 12px;"&gt;Mine operation&lt;br/&gt;(Points)&lt;/div&gt;
+&lt;img src="./img/outlook-commodity-map.png" style="width: 100%;" /&gt;
+&lt;div style="font-size: 11px; color: #888; margin-top: 4px; line-height: 1.3;"&gt;
+Jasansky et al. (2023) / Nature Scientific Data&lt;br/&gt;
+&lt;a href="https://doi.org/10.1038/s41597-023-01965-y"&gt;https://doi.org/10.1038/s41597-023-01965-y&lt;/a&gt;
+&lt;/div&gt;
+]
+
+.key-point.font140.font-dark.opac-80[Mine-level assessment requires integrating satellite data and operation inventories]
+
+
+???
+
+
+
+
+&lt;!-- ##################################################### Mining data integration --&gt;
+---
+layout: false
+class:
+count: true
+# Mining data integration
+
+&lt;img src="./img/mine_clustering_method.png" height="340" style="position: absolute; top: 7em; left: 50%; transform: translate(-50%, 0%);"&gt;
+
+.key-point.font140.font-dark.opac-80[Unsupervised clustering to link satellite-derived mine land use and mine operation data reduces subjectivity and increases linking accuracy]
+.citations[&lt;a class="cite-link" href="https://doi.org/10.1016/j.jclepro.2025.147437" target="_blank" rel="noopener"&gt;Maus (2026) &lt;em&gt;Journal of Cleaner Production&lt;/em&gt;&lt;/a&gt;  ·  &lt;a class="cite-link" href="https://arxiv.org/abs/2604.11656" target="_blank" rel="noopener"&gt;Maus &amp;amp; Borin (2026) &lt;em&gt;arXiv preprint arXiv:2604.11656&lt;/em&gt;&lt;/a&gt;]
+
+???
+
+
+
+&lt;!-- ##################################################### Interactive map — embedded iframe (smaller, navigable) --&gt;
+---
+layout: false
+class:
+count: true
+# Interactive visualization and open data
+
+&lt;div style="position: absolute; top: 5em; left: 0.5%; width: 100%; height: 70%; overflow: hidden; z-index: 1;"&gt;
+&lt;iframe src="https://maps.minethegap.eu/"
+        style="border: 0; width: calc(100% + 17px); height: 100%; display: block;"
+        allow="fullscreen"
+        scrolling="no"
+        loading="lazy"&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+
+.footnote-right.opac-70.font120[[maps.minethegap.eu](https://maps.minethegap.eu)]
+
+???
+
+
+
+&lt;!-- ##################################################### Indicators (SANDBAR slide 3 — re-extracted) --&gt;
+---
+layout: false
+class:
+count: true
+# Environmental impacts of mining
+
+&lt;!-- Top row: Commodity specific land use (center) + Forest cover loss (right) --&gt;
+&lt;div style="position: absolute; top: 3em; left: 10%; width: 36%; text-align: center;"&gt;
+&lt;span class="ind-label"&gt;Commodity-specific land use&lt;/span&gt;
+&lt;img src="./img/indicators-commodity-land-use.png" style="width: 100%; max-height: 230px; object-fit: contain;" /&gt;
+&lt;span class="ind-src"&gt;Maus (2026) Journal of Cleaner Production&lt;br/&gt;&lt;a href="https://doi.org/10.1016/j.jclepro.2025.147437"&gt;https://doi.org/10.1016/j.jclepro.2025.147437&lt;/a&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div style="position: absolute; top: 3em; right: 10em; width: 38%; text-align: center;"&gt;
+&lt;span class="ind-label"&gt;Forest cover loss&lt;/span&gt;
+&lt;img src="./img/indicators-forest-cover-loss.png" style="width: 100%; max-height: 230px; object-fit: contain;" /&gt;
+&lt;span class="ind-src"&gt;Giljum et al. PNAS (2022, 2023, 2025)&lt;br/&gt;&lt;a href="https://doi.org/10.1073/pnas.2118273119"&gt;https://doi.org/10.1073/pnas.2118273119&lt;/a&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- Bottom row: Mining waste (left) + Indirect forest loss (center) + Biodiversity (right) --&gt;
+&lt;div style="position: absolute; bottom: 0.4em; left: 0.5em; width: 23%; text-align: center;"&gt;
+&lt;span class="ind-label"&gt;Quantifying global mining waste&lt;/span&gt;
+&lt;img src="./img/indicators-mining-waste.png" style="width: 130%; max-height: 250px; object-fit: contain;" /&gt;
+&lt;span class="ind-src"&gt;Moudrý et al. IJAEOG (under review)&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div style="position: absolute; bottom: 1em; left: 27%; width: 38%; text-align: center;"&gt;
+&lt;span class="ind-label"&gt;Indirect forest cover loss&lt;/span&gt;
+&lt;img src="./img/indicators-indirect-forest-loss.png" style="width: 200%; max-height: 300px; object-fit: contain;" /&gt;
+&lt;span class="ind-src"&gt;Morton et al. Nature (accepted)&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div style="position: absolute; bottom: 0.4em; right: 1em; width: 31%; text-align: center;"&gt;
+&lt;span class="ind-label"&gt;Biodiversity exposure to mines&lt;/span&gt;
+&lt;img src="./img/indicators-biodiversity-exposure.png" style="width: 100%; max-height: 250px; object-fit: contain;" /&gt;
+&lt;span class="ind-src"&gt;Lamb et al. Nature Ecology &amp;amp; Evolution (under review)&lt;/span&gt;
+&lt;/div&gt;
+
+???
+
+
+
+&lt;!-- ##################################################### Spatial heterogeneity and trade-offs (full-screen image) --&gt;
+---
+layout: false
+class: clear, no-logo
+background-image: url(./img/copper-water-use.png)
+background-size: contain
+background-position: center
+background-repeat: no-repeat
+count: true
+
+???
+
+
+&lt;!-- ##################################################### Forest Loss on Minerals Supply Chain --&gt;
+---
+layout: false
+class:
+count: true
+# Forest loss along mineral supply chains
+
+&lt;br&gt;
+.center[
+&lt;img src="./img/forest-loss-mrio-res.png" width="80%" /&gt;
+]
+
+.citations[Luckeneder et al. *Resources, Conservation &amp; Recycling* (Under review)]
+
+???
+
+
+
+&lt;!-- ##################################################### Third mission — WWF + Guardian --&gt;
+---
+layout: false
+class:
+count: true
+# Third mission
+
+.pull-left[
+&lt;img src="./img/wwf-report.png" style="height: 480px; display: block; margin: 0 auto 8px;" /&gt;
+&lt;div style="text-align: center; font-size: 13px; opacity: 0.7;"&gt;&lt;a href="https://www.wwf.de/fileadmin/fm-wwf/Publikationen-PDF/Wald/WWF-Studie-Extracted-Forests.pdf"&gt;WWF &lt;em&gt;Extracted Forests&lt;/em&gt; (2023)&lt;/a&gt;&lt;/div&gt;
+]
+
+.pull-right[
+&lt;img src="./img/guardian-weda-bay.png" style="height: 480px; display: block; margin: 0 auto 8px;" /&gt;
+&lt;div style="text-align: center; font-size: 13px; opacity: 0.7;"&gt;&lt;a href="https://www.theguardian.com/environment/ng-interactive/2026/mar/11/how-mining-threatens-the-worlds-biodiversity-aoe"&gt;The Guardian — Weda Bay (Mar 2026)&lt;/a&gt;&lt;/div&gt;
+]
+
+???
+- Two examples of research uptake beyond academia
+- Left: WWF Extracted Forests policy report (2023)
+- Right: The Guardian long-form story on Weda Bay (March 2026)
+
+
+
+&lt;!-- ##################################################### Outlook --&gt;
+---
+layout: false
+class:
+count: true
+# Outlook
+
+.pull-left[
+&lt;span class="outlook-h"&gt;Improve data coverage based on reports&lt;/span&gt;
+
+&lt;img src="./img/outlook-commodity-map.png" style="width: 100%;" /&gt;
+
+&lt;div style="display: flex; align-items: center; gap: 12px;"&gt;
+&lt;img src="./img/eu-flag-funded.png" style="height: 56px; flex-shrink: 0;" /&gt;
+&lt;div&gt;
+&lt;strong&gt;RAWCLIC Project (2025–2028)&lt;/strong&gt;&lt;br/&gt;
+&lt;a href="https://doi.org/10.3030/101183654"&gt;https://doi.org/10.3030/101183654&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+- Increase coverage of the production database
+- Compile variables from sustainability reports
+- Estimate water use and mining waste with ML
+]
+
+.pull-right[
+&lt;span class="outlook-h"&gt;Develop new satellite-based indicators&lt;/span&gt;
+
+&lt;img src="./img/outlook-sentinel.png" style="width: 90%;" /&gt;
+
+&lt;div style="display: flex; align-items: center; gap: 12px;"&gt;
+&lt;img src="./img/erc-flag-eu.png" style="height: 56px; flex-shrink: 0;" /&gt;
+&lt;div&gt;
+&lt;strong&gt;MINE-THE-GAP Project (2025–2030)&lt;/strong&gt;&lt;br/&gt;
+&lt;a href="https://doi.org/10.3030/101170578"&gt;https://doi.org/10.3030/101170578&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+Integrate multi-sensor satellite EO data using AI to produce new mining indicators: **Land use** · **Waste** · **Minerals**
+]
+
+.footnote-left.opac-50.font50[Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Research Council Executive Agency. Neither the European Union nor the granting authority can be held responsible for them.]
+
+???
+- 
+
+
+
+&lt;!-- =============================================================
+     Closing slide — same hero composition as the title
+============================================================= --&gt;
+---
+layout: false
+class: closing-slide
+count: false
+
+.wu-logo-white[]
+
+.title-card[
+.title[Thank you!]
+.author[Victor Maus]
+.affiliation[
+[victor.maus@wu.ac.at](mailto:victor.maus@wu.ac.at)]
+.qr-website[[victormaus.github.io](https://victormaus.github.io)]
+]
+
+.accreditation[]
+
+???
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="./libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "ratio": "16:9",
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
