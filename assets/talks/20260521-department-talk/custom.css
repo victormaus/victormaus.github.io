@@ -1,0 +1,350 @@
+/* =============================================================
+   WU department-talk theme — overrides on top of libs/theme.css
+   Mirrors the WU PowerPoint master (slideMaster1 / slideMaster6):
+     - hero campus photo title slide
+     - WU logo top-right on every slide
+     - cyan accent bar under every h1
+     - EQUIS / AACSB / AMBA accreditation strip
+   Slide reference frame: 1210 × 681 px (xaringan ratio="16:9").
+   ============================================================= */
+
+
+/* --- 1. Palette + typography override ----------------------------- */
+
+:root {
+  --c-bg:        #FFFFFF;   /* WU slides are pure white */
+  --c-text:      #000000;   /* WU body text is black */
+  --c-text-soft: #2A2A2A;
+  --c-accent:    #002350;   /* WU dark blue — used for h1 */
+  --c-rule:      #3399CC;   /* WU cyan accent bar under titles */
+
+  --wu-cyan:     #3399CC;   /* exact rect colour from slideMaster6 */
+  --wu-blue:     #0096D3;   /* theme accent1 from theme1.xml */
+  --wu-dk-blue:  #002350;   /* theme dk2 */
+  --wu-lt-blue:  #E5F5FA;   /* theme lt2 */
+
+  --slide-footer: "";       /* no per-slide footer in the WU master */
+}
+
+body,
+.remark-slide-content,
+.title-slide,
+.closing-slide {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+/* Kill the 10 px white border-top that libs/theme.css adds to every
+   slide — it leaves a visible white strip at the top of any slide that
+   uses a full-bleed photo (title slide, closing slide, ESA Sentinel-2). */
+.remark-slide-content {
+  border-top: 0 !important;
+}
+
+
+/* --- 2. WU logo top-right on every slide ------------------------- */
+/* Position taken from slideMaster1 / slideMaster6 (image2.png):
+   x = 86.37 %, y = 3.10 %, w = 9.44 %, h = 12.46 % of the slide. */
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  right: 50px;
+  width: 110px;
+  height: 82px;
+  background: url(./libs/img/logo-wu.png) right top / contain no-repeat;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Opt-out for full-bleed slides (interactive iframes, hero photos, …). */
+.remark-slide-content.no-logo::before { display: none; }
+
+
+/* --- 3. Content-slide title styling ------------------------------ */
+/* Bold black title flush-left; cyan rule directly under it. */
+
+.remark-slide-content h1 {
+  color: var(--c-text);
+  opacity: 1;
+  font-size: 36px;
+  font-weight: 700;
+  margin: 8px 0 0 8px;
+  padding: 0;
+}
+
+.remark-slide-content h2 {
+  color: var(--c-text);
+  font-size: 24px;
+  font-weight: 700;
+  margin: 6px 0 0 8px;
+}
+
+.remark-slide-content h3 {
+  color: var(--c-text);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 6px 0 0 8px;
+}
+
+/* Cyan accent bar under every h1, like the rect in slideMaster6
+   (x=5 %, w=8.5 %, h=0.96 %, colour #3399CC). */
+.remark-slide-content h1::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 5px;
+  background-color: var(--wu-cyan);
+  margin: 10px 0 14px 8px;
+}
+
+/* Body text */
+.remark-slide-content {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--c-text);
+}
+
+/* Source / citation captions in small grey under figures */
+.source {
+  font-size: 60%;
+  color: #666;
+  margin-top: 4px;
+}
+
+
+/* --- 4. Title slide ---------------------------------------------- */
+/* Hero photo full bleed; the title text sits in a semi-transparent
+   white card on the left, mirroring slideMaster1 / slideLayout1. */
+
+.title-slide {
+  background-image: url(./libs/img/wu-campus-hero.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 0 !important;
+  border-top: 0 !important;
+}
+
+.title-slide h1,
+.title-slide h2,
+.title-slide h3 { display: none; }
+
+/* Title + closing slides sit on the dark hero photo, so the black WU
+   logo from ::before alone is barely visible. The pptx master solves
+   this by stacking a white copy of the logo on top, shifted ~6 px to
+   the right (image5.png at x=8825400 vs. image2.png at x=8775360 in
+   slideMaster1). Activate by adding `.wu-logo-white[]` to a slide. */
+.wu-logo-white {
+  position: absolute;
+  top: 22px;
+  right: 44px;        /* shifted 6 px further right than the black ::before */
+  width: 110px;
+  height: 82px;
+  background: url(./libs/img/logo-wu-white.png) right top / contain no-repeat;
+  z-index: 6;         /* on top of the black ::before logo (z-index: 5) */
+  pointer-events: none;
+}
+
+/* Suppress the accent-bar after h1 on title slide */
+.title-slide h1::after { display: none; }
+
+/* Semi-transparent white card holding the title + author info.
+   Activate by adding `.title-card[ ... markdown ... ]` to the deck. */
+.title-card {
+  position: absolute;
+  top: 17%;
+  left: 5%;
+  width: 60%;
+  min-height: 50%;
+  padding: 36px 40px 32px 40px;
+  background: rgba(255, 255, 255, 0.78);
+  box-sizing: border-box;
+  color: #000;
+}
+
+.title-card .title {
+  display: block;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #000;
+  margin-bottom: 28px;
+}
+
+.title-card .author {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 14px;
+}
+
+.title-card .affiliation {
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000;
+}
+
+.title-card .affiliation a,
+.title-card .affiliation a:link,
+.title-card .affiliation a:visited { color: #000; text-decoration: underline; }
+
+
+/* Accreditation strip bottom-right (image3.png in the pptx)
+   x=82.2 %, y=93.4 %, w=15.6 %, h=4.4 %. */
+.accreditation {
+  position: absolute;
+  bottom: 30px;
+  right: 50px;
+  width: 220px;
+  height: 36px;
+  background: url(./libs/img/logo-accreditation.png) right bottom / contain no-repeat;
+  z-index: 4;
+}
+
+/* Optional decorative white curves used along the bottom of
+   the pptx title slide (image4.png). Add `.wu-curves[]` to opt in. */
+.wu-curves {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 47%;
+  background: url(./libs/img/wu-curves.png) center bottom / cover no-repeat;
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+/* --- 5. Closing slide -------------------------------------------- */
+/* Same composition as the title slide by default. */
+
+.closing-slide {
+  background-image: url(./libs/img/wu-campus-hero.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 0 !important;
+}
+
+.closing-slide h1,
+.closing-slide h2,
+.closing-slide h3 { display: none; }
+
+
+/* --- 6. Slide-number tweak (keep WU footer area clean) ---------- */
+
+.remark-slide-number {
+  font-size: 11px;
+  color: #555;
+  opacity: 0.75;
+  bottom: 12px;
+  left: 16px;
+}
+
+/* No slide number on the title or closing slide */
+.title-slide .remark-slide-number,
+.closing-slide .remark-slide-number { display: none; }
+
+
+/* --- 7. Utility: muted source caption under figures ------------- */
+
+.cite, .citation, .citations {
+  font-size: 12px;
+  color: #777;
+  font-weight: 400;
+}
+
+
+/* --- 8z. Website QR code (closing slide) ------------------------ */
+/* QR for https://victormaus.github.io, generated via qrserver.com.
+   Lives INSIDE the .title-card on the closing slide; the card reserves
+   right-side padding so the text never collides with the QR. */
+.closing-slide .title-card {
+  padding-right: 210px;        /* reserve right column for the QR */
+}
+
+.qr-website {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 4;
+}
+
+/* The QR itself. img/qr-victormaus.png was pre-processed with
+   ImageMagick (`convert ... -fuzz 5% -transparent white`) so the
+   background is true alpha-transparent — only the black modules paint. */
+.qr-website::before {
+  content: "";
+  display: block;
+  width: 170px;
+  height: 170px;
+  background: url("./img/qr-victormaus.png") center / contain no-repeat;
+}
+
+.qr-website a,
+.qr-website a:link,
+.qr-website a:visited {
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #000;
+  text-decoration: underline;
+}
+
+
+/* --- 8a. Indicator-panel helpers (Indicators slide) ------------- */
+/* Each panel is a small absolutely-positioned block containing:
+     .ind-label  — bold caption above the figure
+     <img>       — the figure (sized via width/height attr)
+     .ind-src    — small grey source line
+   The slide itself uses positioned children with inline styles. */
+.ind-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 4px;
+}
+.ind-src {
+  display: block;
+  font-size: 10px;
+  color: #888;
+  line-height: 1.3;
+  margin-top: 4px;
+}
+.ind-src a { color: inherit; text-decoration: underline; }
+
+/* Red project header used on the Outlook slide */
+.outlook-h {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #c41e3a;
+  margin-bottom: 10px;
+}
+
+
+/* --- 8b. Photo-credit caption pinned bottom-left ---------------- */
+/* Matches `.cc-bottom-left` from the UCL talk so that slides that
+   sit on a full-bleed photo can keep their image attribution intact. */
+.cc-bottom-left {
+  position: absolute;
+  left: 24px;
+  bottom: 16px;
+  font-size: 12px;
+  line-height: 1.3;
+  z-index: 4;
+}
+
+.cc-bottom-left a,
+.cc-bottom-left a:link,
+.cc-bottom-left a:visited { color: inherit; text-decoration: underline; }
