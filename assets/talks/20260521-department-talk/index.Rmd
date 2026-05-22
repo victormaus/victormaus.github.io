@@ -71,12 +71,39 @@ count: true
 
 
 
+<!-- ###################################################### Sentinel-2 + Deming quote -->
+---
+layout: false
+class: clear, inverse, center
+background-image: url(https://www.esa.int/var/esa/storage/images/applications/observing_the_earth/copernicus/sentinel-2/19729272-10-eng-GB/Sentinel-2_pillars.jpg)
+background-size: cover
+count: true
+
+.wu-logo-white[]
+
+<div style="position: absolute; top: 1.5em; left: 0; right: 0; text-align: center; color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.75);">
+<div style="font-size: 38px; font-weight: 700; font-style: italic; line-height: 1.3; padding: 0 8%;">
+&ldquo;In God we trust, the others bring data&rdquo;
+</div>
+<div style="font-size: 20px; opacity: 0.9; margin-top: 2px; padding-right: 20%; text-align: right;">
+— W. Edwards Deming?
+</div>
+</div>
+
+.cc-bottom-left.font-light[Image: © <a href="https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2">European Space Agency (ESA)</a>]
+
+???
+- Framing: assessment of mining impacts must be data-driven
+- Deming's adage — operationalised in this talk via satellite EO + integration with operation inventories
+
+
+
 <!-- ###################################################### Data gap — Nature 2024 piece -->
 ---
 layout: false
 class:
 count: true
-# Lack of spatial data
+# Spatial data on mining is scarce and fragmented
 
 .pull-left[
 <img src="./img/maus2024-nature.png" width="78%" />
@@ -100,7 +127,7 @@ count: true
 layout: false
 class:
 count: true
-# Spatially explicit mining data
+# Mapping global mining footprints
 
 <br>
 .pull-left[
@@ -235,7 +262,7 @@ count: true
 <img src="./img/forest-loss-mrio-res.png" width="80%" />
 ]
 
-.citations[Luckeneder et al. *Resources, Conservation & Recycling* (Under review)]
+.citations[Luckeneder et al. *Resources, Conservation & Recycling* (under review)]
 
 ???
 
