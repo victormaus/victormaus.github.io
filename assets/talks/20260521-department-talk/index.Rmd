@@ -1,13 +1,13 @@
 ---
-title: "Department of Socioeconomics — Talk"
-subtitle: "Skeleton using the WU presentation template"
+title: "Environmental Assessments of Global Raw Material Extraction"
+subtitle: "Earth observation for mining impact assessment"
 listing:                              # consumed by build_talks_listing.py
-  subtitle: "Skeleton using the WU presentation template"
+  subtitle: "Earth observation for mining impact assessment"
   date: "2026-05-21"
   image: libs/img/logo-wu.png
   categories: [WU, department]
-author: ""
-date: ""
+author: "Victor Maus"
+date: "2026-05-21"
 output:
   xaringan::moon_reader:
     chakra: ./libs/remark-latest.min.js
