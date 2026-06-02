@@ -1,5 +1,17 @@
-- title: Department of Socioeconomics — Talk
-  subtitle: Skeleton using the WU presentation template
+- title: Big Earth Observation Data Analytics
+  subtitle: Challenges in EO software and algorithms
+  date: '2026-06-04'
+  image: assets/talks/20260604-big-eo-oulu/img/section-bigdata-hero.jpg
+  path: assets/talks/20260604-big-eo-oulu/index.html
+  categories:
+  - WU
+  - Oulu
+  - big-data
+  - earth-observation
+  - AI
+  - MINE-THE-GAP
+- title: Environmental Assessments of Global Raw Material Extraction
+  subtitle: Earth observation for mining impact assessment
   date: '2026-05-21'
   image: assets/talks/20260521-department-talk/libs/img/logo-wu.png
   path: assets/talks/20260521-department-talk/index.html
