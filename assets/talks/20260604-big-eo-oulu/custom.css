@@ -1,0 +1,1852 @@
+/* =============================================================
+   WU department-talk theme — overrides on top of libs/theme.css
+   Mirrors the WU PowerPoint master (slideMaster1 / slideMaster6):
+     - hero campus photo title slide
+     - WU logo top-right on every slide
+     - cyan accent bar under every h1
+     - EQUIS / AACSB / AMBA accreditation strip
+   Slide reference frame: 1210 × 681 px (xaringan ratio="16:9").
+   ============================================================= */
+
+
+/* --- 1. Palette + typography override ----------------------------- */
+/* MINE-THE-GAP palette + Montserrat font face (2026-05-30):
+   - background, text, text-soft pulled from the MTG theme
+   - WU cyan/blue palette retained for existing slide accents
+     (volumes-chart card borders, ARD tagline, etc.) */
+
+:root {
+  --c-bg:        #FAFAFA;   /* MTG off-white slide background */
+  --c-text:      #1A292C;   /* MTG dark-teal body text */
+  --c-text-soft: #23373B;   /* MTG slightly lighter text */
+  --c-accent:    #002350;   /* WU dark blue — used for h1 */
+  --c-rule:      #3399CC;   /* WU cyan accent bar under titles */
+
+  --wu-cyan:     #3399CC;   /* exact rect colour from slideMaster6 */
+  --wu-blue:     #0096D3;   /* theme accent1 from theme1.xml */
+  --wu-dk-blue:  #002350;   /* theme dk2 */
+  --wu-lt-blue:  #E5F5FA;   /* theme lt2 */
+
+  /* MTG secondary palette — available if you want orange/yellow accents.
+     Not yet wired into existing styles; reference as var(--mtg-accent) etc. */
+  --mtg-accent:  #F6AE2D;
+  --mtg-rule:    #EB811B;
+
+  /* MTG inverse-slide palette (used by `.inverse` below) */
+  --c-bg-inverse:        #1A292C;
+  --c-text-inverse:      #FAFAFA;
+  --c-text-soft-inverse: #ECECEC;
+
+  --slide-footer: "";       /* no per-slide footer */
+}
+
+body,
+.remark-slide-content,
+.title-slide,
+.closing-slide {
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+/* Kill the 10 px white border-top that libs/theme.css adds to every
+   slide — it leaves a visible white strip at the top of any slide that
+   uses a full-bleed photo (title slide, closing slide, ESA Sentinel-2). */
+.remark-slide-content {
+  border-top: 0 !important;
+}
+
+
+/* --- 2. WU logo on body slides — DISABLED for the Oulu deck -----
+   Body slides no longer carry the WU logo top-right. Title and
+   closing slides still use the white logo via `.wu-logo-white[]`,
+   which is an opt-in element rather than a global `::before` rule. */
+
+
+/* --- 3. Content-slide title styling ------------------------------ */
+/* Bold black title flush-left; cyan rule directly under it. */
+
+.remark-slide-content h1 {
+  color: var(--c-text);   /* MTG dark teal */
+  opacity: 0.8;           /* MTG body-title look — softened text */
+  font-size: 40px;
+  font-weight: 700;
+  margin: 8px 0 0 8px;
+  padding: 0;
+}
+
+.remark-slide-content h2 {
+  color: var(--c-text);
+  font-size: 24px;
+  font-weight: 700;
+  margin: 6px 0 0 8px;
+}
+
+.remark-slide-content h3 {
+  color: var(--c-text);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 6px 0 0 8px;
+}
+
+/* Cyan accent bar under h1 — DISABLED for the Oulu deck.
+   (Originally mirrored the cyan rect in WU's slideMaster6.) */
+
+/* Body text */
+.remark-slide-content {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--c-text);
+}
+
+/* Source / citation captions in small grey under figures */
+.source {
+  font-size: 60%;
+  color: #666;
+  margin-top: 4px;
+}
+
+
+/* --- 4. Title slide ---------------------------------------------- */
+/* Hero photo full bleed; the title text sits in a semi-transparent
+   white card on the left, mirroring slideMaster1 / slideLayout1. */
+
+.title-slide {
+  background-image: url(./libs/img/wu-campus-hero.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 0 !important;
+  border-top: 0 !important;
+}
+
+.title-slide h1,
+.title-slide h2,
+.title-slide h3 { display: none; }
+
+/* WU white logo — scoped to the title and closing slides only.
+   Section dividers and any other inverse/body slides also carry the
+   `.wu-logo-white[]` markup, but the rule no longer matches them,
+   so the logo is hidden everywhere except title + closing. */
+.title-slide .wu-logo-white,
+.closing-slide .wu-logo-white {
+  position: absolute;
+  top: 22px;
+  right: 44px;
+  width: 110px;
+  height: 82px;
+  background: url(./libs/img/logo-wu-white.png) right top / contain no-repeat;
+  z-index: 6;
+  pointer-events: none;
+}
+
+/* Suppress the accent-bar after h1 on title slide */
+.title-slide h1::after { display: none; }
+
+/* Semi-transparent white card holding the title + author info.
+   Activate by adding `.title-card[ ... markdown ... ]` to the deck. */
+.title-card {
+  position: absolute;
+  top: 17%;
+  left: 5%;
+  width: 60%;
+  min-height: 50%;
+  padding: 36px 40px 32px 40px;
+  background: rgba(255, 255, 255, 0.78);
+  box-sizing: border-box;
+  color: #000;
+}
+
+.title-card .title {
+  display: block;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #000;
+  margin-bottom: 28px;
+}
+
+.title-card .author {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 14px;
+}
+
+.title-card .affiliation {
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000;
+}
+
+.title-card .affiliation a,
+.title-card .affiliation a:link,
+.title-card .affiliation a:visited { color: #000; text-decoration: underline; }
+
+
+/* Accreditation strip bottom-right (image3.png in the pptx)
+   x=82.2 %, y=93.4 %, w=15.6 %, h=4.4 %. */
+.accreditation {
+  position: absolute;
+  bottom: 30px;
+  right: 50px;
+  width: 220px;
+  height: 36px;
+  background: url(./libs/img/logo-accreditation.png) right bottom / contain no-repeat;
+  z-index: 4;
+}
+
+/* Optional decorative white curves used along the bottom of
+   the pptx title slide (image4.png). Add `.wu-curves[]` to opt in. */
+.wu-curves {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 47%;
+  background: url(./libs/img/wu-curves.png) center bottom / cover no-repeat;
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+/* --- 5. Closing slide -------------------------------------------- */
+/* Same composition as the title slide by default. */
+
+.closing-slide {
+  background-image: url(./libs/img/wu-campus-hero.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 0 !important;
+}
+
+.closing-slide h1,
+.closing-slide h2,
+.closing-slide h3 { display: none; }
+
+
+/* --- 6. Slide-number tweak (keep WU footer area clean) ---------- */
+
+.remark-slide-number {
+  font-size: 11px;
+  color: #555;
+  opacity: 0.75;
+  bottom: 12px;
+  left: 16px;
+}
+
+/* No slide number on the title or closing slide */
+.title-slide .remark-slide-number,
+.closing-slide .remark-slide-number { display: none; }
+
+
+/* --- 7. Utility: muted source caption under figures ------------- */
+
+.cite, .citation, .citations {
+  font-size: 12px;
+  color: #777;
+  font-weight: 400;
+}
+
+
+/* --- 8z. Website QR code (closing slide) ------------------------ */
+/* QR for https://victormaus.github.io, generated via qrserver.com.
+   Lives INSIDE the .title-card on the closing slide; the card reserves
+   right-side padding so the text never collides with the QR. */
+.closing-slide .title-card {
+  padding-right: 210px;        /* reserve right column for the QR */
+}
+
+.qr-website {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 4;
+}
+
+/* The QR itself. img/qr-victormaus.png was pre-processed with
+   ImageMagick (`convert ... -fuzz 5% -transparent white`) so the
+   background is true alpha-transparent — only the black modules paint. */
+.qr-website::before {
+  content: "";
+  display: block;
+  width: 170px;
+  height: 170px;
+  background: url("./img/qr-victormaus.png") center / contain no-repeat;
+}
+
+.qr-website a,
+.qr-website a:link,
+.qr-website a:visited {
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #000;
+  text-decoration: underline;
+}
+
+
+/* --- 8a. Indicator-panel helpers (Indicators slide) ------------- */
+/* Each panel is a small absolutely-positioned block containing:
+     .ind-label  — bold caption above the figure
+     <img>       — the figure (sized via width/height attr)
+     .ind-src    — small grey source line
+   The slide itself uses positioned children with inline styles. */
+.ind-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 4px;
+}
+.ind-src {
+  display: block;
+  font-size: 10px;
+  color: #888;
+  line-height: 1.3;
+  margin-top: 4px;
+}
+.ind-src a { color: inherit; text-decoration: underline; }
+
+/* Red project header used on the Outlook slide */
+.outlook-h {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #c41e3a;
+  margin-bottom: 10px;
+}
+
+
+/* --- 8b. Photo-credit caption pinned bottom-left ---------------- */
+/* Matches `.cc-bottom-left` from the UCL talk so that slides that
+   sit on a full-bleed photo can keep their image attribution intact. */
+.cc-bottom-left {
+  position: absolute;
+  left: 24px;
+  bottom: 16px;
+  font-size: 12px;
+  line-height: 1.3;
+  z-index: 4;
+}
+
+.cc-bottom-left a,
+.cc-bottom-left a:link,
+.cc-bottom-left a:visited { color: inherit; text-decoration: underline; }
+
+/* MTG-style inverse slides: dark-teal background with off-white text.
+   Section dividers that carry a `background-image` override this colour
+   (the image takes over), but their text colour still picks up the
+   off-white below. */
+.remark-slide-content.inverse {
+  background-color: var(--c-bg-inverse);
+  color: var(--c-text-inverse);
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+.remark-slide-content.inverse h1,
+.remark-slide-content.inverse h2,
+.remark-slide-content.inverse h3 {
+  color: var(--c-text-inverse);
+  opacity: 1;
+}
+.remark-slide-content.inverse a {
+  color: var(--mtg-accent);
+}
+
+
+/* --- 14b. Volumes slide (image + vertical bar chart) ------------- */
+/* Two-column layout: takeaway message on the left, vertical
+   log-scale bar chart on the right. Sits on top of the inverse
+   section-hero background — text is off-white, chart is transparent. */
+.volumes-slide {
+  position: absolute;
+  top: 1.5em;
+  left: 4%;
+  right: 4%;
+  bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.volumes-slide .vol-row {
+  flex: 1 1 auto;
+  display: flex;
+  gap: 22px;
+  align-items: stretch;
+  min-height: 0;
+}
+.volumes-slide .vol-chart {
+  flex: 0 1 26%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: 8px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+.volumes-slide .vol-interactive {
+  flex: 1 1 74%;
+  display: flex;
+  background: transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+}
+.volumes-slide .vol-interactive iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 8px;
+  display: block;
+}
+.volumes-slide .vol-msg {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+.volumes-slide .vol-msg .vol-msg-card {
+  font-size: 24px;
+  line-height: 1.35;
+  color: #ffffff;
+  font-weight: 700;
+  text-align: center;
+  padding: 6px 22px;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85), 0 0 14px rgba(0, 0, 0, 0.55);
+  max-width: 96%;
+}
+.volumes-slide .vol-msg .vol-msg-card strong { color: #F6AE2D; }
+
+.vol-credits {
+  position: absolute;
+  bottom: 0.6em;
+  right: 1.2em;
+  font-size: 11px;
+  color: rgba(250, 250, 250, 0.80);
+  text-align: right;
+  line-height: 1.4;
+  max-width: 60%;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+.vol-credits a { color: rgba(250, 250, 250, 0.95); text-decoration: underline; }
+/* Generic bottom-anchored takeaway, used by slides that
+   want a one-line summary pinned to the slide foot. */
+.volumes-takeaway {
+  position: absolute;
+  bottom: 1.2em;
+  left: 5%;
+  right: 5%;
+  text-align: center;
+  font-size: 22px;
+  color: #222;
+  line-height: 1.45;
+}
+.volumes-takeaway strong { color: #c41e3a; }
+
+
+/* --- 14c. Open-data slide (Leila Fonseca quote + timeline) ------- */
+.open-quote {
+  position: absolute;
+  top: 4.6em;
+  left: 8%;
+  right: 8%;
+  text-align: center;
+  color: var(--wu-dk-blue);
+}
+.open-quote .quote-mark {
+  font-family: Georgia, serif;
+  font-size: 96px;
+  line-height: 0.8;
+  color: #1f9e89;
+  opacity: 0.55;
+  margin-bottom: -10px;
+}
+.open-quote .quote-text {
+  font-size: 26px;
+  font-style: italic;
+  line-height: 1.5;
+  max-width: 88%;
+  margin: 0 auto;
+}
+.open-quote .quote-attr {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  color: #444;
+  margin-top: 18px;
+}
+.open-timeline {
+  position: absolute;
+  bottom: 1.4em;
+  left: 5%;
+  right: 5%;
+}
+
+
+/* --- 15. Sensor grid (Part 1 — Data types and sensors) ----------- */
+/* 3-column × 2-row grid of sensor-family cards. Each cell has a
+   header (.cell-h), spec lines (.cell-spec) and a use-case (.cell-use). */
+.sensor-grid {
+  position: absolute;
+  top: 4.4em;
+  left: 4%;
+  right: 4%;
+  bottom: 4.2em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 14px;
+}
+.sensor-grid .cell {
+  background: #fff;
+  border: 1.5px solid var(--wu-cyan);
+  border-radius: 6px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: 0 1px 3px rgba(0, 35, 80, 0.08);
+}
+.sensor-grid .cell-h {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--wu-dk-blue);
+  border-bottom: 2px solid var(--wu-cyan);
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+.sensor-grid .cell-spec {
+  font-size: 13px;
+  line-height: 1.45;
+  color: #222;
+  flex: 1 0 auto;
+}
+.sensor-grid .cell-spec strong { color: var(--wu-dk-blue); }
+.sensor-grid .cell-use {
+  font-size: 12.5px;
+  color: #555;
+  font-style: italic;
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px dashed #ccc;
+}
+
+
+/* --- 15b. Sensor CARDS — illustrative redesign for SE audience --- */
+/* 2x2 grid of cards. Each card shows the sensor's measurement
+   physics as an inline SVG cue, with minimal text. */
+.sensor-cards {
+  position: absolute;
+  top: 4.6em;
+  left: 6%;
+  right: 6%;
+  bottom: 7.5em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 26px;
+}
+.sensor-cards .scard {
+  background: #fff;
+  border: 1.5px solid var(--wu-cyan);
+  border-radius: 8px;
+  padding: 8px 12px 10px;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto auto;
+  row-gap: 3px;
+  align-items: center;
+  justify-items: center;
+  box-shadow: 0 2px 6px rgba(0, 35, 80, 0.08);
+  overflow: hidden;
+}
+.sensor-cards .scard-svg {
+  width: 100%;
+  height: 100%;
+  max-width: 280px;
+  display: block;
+  /* SVG preserveAspectRatio default (xMidYMid meet) keeps content inside */
+}
+.sensor-cards .scard-h {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--wu-dk-blue);
+  text-align: center;
+  line-height: 1.1;
+}
+.sensor-cards .scard-eg {
+  font-size: 11px;
+  color: #555;
+  text-align: center;
+  line-height: 1.2;
+}
+.sensor-cards .scard-use {
+  font-size: 13px;
+  color: #222;
+  text-align: center;
+  font-style: italic;
+  line-height: 1.3;
+  max-width: 95%;
+}
+.sensor-tagline {
+  position: absolute;
+  bottom: 1.2em;
+  left: 5%;
+  right: 5%;
+  text-align: center;
+  font-size: 22px;
+  color: #222;
+  line-height: 1.4;
+}
+.sensor-tagline code {
+  background: #f1f5f9;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 18px;
+  color: var(--wu-dk-blue);
+}
+
+
+/* --- 15c. ARD slide — EOX datacube illustration -------------------- */
+.ard-slide {
+  position: absolute;
+  top: 4.6em;
+  left: 4%;
+  right: 4%;
+  bottom: 5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.ard-slide img {
+  max-width: 95%;
+  max-height: calc(100% - 28px);
+  object-fit: contain;
+  display: block;
+}
+.ard-slide .ard-credit {
+  font-size: 12px;
+  color: #777;
+  text-align: center;
+  line-height: 1.3;
+}
+.ard-slide .ard-credit a { color: inherit; text-decoration: underline; }
+
+.ard-tagline {
+  position: absolute;
+  bottom: 1.3em;
+  left: 5%;
+  right: 5%;
+  text-align: center;
+  font-size: 22px;
+  color: #222;
+  line-height: 1.4;
+}
+.ard-tagline strong { color: var(--wu-dk-blue); }
+
+
+/* --- 15d. Software-response slide (3-column logos) --------------- */
+.soft-response {
+  position: absolute;
+  top: 4.6em;
+  left: 4%;
+  right: 4%;
+  bottom: 4.5em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 22px;
+}
+.soft-response .soft-col {
+  background: #fff;
+  border: 1.5px solid var(--wu-cyan);
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  justify-items: center;
+  box-shadow: 0 2px 6px rgba(0, 35, 80, 0.08);
+}
+.soft-response .soft-col h3 {
+  font-size: 18px;
+  color: var(--wu-dk-blue);
+  margin: 0 !important;
+  border-bottom: 2px solid var(--wu-cyan);
+  padding: 0 0 4px 0;
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+}
+.soft-response .soft-col .subh {
+  font-size: 12px;
+  color: #777;
+  font-style: italic;
+  text-align: center;
+  line-height: 1.25;
+  margin-top: -4px;
+}
+.soft-response .soft-col .logos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  height: 100%;
+}
+.soft-response .soft-col .logos .logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+.soft-response .soft-col .logos img {
+  max-height: 70px;
+  max-width: 86%;
+  object-fit: contain;
+}
+.soft-response .soft-col .logos .logo-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--c-text);
+  opacity: 0.85;
+  text-align: center;
+  line-height: 1.2;
+}
+.soft-response .soft-col .logos .logo-name small {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  opacity: 0.75;
+  margin-top: 1px;
+}
+.soft-response .soft-col .extras {
+  font-size: 12px;
+  color: #444;
+  text-align: center;
+  line-height: 1.4;
+}
+.soft-response .soft-col .extras em {
+  color: #888;
+  font-style: normal;
+  font-size: 11px;
+}
+.soft-tagline {
+  position: absolute;
+  bottom: 1.3em;
+  left: 5%;
+  right: 5%;
+  text-align: center;
+  font-size: 21px;
+  color: #222;
+  line-height: 1.4;
+}
+
+
+/* --- 15e. Files-vs-APIs slide (EOPF transition) ------------------ */
+.files-vs-apis {
+  position: absolute;
+  top: 4.6em;
+  left: 5%;
+  right: 5%;
+  bottom: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding-top: 38px;   /* push the before/after boxes down a bit */
+}
+.files-vs-apis .fva-comparison {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 24px;
+  width: 100%;
+  align-items: stretch;
+}
+.files-vs-apis .fva-side {
+  padding: 18px 22px;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.files-vs-apis .fva-before {
+  background: #fef3f3;
+  border-left: 5px solid #c41e3a;
+}
+.files-vs-apis .fva-after {
+  background: #e8f5f0;
+  border-left: 5px solid #007857;
+}
+.files-vs-apis .fva-h {
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #555;
+  font-weight: 700;
+}
+.files-vs-apis .fva-icon {
+  font-size: 44px;
+  line-height: 1;
+}
+.files-vs-apis .fva-body {
+  font-size: 17px;
+  color: #222;
+  line-height: 1.4;
+}
+.files-vs-apis .fva-arrow {
+  font-size: 52px;
+  color: var(--wu-cyan);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+.files-vs-apis .fva-eopf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+.files-vs-apis .fva-eopf img {
+  max-height: 88px;
+  max-width: 78%;
+  object-fit: contain;
+}
+.files-vs-apis .fva-eopf-cap {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}
+.files-vs-apis .fva-eopf-cap a { color: inherit; text-decoration: underline; }
+.files-vs-apis .fva-quote {
+  font-size: 22px;
+  font-style: italic;
+  color: var(--wu-dk-blue);
+  text-align: center;
+  line-height: 1.4;
+}
+.files-vs-apis .fva-quote strong { color: #c41e3a; font-style: normal; }
+
+
+/* --- 15f. Earth Intelligence slide -------------------------------- */
+.ei-slide {
+  position: absolute;
+  top: 4.6em;
+  left: 4%;
+  right: 4%;
+  bottom: 1.5em;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  row-gap: 14px;
+}
+.ei-intro {
+  text-align: center;
+  font-size: 19px;
+  line-height: 1.45;
+  color: var(--c-text);
+  opacity: 0.92;
+  max-width: 92%;
+  margin: 0 auto;
+}
+.ei-intro strong { color: var(--mtg-rule); }
+
+.ei-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 14px;
+}
+.ei-cell {
+  background: #fff;
+  border: 1.5px solid var(--wu-cyan);
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 35, 80, 0.06);
+}
+.ei-cell .ei-icon { font-size: 36px; line-height: 1; }
+.ei-cell .ei-h {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--c-text);
+}
+.ei-cell .ei-eg {
+  font-size: 12px;
+  color: #555;
+  font-style: italic;
+  line-height: 1.3;
+}
+.ei-quote {
+  text-align: center;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--c-text);
+  opacity: 0.8;
+  line-height: 1.5;
+}
+.ei-quote .ei-src {
+  display: block;
+  font-style: normal;
+  font-size: 12px;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+.ei-quote .ei-src a { color: inherit; text-decoration: underline; }
+
+
+/* --- 15g. Earth Intelligence option slides (α / β / γ) ----------- */
+/* Small chip in the top-right corner labelling which option is which */
+.ei-option-tag {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  background: var(--mtg-accent);
+  color: #1A292C;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  letter-spacing: 0.04em;
+  z-index: 5;
+}
+/* Common: SVG occupies the centre band; tagline + source line sit at the bottom */
+.ei-alpha,
+.ei-beta,
+.ei-gamma,
+.ei-delta,
+.ei-delta-prime,
+.ei-epsilon,
+.ei-zeta,
+.ei-eta,
+.ei-theta {
+  position: absolute;
+  top: 4em;
+  left: 3%;
+  right: 3%;
+  bottom: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ei-alpha svg,
+.ei-beta svg,
+.ei-gamma svg,
+.ei-delta svg,
+.ei-delta-prime svg,
+.ei-epsilon svg,
+.ei-zeta svg,
+.ei-eta svg,
+.ei-theta svg {
+  width: 100%;
+  height: 100%;
+  max-width: 1100px;
+  max-height: 100%;
+  object-fit: contain;
+}
+.ei-tagline {
+  position: absolute;
+  bottom: 2.2em;
+  left: 5%;
+  right: 5%;
+  text-align: center;
+  font-size: 19px;
+  color: var(--c-text);
+  line-height: 1.4;
+}
+.ei-tagline strong { color: var(--mtg-rule); }
+.ei-tagline em { color: var(--c-text); font-style: italic; }
+.ei-src-line {
+  position: absolute;
+  bottom: 0.8em;
+  left: 5%;
+  right: 5%;
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+}
+.ei-src-line a { color: inherit; text-decoration: underline; }
+
+/* SE-audience callout: highlighted box that sits between the tagline
+   and the source line on the EI paradigm-shift slide. Distinct from
+   the general .ei-tagline because it carries the audience-specific
+   takeaway. */
+.ei-se-callout {
+  position: absolute;
+  bottom: 4.4em;
+  left: 7%;
+  right: 7%;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--c-text);
+  background: rgba(246, 174, 45, 0.12);
+  border-left: 5px solid var(--mtg-accent);
+  border-right: 5px solid var(--mtg-accent);
+  padding: 8px 18px;
+  border-radius: 4px;
+}
+.ei-se-callout strong { color: var(--mtg-rule); }
+
+/* When the SE callout is present, the visual tagline shifts up and
+   the SVG container leaves more room at the bottom. */
+.ei-delta-prime ~ .ei-tagline {
+  bottom: 7.6em;
+}
+.ei-delta-prime {
+  bottom: 9.2em;
+}
+
+
+/* --- 9. Domain-card slide (image-led big-data comparison) -------- */
+/* Big hero image on one side, a small panel of numbers on the other. */
+.domain-card {
+  position: absolute;
+  top: 4.4em;
+  left: 5%;
+  right: 5%;
+  bottom: 2em;
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+.domain-card .domain-img {
+  flex: 1 1 58%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.domain-card .domain-img img {
+  max-width: 100%;
+  max-height: calc(100% - 22px);
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+}
+.domain-card .domain-img .credit {
+  font-size: 11px;
+  color: #777;
+  line-height: 1.3;
+  max-width: 95%;
+  text-align: center;
+}
+.domain-card .domain-img .credit a { color: inherit; text-decoration: underline; }
+.domain-card .domain-stats {
+  flex: 1 1 42%;
+  font-size: 18px;
+  line-height: 1.5;
+}
+.domain-card .stat {
+  display: block;
+  margin-bottom: 16px;
+}
+.domain-card .stat .num {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--wu-dk-blue);
+  line-height: 1.1;
+}
+.domain-card .stat .lbl {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.domain-card .domain-src {
+  display: block;
+  margin-top: 12px;
+  font-size: 12px;
+  color: #888;
+  line-height: 1.3;
+}
+.domain-card .domain-src a { color: inherit; text-decoration: underline; }
+
+
+/* --- 10. Log-scale comparison bar chart -------------------------- */
+/* Pure-CSS horizontal bar chart with bars sized by log10(TB).
+   Each row: label | bar | numeric annotation. */
+.scale-chart {
+  position: absolute;
+  top: 4.4em;
+  left: 4%;
+  right: 4%;
+  bottom: 2.2em;
+  font-size: 14px;
+}
+.scale-chart .axis {
+  position: relative;
+  height: 22px;
+  margin-bottom: 6px;
+  margin-left: 26%;
+  border-bottom: 1px solid #ccc;
+  color: #777;
+  font-size: 11px;
+}
+.scale-chart .axis span {
+  position: absolute;
+  bottom: 4px;
+  transform: translateX(-50%);
+}
+.scale-chart .row {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  margin-bottom: 2px;
+}
+.scale-chart .row .lbl {
+  flex: 0 0 26%;
+  padding-right: 12px;
+  text-align: right;
+  font-size: 14px;
+  line-height: 1.15;
+  color: #222;
+}
+.scale-chart .row .lbl small {
+  display: block;
+  font-size: 11px;
+  color: #777;
+  font-weight: 400;
+}
+.scale-chart .row .barbox {
+  flex: 1 1 auto;
+  position: relative;
+  height: 18px;
+}
+.scale-chart .row .bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--wu-cyan);
+  border-radius: 2px;
+}
+.scale-chart .row .bar.eo   { background: #c41e3a; }   /* EO = red */
+.scale-chart .row .bar.llm  { background: #6b7280; }   /* LLM = grey */
+.scale-chart .row .bar.sci  { background: var(--wu-dk-blue); }
+.scale-chart .row .bar.web  { background: #f59e0b; }
+.scale-chart .row .ann {
+  position: absolute;
+  left: calc(var(--w, 0%) + 6px);
+  top: -1px;
+  font-size: 12px;
+  color: #333;
+  white-space: nowrap;
+}
+.scale-chart .legend {
+  position: absolute;
+  bottom: 0;
+  left: 26%;
+  font-size: 12px;
+  color: #555;
+}
+.scale-chart .legend span {
+  display: inline-block;
+  margin-right: 14px;
+}
+.scale-chart .legend i {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  vertical-align: -2px;
+  margin-right: 4px;
+  border-radius: 2px;
+}
+
+
+/* --- 11. Architecture-diagram helpers ---------------------------- */
+/* Simple block diagrams (boxes + arrows) drawn with HTML+SVG inline.
+   Reusable styles for the COG/Zarr/STAC/Pangeo/ARD/datacube slides. */
+.arch-box {
+  display: inline-block;
+  padding: 10px 14px;
+  background: #fff;
+  border: 2px solid var(--wu-dk-blue);
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--wu-dk-blue);
+  text-align: center;
+  line-height: 1.2;
+}
+.arch-box.alt { background: var(--wu-lt-blue); }
+.arch-box.accent {
+  background: var(--wu-cyan);
+  color: #fff;
+  border-color: var(--wu-cyan);
+}
+.arch-caption {
+  display: block;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.4;
+  margin-top: 8px;
+}
+
+/* Data-cube cube (CSS 3D-ish look) — used on the cube slide. */
+.cube-wrap {
+  position: relative;
+  width: 360px;
+  height: 270px;
+  margin: 0 auto;
+  perspective: 900px;
+}
+.cube {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform: rotateX(-22deg) rotateY(-32deg);
+}
+.cube .face {
+  position: absolute;
+  width: 240px;
+  height: 200px;
+  border: 2px solid var(--wu-dk-blue);
+  box-sizing: border-box;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--wu-dk-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image:
+    linear-gradient(rgba(0, 35, 80, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 35, 80, 0.08) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+.cube .face.front { transform: translateZ(120px); background-color: rgba(229, 245, 250, 0.92); }
+.cube .face.top   { transform: rotateX(90deg)  translateZ(120px); background-color: rgba(51, 153, 204, 0.30); }
+.cube .face.side  { transform: rotateY(90deg)  translateZ(120px); background-color: rgba(0, 35, 80, 0.18); width: 240px; }
+.cube .axis-label {
+  position: absolute;
+  font-size: 12px;
+  font-weight: 700;
+  color: #444;
+}
+.cube-key {
+  margin-top: 14px;
+  font-size: 14px;
+  text-align: center;
+  color: #333;
+  line-height: 1.5;
+}
+
+
+/* --- 12. Stack diagram (Pangeo) ---------------------------------- */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 360px;
+  margin: 0 auto;
+}
+.stack .layer {
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+}
+.stack .layer.l1 { background: #002350; }
+.stack .layer.l2 { background: #1f3d6b; }
+.stack .layer.l3 { background: #3a5b8c; }
+.stack .layer.l4 { background: #5a7aae; }
+.stack .layer.l5 { background: #3399cc; }
+.stack .layer small { display: block; font-size: 12px; font-weight: 400; opacity: 0.9; }
+
+
+/* --- 13. ARD pyramid --------------------------------------------- */
+.pyramid {
+  width: 480px;
+  margin: 12px auto 0;
+}
+.pyramid .lvl {
+  margin: 0 auto 4px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 4px;
+}
+.pyramid .lvl.l0  { width: 100%; background: #002350; }
+.pyramid .lvl.l1  { width: 80%;  background: #1f3d6b; }
+.pyramid .lvl.l2  { width: 62%;  background: #3a5b8c; }
+.pyramid .lvl.l3  { width: 46%;  background: #3399cc; }
+.pyramid .lvl.l4  { width: 32%;  background: #c41e3a; }
+.pyramid .lvl small { font-weight: 400; opacity: 0.9; margin-left: 8px; }
+
+
+/* --- 14. Compact two-column layout for arch-explainer slides ----- */
+.arch-two {
+  position: absolute;
+  top: 4.4em;
+  left: 4%;
+  right: 4%;
+  bottom: 2em;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+.arch-two .arch-left  { flex: 1 1 50%; display: flex; align-items: center; justify-content: center; }
+.arch-two .arch-right { flex: 1 1 50%; font-size: 17px; line-height: 1.5; color: #222; }
+.arch-two .arch-right h3 {
+  font-size: 18px;
+  margin-top: 0 !important;
+  margin-bottom: 8px !important;
+  color: var(--wu-dk-blue);
+}
+.arch-two .arch-right ul { margin-top: 4px; padding-left: 22px; }
+.arch-two .arch-right li { margin-bottom: 6px; }
+
+
+/* --- 16. EI challenge slides (software-gap, defending-the-term) --- */
+
+/* Software-gap slide: 4-axis matrix with support indicators */
+.ei-gap {
+  position: absolute;
+  top: 4.4em;
+  left: 4%;
+  right: 4%;
+  bottom: 7.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.ei-gap-grid {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
+  flex: 1 1 auto;
+}
+.ei-gap-row {
+  display: grid;
+  grid-template-columns: 170px 240px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #ececec;
+}
+.ei-gap-axis {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-text);
+  text-align: right;
+  padding-right: 4px;
+}
+.ei-gap-bar {
+  position: relative;
+  height: 28px;
+  background: #f4f4f4;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.ei-gap-bar span {
+  display: inline-block;
+  height: 100%;
+  padding: 0 10px;
+  line-height: 28px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 4px;
+}
+.ei-gap-bar .bar-full    { background: #007857; }
+.ei-gap-bar .bar-partial { background: #F6AE2D; color: #1A292C; }
+.ei-gap-bar .bar-empty   { background: #c41e3a; }
+.ei-gap-note {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.35;
+}
+.ei-gap-note em { color: var(--mtg-rule); font-style: normal; font-weight: 700; }
+.ei-gap-missing {
+  background: #fef3f3;
+  border-left: 4px solid #c41e3a;
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #1A292C;
+  line-height: 1.4;
+}
+.ei-gap-missing strong { color: #c41e3a; }
+
+/* Defining-EI slide: rebranding context + checklist */
+.ei-defend {
+  position: absolute;
+  top: 4.4em;
+  left: 4%;
+  right: 4%;
+  bottom: 7.5em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+.ei-defend-context {
+  background: #fef3f3;
+  border-left: 4px solid #c41e3a;
+  padding: 14px 18px;
+  border-radius: 4px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--c-text);
+}
+.ei-defend-context em { font-style: italic; color: var(--c-text); }
+.ei-defend-cases {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0;
+}
+.ei-defend-cases .case {
+  background: #fff;
+  border: 1px solid #c41e3a;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #1A292C;
+}
+.ei-defend-checklist {
+  background: #f3faf4;
+  border-left: 4px solid #007857;
+  padding: 14px 18px;
+  border-radius: 4px;
+}
+.ei-defend-h {
+  font-size: 14px;
+  font-weight: 700;
+  color: #007857;
+  margin-bottom: 8px;
+}
+.ei-defend-checklist ol {
+  margin: 0;
+  padding-left: 22px;
+}
+.ei-defend-checklist li {
+  font-size: 13px;
+  color: var(--c-text);
+  line-height: 1.45;
+  margin-bottom: 5px;
+}
+.ei-defend-checklist strong { color: #007857; }
+.ei-defend-tag {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #444;
+  text-align: center;
+  border-top: 1px dashed #ccc;
+  padding-top: 8px;
+}
+
+
+/* --- 17. Transferability slide (KTH-style full-bleed image) ------ */
+/* Slide with the spatial-bias.png as a full-bleed background.
+   Title sits at top-left (default h1); the short message sits in
+   a left-half panel; the source line is pinned bottom-right. */
+.transferability-msg {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  width: 38%;
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--c-text);
+  background: rgba(250, 250, 250, 0.78);
+  padding: 18px 22px;
+  border-left: 4px solid var(--mtg-rule);
+  border-radius: 4px;
+}
+.transferability-msg strong { color: var(--mtg-rule); }
+
+.transferability-src {
+  position: absolute;
+  bottom: 1.4em;
+  right: 1.6em;
+  font-size: 13px;
+  color: #1A292C;
+  background: rgba(250, 250, 250, 0.78);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+.transferability-src a { color: inherit; text-decoration: underline; }
+
+/* Make the Springer figure's white background blend into the slide:
+   `darken` takes the minimum of image and slide-bg per channel, so
+   white pixels (255,255,255) collapse to #FAFAFA (invisible), and
+   non-white content is preserved at original intensity. */
+.remark-slide-content.transferability-bg {
+  background-color: var(--c-bg);
+  background-blend-mode: darken;
+}
+
+
+/* --- 18. Philosophers slide ("What is a mine?") ------------------ */
+/* Two portrait columns with a takeaway tag at the bottom. */
+.philo-tag {
+  position: absolute;
+  bottom: 1.6em;
+  left: 8%;
+  right: 8%;
+  text-align: center;
+  font-size: 19px;
+  line-height: 1.4;
+  color: var(--c-text);
+  background: rgba(246, 174, 45, 0.10);
+  padding: 10px 18px;
+  border-left: 4px solid var(--mtg-rule);
+  border-radius: 4px;
+}
+.philo-tag strong { color: var(--mtg-rule); }
+.philo-tag em     { color: var(--c-text); font-style: italic; }
+
+
+/* --- 19. MINE-THE-GAP's aim slide -------------------------------- */
+/* The two project schematic images are absolutely positioned via
+   inline styles (matching the EGU2026 original). Below them, a key
+   point and a citation line. */
+.mtg-aim-key {
+  position: absolute;
+  bottom: 4.6em;
+  left: 8%;
+  right: 8%;
+  text-align: center;
+  font-size: 22px;
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--c-text);
+}
+.mtg-aim-src {
+  position: absolute;
+  bottom: 1.4em;
+  right: 1.6em;
+  font-size: 13px;
+  color: #555;
+}
+.mtg-aim-src a { color: inherit; text-decoration: underline; }
+
+.mtg-funding {
+  position: absolute;
+  bottom: 1.4em;
+  right: 1.6em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.mtg-funding img {
+  height: 52px;
+  flex-shrink: 0;
+}
+.mtg-funding-id {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.35;
+}
+.mtg-funding-id a { color: inherit; text-decoration: underline; }
+
+
+/* --- 20. Semantic-segmentation slide ----------------------------- */
+.seg-src {
+  position: absolute;
+  bottom: 1.4em;
+  left: 1.6em;
+  font-size: 13px;
+  color: #555;
+}
+.seg-src a { color: inherit; text-decoration: underline; }
+
+
+/* --- 21. AI-pattern slide (dog + Carajás) ------------------------ */
+.pattern-tag {
+  position: absolute;
+  bottom: 1.4em;
+  left: 8%;
+  right: 8%;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--c-text);
+  background: rgba(246, 174, 45, 0.10);
+  padding: 8px 16px;
+  border-left: 4px solid var(--mtg-rule);
+  border-radius: 4px;
+}
+.pattern-tag strong { color: var(--mtg-rule); }
+
+
+/* --- 22. Methodological evolution slide (labels / image / citations) ----- */
+.methods-evo {
+  position: absolute;
+  top: 4.4em;
+  left: 4%;
+  right: 4%;
+  bottom: 5em;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+.methods-evo .me-labels,
+.methods-evo .me-cites {
+  display: grid;
+  grid-template-columns: 31% 32% 37%;
+  gap: 0;
+  text-align: center;
+}
+.methods-evo .me-label-col {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--wu-dk-blue);
+  letter-spacing: 0.2px;
+}
+.methods-evo .me-image {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: 31% 32% 37%;
+  gap: 0;
+  align-items: center;
+  justify-items: center;
+  min-height: 0;
+}
+.methods-evo .me-image img {
+  max-width: 96%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.methods-evo .me-cite-col {
+  font-size: 14px;
+  line-height: 1.3;
+  color: var(--c-text);
+}
+.methods-evo .me-cite-col strong {
+  color: var(--wu-dk-blue);
+  font-size: 15px;
+}
+.methods-evo .me-cite-col span {
+  color: #555;
+  font-style: italic;
+  font-size: 12px;
+}
+.methods-evo .me-cite-col a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted #b8c6cf;
+  transition: color 0.15s, border-bottom-color 0.15s;
+}
+.methods-evo .me-cite-col a:hover {
+  color: var(--wu-blue);
+  border-bottom-color: var(--wu-blue);
+}
+.me-tagline {
+  position: absolute;
+  bottom: 1.3em;
+  left: 6%;
+  right: 6%;
+  text-align: center;
+  font-size: 21px;
+  color: #222;
+  line-height: 1.4;
+}
+.me-tagline strong { color: var(--mtg-rule); }
+.me-tagline em { color: #555; font-style: italic; }
+
+
+/* --- 23. Foundation models slide (diagram + spec card) ---------- */
+.fm-slide {
+  position: absolute;
+  top: 4.4em;
+  left: 4%;
+  right: 4%;
+  bottom: 5.8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fm-slide .fm-flow {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 14px 22px;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 75%;
+  height: 100%;
+}
+.fm-slide .fm-flow svg {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+}
+.fm-slide .fm-card {
+  background: var(--wu-lt-blue);
+  border: 1.5px solid var(--wu-cyan);
+  border-radius: 8px;
+  padding: 14px 18px;
+  box-shadow: 0 2px 6px rgba(0, 35, 80, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.fm-slide .fm-card .fm-card-h {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--wu-dk-blue);
+  letter-spacing: 0.3px;
+}
+.fm-slide .fm-card .fm-card-sub {
+  font-size: 12px;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+.fm-slide .fm-card .fm-specs {
+  margin: 6px 0 8px;
+  padding: 0 0 0 18px;
+  font-size: 14px;
+  color: var(--c-text);
+  line-height: 1.45;
+}
+.fm-slide .fm-card .fm-specs li {
+  margin: 3px 0;
+}
+.fm-slide .fm-card .fm-card-also {
+  font-size: 13px;
+  color: #444;
+  border-top: 1px dashed #c7d6df;
+  padding-top: 8px;
+  margin-top: auto;
+}
+.fm-slide .fm-card .fm-card-also strong {
+  color: var(--wu-dk-blue);
+}
+.fm-tagline {
+  position: absolute;
+  bottom: 2.6em;
+  left: 6%;
+  right: 6%;
+  text-align: center;
+  font-size: 21px;
+  color: #222;
+  line-height: 1.4;
+}
+.fm-tagline strong { color: var(--mtg-rule); }
+.fm-src {
+  position: absolute;
+  bottom: 0.9em;
+  left: 6%;
+  right: 6%;
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+}
+.fm-src a { color: var(--wu-blue); }
+
+
+/* --- 24. Full-bleed background slides --------------------------- */
+/* Zeros the theme's border-top + left padding so a background-image
+   with `background-size: cover` truly fills the slide edge-to-edge. */
+.remark-slide-content.full-bleed {
+  padding: 0 !important;
+  border-top: 0 !important;
+}
+
+
+/* --- 25. Annual-embedding bias slide (real MODIS EVI strip) ----- */
+.year-bias-slide {
+  position: absolute;
+  top: 4.4em;
+  left: 4%;
+  right: 4%;
+  bottom: 2.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.year-bias-slide .yb-panel {
+  background: #fff;
+  border: 1.5px solid var(--wu-cyan);
+  border-radius: 8px;
+  padding: 6px 14px 4px;
+  box-shadow: 0 2px 6px rgba(0, 35, 80, 0.08);
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.year-bias-slide .yb-panel-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--wu-dk-blue);
+  margin-bottom: 2px;
+}
+.year-bias-slide .yb-panel-title em {
+  color: #666;
+  font-weight: 400;
+  font-style: italic;
+}
+.year-bias-slide .yb-svg {
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
+  display: block;
+  min-height: 0;
+}
+.year-bias-slide .yb-svg text {
+  font-family: 'Montserrat', 'Fira Sans', 'Inter', sans-serif;
+}
+.yb-tagline {
+  position: absolute;
+  bottom: 1.3em;
+  left: 6%;
+  right: 6%;
+  text-align: center;
+  font-size: 20px;
+  color: #222;
+  line-height: 1.4;
+}
+.yb-tagline strong { color: var(--mtg-rule); }
+.yb-tagline em { color: #555; font-style: italic; }
+.yb-src {
+  position: absolute;
+  bottom: 0.5em;
+  left: 6%;
+  right: 6%;
+  text-align: center;
+  font-size: 11px;
+  color: #888;
+}
+.yb-src a { color: var(--wu-blue); }

@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Big Earth Observation Data Analytics</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Victor Maus" />
+    <meta name="date" content="2026-06-04" />
+    <script src="index_files/header-attrs-2.31/header-attrs.js"></script>
+    <link href="index_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="index_files/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="index_files/tile-view-0.2.6/tile-view.js"></script>
+    <link rel="stylesheet" href="libs/theme.css" type="text/css" />
+    <link rel="stylesheet" href="libs/theme-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="libs/tachyons-min.css" type="text/css" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+layout: false
+class: title-slide
+count: true
+
+.wu-logo-white[]
+
+.title-card[
+.title[Big Earth Observation Data Analytics]
+.author[Dr. Victor Maus]
+.affiliation[
+Research Team Leader on Spatial Data Science&lt;br&gt;
+Institute for Ecological Economics&lt;br&gt;
+Vienna University of Economics and Business&lt;br&gt;
+[victor.maus@wu.ac.at](mailto:victor.maus@wu.ac.at) &amp;nbsp;·&amp;nbsp; [victormaus.github.io](https://victormaus.github.io)
+]
+]
+
+.accreditation[]
+
+???
+
+
+
+&lt;!-- ============================================================
+     PART 1 — BIG-EO DATA DEMOCRATIZATION
+============================================================ --&gt;
+
+
+&lt;!-- ##################################################### Big-data volumes (scale chart) --&gt;
+---
+layout: false
+class: inverse
+background-image: url(./img/section-bigdata-hero.jpg)
+background-size: cover
+count: true
+
+
+&lt;div class="volumes-slide"&gt;
+
+&lt;div class="vol-row"&gt;
+
+&lt;div class="vol-interactive"&gt;
+&lt;iframe src="./img/earth_observation_data_growth.html" title="Earth observation data growth" loading="lazy"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="vol-msg"&gt;
+&lt;div class="vol-msg-card"&gt;
+The open EO archive grows at an exponential rate, roughly doubling every 3&amp;ndash;4 years. The recent NISAR satellite alone generates 85 TB of data per day.
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+.cc-bottom-left.font-light[Image: NASA / Apollo 17 (public domain) &amp;mdash; &lt;a href="https://commons.wikimedia.org/wiki/File:The_Earth_seen_from_Apollo_17.jpg"&gt;Wikimedia Commons&lt;/a&gt;]
+
+
+???
+
+
+
+
+&lt;!-- ##################################################### Open data — Leila Fonseca quote --&gt;
+---
+layout: false
+class:
+count: true
+
+
+&lt;div class="open-quote"&gt;
+&lt;div class="quote-mark"&gt;&amp;ldquo;&lt;/div&gt;
+&lt;div class="quote-text"&gt;The free data policy adopted by INPE in 2004 enabled new business and increased the number of users of Earth observation data in Brazil, and also encouraged USGS and ESA to open Landsat and Sentinel data access, respectively.&lt;/div&gt;
+&lt;div class="quote-attr"&gt;&amp;mdash;Dr. Leila Fonseca, Brazilian National Institute for Space Research (INPE)&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="open-timeline"&gt;
+&lt;svg viewBox="0 0 900 140" width="100%" style="max-width: 900px; display: block; margin: 0 auto;"&gt;
+  &lt;!-- Horizontal connecting line --&gt;
+  &lt;line x1="120" y1="80" x2="780" y2="80" stroke="#1f9e89" stroke-width="3"/&gt;
+
+  &lt;!-- Node 1: INPE 2004 --&gt;
+  &lt;circle cx="120" cy="80" r="14" fill="#1f9e89" stroke="#fff" stroke-width="3"/&gt;
+  &lt;text x="120" y="48" text-anchor="middle" font-size="22" font-weight="700" fill="#0e6b5d"&gt;2004&lt;/text&gt;
+  &lt;text x="120" y="116" text-anchor="middle" font-size="15" font-weight="700" fill="#222"&gt;INPE&lt;/text&gt;
+  &lt;text x="120" y="132" text-anchor="middle" font-size="12" fill="#666"&gt;CBERS imagery&lt;/text&gt;
+
+  &lt;!-- Node 2: USGS Landsat 2008 --&gt;
+  &lt;circle cx="384" cy="80" r="14" fill="#1f9e89" stroke="#fff" stroke-width="3"/&gt;
+  &lt;text x="384" y="48" text-anchor="middle" font-size="22" font-weight="700" fill="#0e6b5d"&gt;2008&lt;/text&gt;
+  &lt;text x="384" y="116" text-anchor="middle" font-size="15" font-weight="700" fill="#222"&gt;USGS&lt;/text&gt;
+  &lt;text x="384" y="132" text-anchor="middle" font-size="12" fill="#666"&gt;Landsat archive&lt;/text&gt;
+
+  &lt;!-- Node 3: ESA Sentinel 2014 --&gt;
+  &lt;circle cx="780" cy="80" r="14" fill="#1f9e89" stroke="#fff" stroke-width="3"/&gt;
+  &lt;text x="780" y="48" text-anchor="middle" font-size="22" font-weight="700" fill="#0e6b5d"&gt;2014&lt;/text&gt;
+  &lt;text x="780" y="116" text-anchor="middle" font-size="15" font-weight="700" fill="#222"&gt;ESA&lt;/text&gt;
+  &lt;text x="780" y="132" text-anchor="middle" font-size="12" fill="#666"&gt;Sentinel / Copernicus&lt;/text&gt;
+&lt;/svg&gt;
+&lt;/div&gt;
+
+???
+
+
+
+
+&lt;!-- ##################################################### The software response --&gt;
+---
+layout: false
+class:
+count: true
+# The software response
+
+&lt;div class="soft-response"&gt;
+
+&lt;div class="soft-col"&gt;
+&lt;h3&gt;Open formats&lt;/h3&gt;
+&lt;div class="subh"&gt;storage layer&lt;/div&gt;
+&lt;div class="logos"&gt;
+&lt;div class="logo-item"&gt;&lt;img src="./img/logos/cog.png" alt="Cloud-Optimized GeoTIFF" /&gt;&lt;div class="logo-name"&gt;COG&lt;/div&gt;&lt;/div&gt;
+&lt;div class="logo-item"&gt;&lt;img src="./img/logos/zarr.png" alt="Zarr" /&gt;&lt;div class="logo-name"&gt;Zarr&lt;/div&gt;&lt;/div&gt;
+&lt;div class="logo-item"&gt;&lt;img src="./img/logos/geoparquet.svg" alt="GeoParquet" /&gt;&lt;div class="logo-name"&gt;GeoParquet&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="extras"&gt;cloud-native rasters, N-D arrays, vector tables&lt;br/&gt;&lt;em&gt;+ NetCDF, HDF5&lt;/em&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="soft-col"&gt;
+&lt;h3&gt;Open APIs&lt;/h3&gt;
+&lt;div class="subh"&gt;service layer&lt;/div&gt;
+&lt;div class="logos"&gt;
+&lt;div class="logo-item"&gt;&lt;img src="./img/logos/stac.png" alt="STAC" /&gt;&lt;div class="logo-name"&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="logo-item"&gt;&lt;img src="./img/logos/openeo.png" alt="openEO" /&gt;&lt;div class="logo-name"&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="extras"&gt;STAC = discovery · openEO = processing&lt;br/&gt;&lt;em&gt;OGC API, CEOS ARD&lt;/em&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="soft-col"&gt;
+&lt;h3&gt;Open libraries&lt;/h3&gt;
+&lt;div class="subh"&gt;client/application layer&lt;/div&gt;
+&lt;div class="logos"&gt;
+&lt;div class="logo-item"&gt;&lt;img src="./img/logos/xarray.png" alt="xarray" /&gt;&lt;div class="logo-name"&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="logo-item"&gt;&lt;img src="./img/logos/dask.svg" alt="Dask" /&gt;&lt;div class="logo-name"&gt;Dask&lt;/div&gt;&lt;/div&gt;
+&lt;div class="logo-item"&gt;&lt;img src="./img/logos/pangeo.png" alt="Pangeo" /&gt;&lt;div class="logo-name"&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="extras"&gt;N-D arrays · parallel runtime · platform&lt;br/&gt;&lt;em&gt;GDAL, rasterio, pystac, ODC&lt;/em&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="soft-tagline"&gt;
+Interoperable open-source software that makes PB-scale EO usable.
+&lt;/div&gt;
+
+???
+
+
+
+&lt;!-- ##################################################### From files to APIs (EOPF) --&gt;
+---
+layout: false
+class:
+count: true
+# ESA switches to cloud-native products
+
+&lt;div class="files-vs-apis"&gt;
+
+&lt;div class="fva-comparison"&gt;
+
+&lt;div class="fva-side fva-before"&gt;
+&lt;div class="fva-h"&gt;Until now&lt;/div&gt;
+&lt;div class="fva-icon"&gt;📦&lt;/div&gt;
+&lt;div class="fva-body"&gt;ESA publishes &lt;strong&gt;SAFE archives&lt;/strong&gt; (.zip);&lt;br/&gt;3rd-party clouds reformat to COG / Zarr&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="fva-arrow"&gt;&amp;rarr;&lt;/div&gt;
+
+&lt;div class="fva-side fva-after"&gt;
+&lt;div class="fva-h"&gt;From 2026/27&lt;/div&gt;
+&lt;div class="fva-icon"&gt;☁️&lt;/div&gt;
+&lt;div class="fva-body"&gt;ESA publishes &lt;strong&gt;Zarr natively&lt;/strong&gt;;&lt;br/&gt;query &lt;strong&gt;STAC&lt;/strong&gt;, stream from cloud object storage&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="fva-eopf"&gt;
+&lt;img src="./img/logos/eopf.png" alt="ESA EOPF Sentinel Zarr" /&gt;
+&lt;div class="fva-eopf-cap"&gt;ESA's &lt;a href="https://zarr.eopf.copernicus.eu"&gt;EOPF Sentinel Zarr&lt;/a&gt; &amp;mdash; the whole upstream chain becomes cloud-native by default&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="fva-quote"&gt;
+Access is now &lt;strong&gt;an API call&lt;/strong&gt;, not &lt;em&gt;a file download&lt;/em&gt;.
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+???
+
+
+
+
+
+&lt;!-- ##################################################### ARD pyramid --&gt;
+---
+layout: false
+class:
+count: true
+# Analysis Ready Data (ARD)
+
+&lt;div class="ard-slide"&gt;
+&lt;img src="./img/ard-eox-datacube.png" alt="From raw satellite scenes to an analysis-ready data cube" /&gt;
+&lt;div class="ard-credit"&gt;
+Figure: Stefan Brand, &lt;a href="https://eox.at"&gt;EOX&lt;/a&gt; &amp;mdash; ARD references: &lt;a href="https://doi.org/10.3390/rs11091124"&gt;Frantz (2019)&lt;/a&gt; · &lt;a href="https://doi.org/10.3390/data4030092"&gt;Appel &amp;amp; Pebesma (2019)&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="volumes-takeaway" style="font-size: 28px;"&gt;
+Raw scenes &amp;rarr; calibrated, gridded, gap-masked tiles &amp;rarr; regular data cubes
+&lt;/div&gt;
+
+???
+
+
+
+&lt;!-- ##################################################### Methodological evolution --&gt;
+---
+layout: false
+class:
+count: true
+# From engineered features to learned representations
+
+&lt;div class="methods-evo"&gt;
+
+&lt;div class="me-labels"&gt;
+&lt;div class="me-label-col"&gt;Dimensionality reduction&lt;/div&gt;
+&lt;div class="me-label-col"&gt;Pattern matching&lt;/div&gt;
+&lt;div class="me-label-col"&gt;Full dimensionality&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="me-image"&gt;
+&lt;img src="./img/timesat.png" alt="TIMESAT &amp;mdash; phenology metrics from NDVI time series" /&gt;
+&lt;img src="./img/twdtw.webp" alt="TWDTW &amp;mdash; global alignment between temporal pattern and time series" /&gt;
+&lt;img src="./img/deep-learning.png" alt="Deep learning &amp;mdash; fully-connected network mapping time-series inputs to class outputs" /&gt;
+&lt;/div&gt;
+
+&lt;div class="me-cites"&gt;
+&lt;div class="me-cite-col"&gt;&lt;a href="https://doi.org/10.1016/j.cageo.2004.05.006" target="_blank" rel="noopener"&gt;&lt;strong&gt;TIMESAT&lt;/strong&gt;&lt;br/&gt;&lt;span&gt;J&amp;ouml;nsson &amp;amp; Eklundh, 2004&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class="me-cite-col"&gt;&lt;a href="https://doi.org/10.1109/JSTARS.2016.2517118" target="_blank" rel="noopener"&gt;&lt;strong&gt;TWDTW&lt;/strong&gt;&lt;br/&gt;&lt;span&gt;Maus et al., 2016&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class="me-cite-col"&gt;&lt;a href="https://doi.org/10.3390/rs11050523" target="_blank" rel="noopener"&gt;&lt;strong&gt;Deep learning&lt;/strong&gt;&lt;br/&gt;&lt;span&gt;Pelletier et al., 2022&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+
+???
+
+&lt;!-- ##################################################### Archived: Data types and sensors --&gt;
+---
+layout: false
+count: true
+# Earth Observation Images
+
+&lt;div class="sensor-cards"&gt;
+
+&lt;div class="scard"&gt;
+&lt;svg viewBox="0 0 160 120" class="scard-svg"&gt;
+  &lt;!-- Sun --&gt;
+  &lt;circle cx="20" cy="20" r="10" fill="#f59e0b"/&gt;
+  &lt;g stroke="#f59e0b" stroke-width="1.5"&gt;
+    &lt;line x1="20" y1="4" x2="20" y2="0"/&gt;
+    &lt;line x1="36" y1="20" x2="40" y2="20"/&gt;
+    &lt;line x1="20" y1="36" x2="20" y2="40"/&gt;
+    &lt;line x1="4" y1="20" x2="0" y2="20"/&gt;
+    &lt;line x1="30" y1="8" x2="33" y2="5"/&gt;
+    &lt;line x1="30" y1="32" x2="33" y2="35"/&gt;
+    &lt;line x1="10" y1="32" x2="7" y2="35"/&gt;
+    &lt;line x1="10" y1="8" x2="7" y2="5"/&gt;
+  &lt;/g&gt;
+  &lt;!-- Satellite --&gt;
+  &lt;g transform="translate(120, 30)"&gt;
+    &lt;rect x="-8" y="-8" width="16" height="16" fill="#444"/&gt;
+    &lt;rect x="-22" y="-3" width="12" height="6" fill="#3399cc"/&gt;
+    &lt;rect x="10" y="-3" width="12" height="6" fill="#3399cc"/&gt;
+  &lt;/g&gt;
+  &lt;!-- Sun rays down --&gt;
+  &lt;line x1="30" y1="30" x2="55" y2="95" stroke="#f59e0b" stroke-width="2"/&gt;
+  &lt;!-- Reflected light: 3 broad visible bands (RGB) + 2 grey bands (NIR / SWIR) --&gt;
+  &lt;line x1="54" y1="96" x2="113" y2="36" stroke="#9ca3af" stroke-width="2.5"/&gt;
+  &lt;line x1="58" y1="98" x2="115" y2="38" stroke="#1f9e89" stroke-width="2.5"/&gt;
+  &lt;line x1="62" y1="100" x2="117" y2="40" stroke="#c41e3a" stroke-width="2.5"/&gt;
+  &lt;line x1="66" y1="102" x2="119" y2="42" stroke="#0072B2" stroke-width="2.5"/&gt;
+  &lt;line x1="70" y1="104" x2="121" y2="44" stroke="#6b7280" stroke-width="2.5"/&gt;
+  &lt;!-- Ground --&gt;
+  &lt;path d="M 0,100 L 160,100 L 160,120 L 0,120 Z" fill="#9ca3af"/&gt;
+  &lt;path d="M 40,100 Q 60,92 80,100 Q 100,92 120,100" fill="#7a886e" stroke="none"/&gt;
+&lt;/svg&gt;
+&lt;div class="scard-h"&gt;Multispectral cameras&lt;/div&gt;
+&lt;div class="scard-eg"&gt;(e.g. Sentinel-2 · Landsat · Planet)&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="scard"&gt;
+&lt;svg viewBox="0 0 160 120" class="scard-svg"&gt;
+  &lt;defs&gt;
+    &lt;marker id="sar-tx-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"&gt;
+      &lt;path d="M 0 0 L 10 5 L 0 10 z" fill="#0072B2"/&gt;
+    &lt;/marker&gt;
+    &lt;marker id="sar-rx-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"&gt;
+      &lt;path d="M 0 0 L 10 5 L 0 10 z" fill="#D55E00"/&gt;
+    &lt;/marker&gt;
+  &lt;/defs&gt;
+  &lt;!-- Satellite --&gt;
+  &lt;g transform="translate(125, 22)"&gt;
+    &lt;rect x="-8" y="-8" width="16" height="16" fill="#444"/&gt;
+    &lt;rect x="-22" y="-3" width="12" height="6" fill="#3399cc"/&gt;
+    &lt;rect x="10" y="-3" width="12" height="6" fill="#3399cc"/&gt;
+  &lt;/g&gt;
+  &lt;!-- Clouds (radar sees through) --&gt;
+  &lt;g fill="#d1d5db"&gt;
+    &lt;ellipse cx="55" cy="55" rx="20" ry="7"/&gt;
+    &lt;ellipse cx="78" cy="52" rx="16" ry="6"/&gt;
+    &lt;ellipse cx="35" cy="60" rx="13" ry="5"/&gt;
+  &lt;/g&gt;
+  &lt;!-- Transmitted pulse: solid blue, arrowhead auto-oriented toward ground --&gt;
+  &lt;line x1="115" y1="32" x2="62" y2="90" stroke="#0072B2" stroke-width="2.8" marker-end="url(#sar-tx-head)"/&gt;
+  &lt;text x="38" y="80" font-size="9" fill="#0072B2" font-weight="700" text-anchor="middle"&gt;pulse&lt;/text&gt;
+  &lt;!-- Backscatter: dashed orange, arrowhead auto-oriented toward satellite --&gt;
+  &lt;line x1="78" y1="92" x2="128" y2="34" stroke="#D55E00" stroke-width="2.2" stroke-dasharray="4 2" marker-end="url(#sar-rx-head)"/&gt;
+  &lt;text x="128" y="82" font-size="9" fill="#D55E00" font-weight="700" text-anchor="middle"&gt;backscatter&lt;/text&gt;
+  &lt;!-- Ground --&gt;
+  &lt;path d="M 0,100 L 160,100 L 160,120 L 0,120 Z" fill="#9ca3af"/&gt;
+&lt;/svg&gt;
+&lt;div class="scard-h"&gt;Synthetic-aperture radar&lt;/div&gt;
+&lt;div class="scard-eg"&gt;(e.g. Sentinel-1 · NISAR)&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="scard"&gt;
+&lt;svg viewBox="0 0 160 120" class="scard-svg"&gt;
+  &lt;!-- Sun --&gt;
+  &lt;circle cx="20" cy="20" r="9" fill="#f59e0b"/&gt;
+  &lt;g stroke="#f59e0b" stroke-width="1.5"&gt;
+    &lt;line x1="20" y1="5" x2="20" y2="1"/&gt;
+    &lt;line x1="35" y1="20" x2="39" y2="20"/&gt;
+    &lt;line x1="20" y1="35" x2="20" y2="39"/&gt;
+    &lt;line x1="5" y1="20" x2="1" y2="20"/&gt;
+  &lt;/g&gt;
+  &lt;!-- Satellite --&gt;
+  &lt;g transform="translate(125, 24)"&gt;
+    &lt;rect x="-8" y="-8" width="16" height="16" fill="#444"/&gt;
+    &lt;rect x="-22" y="-3" width="12" height="6" fill="#3399cc"/&gt;
+    &lt;rect x="10" y="-3" width="12" height="6" fill="#3399cc"/&gt;
+  &lt;/g&gt;
+  &lt;!-- Sun ray down --&gt;
+  &lt;line x1="26" y1="28" x2="56" y2="90" stroke="#f59e0b" stroke-width="2"/&gt;
+  &lt;!-- Reflection going up — dense fan of many narrow contiguous bands --&gt;
+  &lt;g stroke-width="1.3" fill="none"&gt;
+    &lt;line x1="60" y1="92" x2="115" y2="32" stroke="#7c3aed"/&gt;
+    &lt;line x1="60" y1="92" x2="118" y2="35" stroke="#3b82f6"/&gt;
+    &lt;line x1="60" y1="92" x2="120" y2="38" stroke="#0891b2"/&gt;
+    &lt;line x1="60" y1="92" x2="121" y2="41" stroke="#10b981"/&gt;
+    &lt;line x1="60" y1="92" x2="122" y2="44" stroke="#84cc16"/&gt;
+    &lt;line x1="60" y1="92" x2="123" y2="47" stroke="#facc15"/&gt;
+    &lt;line x1="60" y1="92" x2="124" y2="50" stroke="#f97316"/&gt;
+    &lt;line x1="60" y1="92" x2="125" y2="53" stroke="#dc2626"/&gt;
+    &lt;line x1="60" y1="92" x2="125" y2="56" stroke="#991b1b"/&gt;
+  &lt;/g&gt;
+  &lt;!-- Ground --&gt;
+  &lt;path d="M 0,100 L 160,100 L 160,120 L 0,120 Z" fill="#9ca3af"/&gt;
+  &lt;path d="M 40,100 Q 55,94 70,100" fill="#7a886e" stroke="none"/&gt;
+&lt;/svg&gt;
+&lt;div class="scard-h"&gt;Hyperspectral imagers&lt;/div&gt;
+&lt;div class="scard-eg"&gt;(e.g. EnMAP · PRISMA · CHIME (upcoming))&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="scard"&gt;
+&lt;svg viewBox="0 0 160 120" class="scard-svg"&gt;
+  &lt;!-- Satellite --&gt;
+  &lt;g transform="translate(80, 18)"&gt;
+    &lt;rect x="-8" y="-8" width="16" height="16" fill="#444"/&gt;
+    &lt;rect x="-22" y="-3" width="12" height="6" fill="#3399cc"/&gt;
+    &lt;rect x="10" y="-3" width="12" height="6" fill="#3399cc"/&gt;
+  &lt;/g&gt;
+  &lt;!-- Laser pulse down (vertical green beam) --&gt;
+  &lt;line x1="80" y1="32" x2="80" y2="95" stroke="#007857" stroke-width="3"/&gt;
+  &lt;line x1="80" y1="32" x2="80" y2="95" stroke="#82e0aa" stroke-width="1" stroke-dasharray="3 2"/&gt;
+  &lt;!-- Tree silhouettes --&gt;
+  &lt;g fill="#3a5a40"&gt;
+    &lt;ellipse cx="40" cy="92" rx="10" ry="14"/&gt;
+    &lt;rect x="38" y="92" width="4" height="10" fill="#5d4037"/&gt;
+    &lt;ellipse cx="115" cy="88" rx="13" ry="18"/&gt;
+    &lt;rect x="113" y="92" width="4" height="14" fill="#5d4037"/&gt;
+  &lt;/g&gt;
+  &lt;!-- Ground --&gt;
+  &lt;path d="M 0,103 L 160,103 L 160,120 L 0,120 Z" fill="#9ca3af"/&gt;
+&lt;/svg&gt;
+&lt;div class="scard-h"&gt;LiDAR altimeters&lt;/div&gt;
+&lt;div class="scard-eg"&gt;GEDI · ICESat-2&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="volumes-takeaway" style="font-size: 28px;"&gt;
+&lt;strong&gt;EO data is much more than RGB images.&lt;/strong&gt; It includes measurements that reveal different aspects of our planet far beyond visible light.
+&lt;/div&gt;
+
+???
+
+
+&lt;!-- ##################################################### Foundation models / TESSERA --&gt;
+---
+layout: false
+class:
+count: true
+# Earth Observation Foundation Models
+
+&lt;div class="fm-slide"&gt;
+
+&lt;div class="fm-flow"&gt;
+&lt;svg viewBox="0 0 600 330" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;defs&gt;
+    &lt;marker id="fm-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"&gt;
+      &lt;path d="M 0 0 L 10 5 L 0 10 z" fill="#666"/&gt;
+    &lt;/marker&gt;
+  &lt;/defs&gt;
+
+  &lt;!-- Input 1: Sentinel-2 stack --&gt;
+  &lt;g transform="translate(40, 60)"&gt;
+    &lt;rect x="-8" y="-8" width="56" height="46" fill="#cfe7fb" stroke="#0072B2" stroke-width="1.5"/&gt;
+    &lt;rect x="-4" y="-4" width="56" height="46" fill="#a9d3f3" stroke="#0072B2" stroke-width="1.5"/&gt;
+    &lt;rect x="0"  y="0"  width="56" height="46" fill="#7fbfe9" stroke="#0072B2" stroke-width="1.5"/&gt;
+    &lt;text x="28" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#0072B2"&gt;Sentinel-2&lt;/text&gt;
+    &lt;text x="28" y="76" text-anchor="middle" font-size="11" fill="#0072B2"&gt;10 bands &amp;middot; 10 m&lt;/text&gt;
+  &lt;/g&gt;
+
+  &lt;!-- Input 2: Sentinel-1 stack --&gt;
+  &lt;g transform="translate(40, 200)"&gt;
+    &lt;rect x="-8" y="-8" width="56" height="46" fill="#fbd8b6" stroke="#D55E00" stroke-width="1.5"/&gt;
+    &lt;rect x="-4" y="-4" width="56" height="46" fill="#f4b079" stroke="#D55E00" stroke-width="1.5"/&gt;
+    &lt;rect x="0"  y="0"  width="56" height="46" fill="#ec8a47" stroke="#D55E00" stroke-width="1.5"/&gt;
+    &lt;text x="28" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#D55E00"&gt;Sentinel-1&lt;/text&gt;
+    &lt;text x="28" y="76" text-anchor="middle" font-size="11" fill="#D55E00"&gt;VV &amp;middot; VH SAR&lt;/text&gt;
+  &lt;/g&gt;
+
+  &lt;!-- Multi-year hint --&gt;
+  &lt;text x="70" y="305" text-anchor="middle" font-size="11" fill="#666" font-style="italic"&gt;multi-year time series&lt;/text&gt;
+
+  &lt;!-- Arrows into encoder --&gt;
+  &lt;line x1="105" y1="90"  x2="190" y2="150" stroke="#666" stroke-width="2" marker-end="url(#fm-arr)"/&gt;
+  &lt;line x1="105" y1="230" x2="190" y2="180" stroke="#666" stroke-width="2" marker-end="url(#fm-arr)"/&gt;
+
+  &lt;!-- Encoder block --&gt;
+  &lt;g&gt;
+    &lt;rect x="200" y="130" width="135" height="70" fill="#ffffff" stroke="#1A292C" stroke-width="2" rx="6"/&gt;
+    &lt;text x="267" y="155" text-anchor="middle" font-size="14" font-weight="700" fill="#1A292C"&gt;FOUNDATION&lt;/text&gt;
+    &lt;text x="267" y="174" text-anchor="middle" font-size="14" font-weight="700" fill="#1A292C"&gt;MODEL&lt;/text&gt;
+    &lt;text x="267" y="190" text-anchor="middle" font-size="10" font-style="italic" fill="#666"&gt;self-supervised&lt;/text&gt;
+  &lt;/g&gt;
+
+  &lt;!-- Arrow to embedding --&gt;
+  &lt;line x1="340" y1="165" x2="395" y2="165" stroke="#666" stroke-width="2" marker-end="url(#fm-arr)"/&gt;
+
+  &lt;!-- Embedding vector --&gt;
+  &lt;g transform="translate(412, 132)"&gt;
+    &lt;rect x="0" y="0" width="38" height="66" fill="#fdf6d8" stroke="#F6AE2D" stroke-width="2"/&gt;
+    &lt;g fill="#1A292C"&gt;
+      &lt;circle cx="19" cy="9"  r="1.8"/&gt;
+      &lt;circle cx="19" cy="17" r="1.8"/&gt;
+      &lt;circle cx="19" cy="25" r="1.8"/&gt;
+      &lt;circle cx="19" cy="33" r="1.8"/&gt;
+      &lt;circle cx="19" cy="41" r="1.8"/&gt;
+      &lt;circle cx="19" cy="49" r="1.8"/&gt;
+      &lt;circle cx="19" cy="57" r="1.8"/&gt;
+    &lt;/g&gt;
+    &lt;text x="19" y="82" text-anchor="middle" font-size="13" font-weight="700" fill="#a3781a"&gt;128-d&lt;/text&gt;
+    &lt;text x="19" y="96" text-anchor="middle" font-size="10" fill="#666"&gt;per pixel&lt;/text&gt;
+  &lt;/g&gt;
+
+  &lt;!-- Fan-out arrows --&gt;
+  &lt;line x1="455" y1="148" x2="498" y2="88"  stroke="#666" stroke-width="1.5" marker-end="url(#fm-arr)"/&gt;
+  &lt;line x1="455" y1="160" x2="498" y2="148" stroke="#666" stroke-width="1.5" marker-end="url(#fm-arr)"/&gt;
+  &lt;line x1="455" y1="172" x2="498" y2="208" stroke="#666" stroke-width="1.5" marker-end="url(#fm-arr)"/&gt;
+  &lt;line x1="455" y1="184" x2="498" y2="268" stroke="#666" stroke-width="1.5" marker-end="url(#fm-arr)"/&gt;
+
+  &lt;!-- Task labels --&gt;
+  &lt;g font-size="13" font-weight="700" fill="#007857"&gt;
+    &lt;text x="505" y="92"&gt;Land cover&lt;/text&gt;
+    &lt;text x="505" y="152"&gt;Canopy height&lt;/text&gt;
+    &lt;text x="505" y="212"&gt;Biomass&lt;/text&gt;
+    &lt;text x="505" y="272"&gt;Change detection&lt;/text&gt;
+  &lt;/g&gt;
+&lt;/svg&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="fm-src"&gt;
+Feng et al. (2025), &lt;a href="https://arxiv.org/abs/2506.20380"&gt;arXiv:2506.20380&lt;/a&gt; &amp;middot; &lt;a href="https://geotessera.org"&gt;geotessera.org&lt;/a&gt;
+&lt;/div&gt;
+
+???
+
+
+&lt;!-- ##################################################### Earth from above — natural vs. anthropogenic patterns --&gt;
+---
+layout: false
+class: clear, no-logo, full-bleed
+background-image: url(./img/meandering-mississippi.jpg)
+background-size: cover
+background-position: center
+background-repeat: no-repeat
+count: true
+
+.cc-bottom-left.font-light[Landsat 7 &amp;middot; 28 May 2003 &amp;mdash; USGS/NASA &lt;em&gt;Earth as Art&lt;/em&gt;: &lt;a href="https://www.usgs.gov/media/images/meandering-mississippi"&gt;Meandering Mississippi&lt;/a&gt;]
+
+???
+
+
+&lt;!-- ##################################################### Global datasets lack local relevance — ESA CCI Carajás --&gt;
+---
+layout: false
+class: clear, no-logo, full-bleed
+background-image: url(./img/esa-cci-carajas.jpg)
+background-size: cover
+background-position: center
+background-repeat: no-repeat
+count: true
+
+.cc-bottom-left.font-light[Map: &lt;a href="http://maps.elie.ucl.ac.be/CCI/viewer/"&gt;ESA CCI Land Cover viewer&lt;/a&gt; &amp;mdash; Caraj&amp;aacute;s iron-ore complex, Brazil]
+
+???
+
+&lt;!-- ##################################################### Annual-embedding bias (calendar vs phenology) --&gt;
+---
+layout: false
+class:
+count: true
+# Bias of annual embeddings
+
+&lt;div class="year-bias-slide"&gt;
+
+&lt;div class="yb-panel"&gt;
+&lt;div class="yb-panel-title"&gt;MODIS EVI &amp;middot; &lt;em&gt;Mato Grosso, Brazil (&amp;minus;52.452&amp;deg;, &amp;minus;12.333&amp;deg;) &amp;mdash; 2009&amp;ndash;2010&lt;/em&gt;&lt;/div&gt;
+&lt;svg viewBox="0 0 1000 500" class="yb-svg" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;!-- Light EVI gridlines --&gt;
+  &lt;line x1="50" y1="100" x2="950" y2="100" stroke="#eee" stroke-width="1"/&gt;
+  &lt;line x1="50" y1="250" x2="950" y2="250" stroke="#eee" stroke-width="1"/&gt;
+  &lt;line x1="50" y1="400" x2="950" y2="400" stroke="#ddd" stroke-width="1.2"/&gt;
+  &lt;!-- Y-axis ticks --&gt;
+  &lt;text x="44" y="104" font-size="14" fill="#888" text-anchor="end"&gt;1.0&lt;/text&gt;
+  &lt;text x="44" y="254" font-size="14" fill="#888" text-anchor="end"&gt;0.5&lt;/text&gt;
+  &lt;text x="44" y="404" font-size="14" fill="#888" text-anchor="end"&gt;0.0&lt;/text&gt;
+  &lt;text x="44" y="86"  font-size="15" fill="#888" text-anchor="end" font-weight="700"&gt;EVI&lt;/text&gt;
+  &lt;!-- Year separators --&gt;
+  &lt;line x1="50"  y1="20" x2="50"  y2="440" stroke="#EB811B" stroke-width="1.5" stroke-dasharray="6 5" opacity="0.6"/&gt;
+  &lt;line x1="500" y1="20" x2="500" y2="440" stroke="#EB811B" stroke-width="2.5" stroke-dasharray="7 5"/&gt;
+  &lt;line x1="950" y1="20" x2="950" y2="440" stroke="#EB811B" stroke-width="1.5" stroke-dasharray="6 5" opacity="0.6"/&gt;
+  &lt;!-- Embedding boxes (both ambiguous) --&gt;
+  &lt;rect x="52"  y="24" width="446" height="54" rx="5" fill="rgba(196,30,58,0.07)" stroke="#c41e3a" stroke-width="2.5" stroke-dasharray="7 4"/&gt;
+  &lt;text x="275" y="58" font-size="20" fill="#c41e3a" font-weight="700" text-anchor="middle"&gt;Embedding 2009&lt;/text&gt;
+  &lt;rect x="502" y="24" width="446" height="54" rx="5" fill="rgba(196,30,58,0.07)" stroke="#c41e3a" stroke-width="2.5" stroke-dasharray="7 4"/&gt;
+  &lt;text x="725" y="58" font-size="20" fill="#c41e3a" font-weight="700" text-anchor="middle"&gt;Embedding 2010&lt;/text&gt;
+  &lt;!-- Real MODIS EVI curve (forest-grass pixel, every ~16 days) --&gt;
+  &lt;polyline points="50,362 70,330 89,346 109,356 129,336 149,309 168,303 188,323 208,329 227,349 247,355 267,362 287,361 306,353 326,363 346,362 366,359 385,348 405,339 425,346 445,321 464,286 484,299 500,265 520,221 539,229 559,193 579,250 599,289 618,303 638,313 658,308 677,337 697,344 717,347 737,349 756,350 776,349 796,348 816,356 835,354 855,331 875,330 894,345 914,360 934,262" fill="none" stroke="#1f9e89" stroke-width="3" stroke-linejoin="round"/&gt;
+  &lt;!-- Data point markers --&gt;
+  &lt;g fill="#1f9e89"&gt;
+    &lt;circle cx="50"  cy="362" r="2.5"/&gt;&lt;circle cx="70"  cy="330" r="2.5"/&gt;&lt;circle cx="89"  cy="346" r="2.5"/&gt;
+    &lt;circle cx="109" cy="356" r="2.5"/&gt;&lt;circle cx="129" cy="336" r="2.5"/&gt;&lt;circle cx="149" cy="309" r="2.5"/&gt;
+    &lt;circle cx="168" cy="303" r="2.5"/&gt;&lt;circle cx="188" cy="323" r="2.5"/&gt;&lt;circle cx="208" cy="329" r="2.5"/&gt;
+    &lt;circle cx="227" cy="349" r="2.5"/&gt;&lt;circle cx="247" cy="355" r="2.5"/&gt;&lt;circle cx="267" cy="362" r="2.5"/&gt;
+    &lt;circle cx="287" cy="361" r="2.5"/&gt;&lt;circle cx="306" cy="353" r="2.5"/&gt;&lt;circle cx="326" cy="363" r="2.5"/&gt;
+    &lt;circle cx="346" cy="362" r="2.5"/&gt;&lt;circle cx="366" cy="359" r="2.5"/&gt;&lt;circle cx="385" cy="348" r="2.5"/&gt;
+    &lt;circle cx="405" cy="339" r="2.5"/&gt;&lt;circle cx="425" cy="346" r="2.5"/&gt;&lt;circle cx="445" cy="321" r="2.5"/&gt;
+    &lt;circle cx="464" cy="286" r="2.5"/&gt;&lt;circle cx="484" cy="299" r="2.5"/&gt;&lt;circle cx="500" cy="265" r="2.5"/&gt;
+    &lt;circle cx="520" cy="221" r="2.5"/&gt;&lt;circle cx="539" cy="229" r="2.5"/&gt;&lt;circle cx="559" cy="193" r="2.5"/&gt;
+    &lt;circle cx="579" cy="250" r="2.5"/&gt;&lt;circle cx="599" cy="289" r="2.5"/&gt;&lt;circle cx="618" cy="303" r="2.5"/&gt;
+    &lt;circle cx="638" cy="313" r="2.5"/&gt;&lt;circle cx="658" cy="308" r="2.5"/&gt;&lt;circle cx="677" cy="337" r="2.5"/&gt;
+    &lt;circle cx="697" cy="344" r="2.5"/&gt;&lt;circle cx="717" cy="347" r="2.5"/&gt;&lt;circle cx="737" cy="349" r="2.5"/&gt;
+    &lt;circle cx="756" cy="350" r="2.5"/&gt;&lt;circle cx="776" cy="349" r="2.5"/&gt;&lt;circle cx="796" cy="348" r="2.5"/&gt;
+    &lt;circle cx="816" cy="356" r="2.5"/&gt;&lt;circle cx="835" cy="354" r="2.5"/&gt;&lt;circle cx="855" cy="331" r="2.5"/&gt;
+    &lt;circle cx="875" cy="330" r="2.5"/&gt;&lt;circle cx="894" cy="345" r="2.5"/&gt;&lt;circle cx="914" cy="360" r="2.5"/&gt;
+    &lt;circle cx="934" cy="262" r="2.5"/&gt;
+  &lt;/g&gt;
+  &lt;!-- Ground-truth ribbon: pasture | soy | fallow | soy (next) --&gt;
+  &lt;rect x="50"  y="410" width="375" height="25" fill="#7a886e"/&gt;
+  &lt;rect x="425" y="410" width="213" height="25" fill="#b8860b"/&gt;
+  &lt;rect x="638" y="410" width="217" height="25" fill="#c8a878"/&gt;
+  &lt;rect x="855" y="410" width="95"  height="25" fill="#b8860b"/&gt;
+  &lt;text x="237" y="428" font-size="14" fill="#fff" text-anchor="middle" font-weight="700"&gt;pasture&lt;/text&gt;
+  &lt;text x="531" y="428" font-size="14" fill="#fff" text-anchor="middle" font-weight="700"&gt;soy growing season&lt;/text&gt;
+  &lt;text x="747" y="428" font-size="14" fill="#fff" text-anchor="middle" font-weight="700"&gt;fallow&lt;/text&gt;
+  &lt;!-- Month labels (year boundaries) --&gt;
+  &lt;text x="50"  y="465" font-size="14" fill="#666" text-anchor="middle"&gt;Jan 2009&lt;/text&gt;
+  &lt;text x="500" y="465" font-size="14" fill="#666" text-anchor="middle"&gt;Jan 2010&lt;/text&gt;
+  &lt;text x="950" y="465" font-size="14" fill="#666" text-anchor="middle"&gt;Jan 2011&lt;/text&gt;
+&lt;/svg&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+
+???
+
+
+
+&lt;!-- ##################################################### Envisat global land-cover full-bleed --&gt;
+---
+layout: false
+class: clear, no-logo
+background-image: url(./img/envisat-global-land-cover.jpg)
+background-size: cover
+background-position: center
+background-repeat: no-repeat
+count: true
+
+.cc-bottom-left.font-light[Envisat global land-cover map (GlobCover) &amp;mdash; &amp;copy; ESA &amp;middot; &lt;a href="https://www.esa.int/ESA_Multimedia/Images/2008/12/Envisat_global_land_cover_map"&gt;esa.int&lt;/a&gt;]
+
+???
+
+
+
+&lt;!-- ##################################################### What is a mine? — philosophical bridge --&gt;
+---
+layout: false
+class:
+count: true
+# What do maps show?
+
+.pull-left.center[
+&lt;div style="margin-top: 1.5em;"&gt;
+&lt;img src="./img/platon.png" alt="Detail of Plato from Raphael's School of Athens (1509–11)" height="380" style="margin-bottom: 1.2em;" /&gt;&lt;br/&gt;
+&lt;strong&gt;Plato&lt;/strong&gt; &amp;mdash; categories have &lt;em&gt;objective essences&lt;/em&gt;:&lt;br/&gt;one &lt;strong&gt;true definition&lt;/strong&gt; holds everywhere &amp;mdash; the assumption behind every global map.&lt;br/&gt;
+&lt;span style="font-size: 11px; color: #777;"&gt;Image: Raphael, &lt;em&gt;School of Athens&lt;/em&gt;, 1511 &amp;middot; CC&amp;nbsp;BY-SA 4.0&lt;/span&gt;
+&lt;/div&gt;
+]
+
+.pull-right.center[
+&lt;div style="transform: translateX(-3em); margin-top: 1.5em;"&gt;
+&lt;img src="./img/wittgenstein-1929-800.jpg" alt="Photograph of Ludwig Wittgenstein, 1929" height="380" style="margin-bottom: 1.2em;" /&gt;&lt;br/&gt;
+&lt;strong&gt;Ludwig Wittgenstein&lt;/strong&gt; &amp;mdash; &lt;em&gt;&amp;ldquo;The meaning of a word is its use in the language&amp;rdquo;&lt;/em&gt;&lt;br/&gt;
+&lt;span style="font-size: 11px; color: #777;"&gt;Photo: Moritz N&amp;auml;hr, 1929 &amp;middot; public domain&lt;/span&gt;
+&lt;/div&gt;
+]
+
+
+???
+
+
+
+
+
+
+
+
+
+
+&lt;!-- ##################################################### Models transferability --&gt;
+---
+layout: false
+class: transferability-bg
+background-image: url(https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-022-29838-9/MediaObjects/41467_2022_29838_Fig1_HTML.png?as=webp)
+background-size: 42% auto
+background-position: right 2em center
+background-repeat: no-repeat
+count: true
+
+# Model transferability remains &lt;br&gt;a big challenge
+
+&lt;div class="transferability-msg"&gt;
+Machine-learning algorithms trained on samples with &lt;strong&gt;non-representative spatial and temporal distributions&lt;/strong&gt; produce unreliable results outside the sampled region.
+&lt;/div&gt;
+
+&lt;div class="transferability-src"&gt;
+Meyer &amp;amp; Pebesma (2022), &lt;a href="https://www.nature.com/articles/s41467-022-29838-9"&gt;&lt;em&gt;Nature Communications&lt;/em&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+???
+
+
+&lt;!-- ##################################################### Spatial data on mining is scarce and fragmented --&gt;
+---
+layout: false
+class:
+count: true
+# Spatial data on mining is scarce and fragmented
+
+.pull-left[
+&lt;img src="./img/maus2024-nature.png" width="78%" /&gt;
+&lt;img src="./img/gap_grid_map.webp" width="78%" /&gt;
+]
+
+.pull-right[
+&lt;img src="./img/nature-d41586-023-04090-3.webp" width="70%" /&gt;
+]
+
+.citations[&lt;a class="cite-link" href="https://doi.org/10.1038/d41586-023-04090-3" target="_blank" rel="noopener"&gt;Maus &amp;amp; Werner (2024) &lt;em&gt;Nature&lt;/em&gt;&lt;/a&gt;]
+
+???
+- Half of the world&amp;rsquo;s mining areas remain undocumented in open datasets.
+- Existing maps are fragmented, locally curated, and inconsistent &amp;mdash; motivating the MINE-THE-GAP integration argument that follows.
+
+
+
+&lt;!-- ##################################################### MINE-THE-GAP's aim — integration in practice --&gt;
+---
+layout: false
+class:
+count: true
+# MINE-THE-GAP's aim
+
+&lt;img src="./img/MINE-THE-GAP-aim.png" height="140" style="position: absolute; top: 6em; left: 50%; transform: translate(-50%, 0%);" alt="MINE-THE-GAP project aim — schematic of integrated mining-data pipeline" /&gt;
+
+&lt;img src="./img/MINE-THE-GAP-innovation.png" height="170" style="position: absolute; top: 14em; left: 50%; transform: translate(-50%, 0%);" alt="MINE-THE-GAP innovation — multi-sensor satellite EO + AI" /&gt;
+
+&lt;div class="mtg-aim-key"&gt;
+Integrate multi-sensor satellite Earth observation data using Artificial Intelligence to produce new mining indicators at global scale
+&lt;/div&gt;
+
+&lt;div class="mtg-funding"&gt;
+&lt;img src="./img/erc-flag-eu.png" alt="ERC + EU flag &amp;mdash; Funded by the European Union" /&gt;
+&lt;div class="mtg-funding-id"&gt;MINE-THE-GAP (ERC StG, 2025&amp;ndash;2030)&lt;br/&gt;&lt;a href="https://doi.org/10.3030/101170578"&gt;doi.org/10.3030/101170578&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+???
+
+
+
+&lt;!-- ##################################################### AI Algorithms Excel at Detecting Regular Patterns --&gt;
+---
+layout: false
+class:
+count: true
+# AI algorithms excel at detecting regular patterns
+
+.pull-left.center[
+&lt;img src="./img/dog-by-Tiina-Hayha-CC-BY-SA-4-0.jpg" alt="Spotted dog among autumn leaves" height="500" /&gt;
+
+&lt;span style="font-size: 11px; color: #777;"&gt;Photo: Tiina H&amp;auml;yh&amp;auml;, &lt;a href="https://creativecommons.org/licenses/by-sa/4.0"&gt;CC&amp;nbsp;BY-SA 4.0&lt;/a&gt;&lt;/span&gt;
+]
+
+.pull-right.center[
+&lt;img src="./img/carajas-mine-satellite-dog.png" alt="Carajás iron-ore mine, satellite view" height="500" /&gt;
+
+&lt;span style="font-size: 11px; color: #777;"&gt;Screenshot: &lt;a href="https://goo.gl/maps/xDkqyGdMAn8ZJTZJ7"&gt;Google Maps&lt;/a&gt; &amp;mdash; Caraj&amp;aacute;s, Brazil&lt;/span&gt;
+]
+
+???
+
+
+
+
+
+
+
+
+&lt;!-- ##################################################### Global mining land footprint --&gt;
+---
+layout: false
+class: clear, inverse
+background-image: url(./img/global-mining-map.jpg)
+background-size: cover
+background-position: center
+count: true
+
+# Global mining land footprint
+
+.citations[&lt;a class="cite-link" href="https://doi.org/10.1038/s41597-022-01547-4" target="_blank" rel="noopener"&gt;Maus et al. (2022) &lt;em&gt;Scientific Data&lt;/em&gt;&lt;/a&gt;]
+
+???
+- Global mining land footprint mapped from satellite imagery (Maus et al. 2022).
+- ~100,000 sites worldwide &amp;mdash; open pits, waste rock piles, tailings dams.
+- The geographical scaffolding for the integration argument in this talk.
+
+
+
+&lt;!-- =============================================================
+     Closing slide
+============================================================= --&gt;
+---
+layout: false
+class: closing-slide
+count: false
+
+.wu-logo-white[]
+
+.title-card[
+.title[Thank you!]
+.author[Victor Maus]
+.affiliation[
+[victor.maus@wu.ac.at](mailto:victor.maus@wu.ac.at)]
+.qr-website[[victormaus.github.io](https://victormaus.github.io)]
+]
+
+.accreditation[]
+
+???
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="./libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "ratio": "16:9",
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth Observation Data Growth</title>
+    
+    <!-- Loading Tailwind CSS and Google Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Loading Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Configuring base styles -->
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: transparent;
+            color: #1A292C;
+        }
+
+        /* Custom styling for the range slider */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            background: #1d4ed8; /* Blue 700 */
+            cursor: pointer;
+            margin-top: -7px;
+            box-shadow: 0 0 8px rgba(29, 78, 216, 0.4);
+            transition: transform 0.1s;
+        }
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #cbd5e1; /* Slate 300 */
+            border-radius: 3px;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+        canvas:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body class="h-full flex items-stretch justify-center p-2">
+
+    <!-- Main presentation slide container -->
+    <div class="w-full h-full rounded-xl overflow-hidden border border-slate-300/40 flex flex-col" style="background-color: rgba(255, 255, 255, 0.55);">
+
+        <!-- Header Section -->
+        <div class="px-5 pt-3 pb-1">
+            <h1 class="text-xl md:text-2xl font-bold tracking-tight text-slate-900">The Exabyte Era of Earth Observation</h1>
+        </div>
+
+        <!-- Dynamic data dashboard layout -->
+        <div class="flex-1 flex flex-col lg:flex-row px-5 pb-3 gap-4 overflow-hidden min-h-0">
+
+            <!-- Left Panel: Dynamic Stats -->
+            <div class="w-full lg:w-1/3 flex flex-col justify-center space-y-3 bg-white/50 p-3 rounded-xl border border-slate-300/60 transition-all duration-300">
+                <div>
+                    <h2 class="text-slate-600 uppercase tracking-wider text-xs font-semibold mb-0.5">Timeline Year</h2>
+                    <div class="text-3xl font-bold text-slate-900 tabular-nums" id="display-year">2026</div>
+                </div>
+
+                <div class="pt-2 border-t border-slate-300/70">
+                    <h2 class="text-slate-600 uppercase tracking-wider text-xs font-semibold mb-0.5">Total Accumulated Data</h2>
+                    <div class="text-2xl font-bold text-blue-700 tabular-nums flex items-baseline gap-2">
+                        <span id="display-total">389</span>
+                        <span class="text-lg text-blue-700/70">PB</span>
+                    </div>
+                </div>
+
+                <!-- Comparisons Section -->
+                <div class="space-y-2 pt-2 border-t border-slate-300/70">
+                    <h3 class="text-slate-600 uppercase tracking-wider text-xs font-semibold">Scale Equivalents</h3>
+
+                    <div class="bg-white/70 rounded-md p-2 border border-slate-300/50 flex justify-between items-center" title="The complete raw historical web archive collected since 2008.">
+                        <span class="text-slate-700 text-xs">Common Crawl Full Archive <span class="text-slate-500 text-[10px]">(10 PB)</span></span>
+                        <span class="font-semibold tabular-nums text-slate-900 text-xs" id="comp-crawl">38.9</span>
+                    </div>
+
+                    <div class="bg-white/70 rounded-md p-2 border border-slate-300/50 flex justify-between items-center" title="Estimated total size of Netflix's global video master catalog.">
+                        <span class="text-slate-700 text-xs">Netflix Video Catalogs <span class="text-slate-500 text-[10px]">(3 PB)</span></span>
+                        <span class="font-semibold tabular-nums text-slate-900 text-xs" id="comp-netflix">129.7</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Chart & Interactive Control -->
+            <div class="w-full lg:w-2/3 flex flex-col relative min-h-0">
+
+                <!-- Chart Container -->
+                <div class="flex-1 relative w-full pb-2 min-h-0">
+                    <canvas id="growthChart"></canvas>
+                </div>
+
+                <!-- Interactive Timeline Control -->
+                <div class="mt-auto bg-white/60 p-2 rounded-lg border border-slate-300/60">
+                    <div class="flex justify-between text-[11px] text-slate-600 mb-1 font-semibold px-1">
+                        <span>2000</span>
+                        <span>Drag to adjust final year</span>
+                        <span>2030</span>
+                    </div>
+                    <input type="range" id="yearSlider" min="2000" max="2030" value="2026" class="w-full" aria-label="Timeline year slider">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Defining data and interpolation logic -->
+    <script>
+        // Data milestones (cumulative Petabytes over time)
+        const milestones = {
+            nasa: { 2000: 1, 2005: 3, 2010: 8, 2015: 15, 2020: 65, 2026: 180, 2030: 600 },
+            noaa: { 2000: 1, 2005: 2, 2010: 5, 2015: 10, 2020: 38, 2026: 100, 2030: 400 },
+            copernicus: { 2000: 0.5, 2005: 1, 2010: 2, 2015: 5, 2020: 30, 2026: 95, 2030: 200 },
+            usgs: { 2000: 0.2, 2005: 1, 2010: 2, 2015: 3, 2020: 8, 2026: 14, 2030: 25 }
+        };
+
+        // Master array of all years
+        const allYears = Array.from({length: 31}, (_, i) => 2000 + i);
+        
+        // Helper to interpolate data for smooth exponential curves
+        function interpolate(agencyMilestones) {
+            const data = [];
+            const milestoneKeys = Object.keys(agencyMilestones).map(Number).sort((a,b) => a-b);
+            
+            allYears.forEach(year => {
+                if (agencyMilestones[year] !== undefined) {
+                    data.push(agencyMilestones[year]);
+                } else {
+                    const prevYear = milestoneKeys.slice().reverse().find(y => y < year);
+                    const nextYear = milestoneKeys.find(y => y > year);
+                    const prevVal = agencyMilestones[prevYear];
+                    const nextVal = agencyMilestones[nextYear];
+                    
+                    const fraction = (year - prevYear) / (nextYear - prevYear);
+                    const easedFraction = Math.pow(fraction, 1.2); 
+                    
+                    const val = prevVal + easedFraction * (nextVal - prevVal);
+                    data.push(val);
+                }
+            });
+            return data;
+        }
+
+        const masterDatasets = {
+            nasa: interpolate(milestones.nasa),
+            noaa: interpolate(milestones.noaa),
+            copernicus: interpolate(milestones.copernicus),
+            usgs: interpolate(milestones.usgs)
+        };
+
+        // Calculate aggregated total
+        const totalData = allYears.map((_, i) => 
+            masterDatasets.nasa[i] + masterDatasets.noaa[i] + masterDatasets.copernicus[i] + masterDatasets.usgs[i]
+        );
+
+        // UI Elements
+        const displayYear = document.getElementById('display-year');
+        const displayTotal = document.getElementById('display-total');
+        const compCrawl = document.getElementById('comp-crawl');
+        const compNetflix = document.getElementById('comp-netflix');
+        const slider = document.getElementById('yearSlider');
+
+        // Initializing the interactive area chart
+        const ctx = document.getElementById('growthChart').getContext('2d');
+        const growthChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [], // Will be populated by slider
+                datasets: [
+                    {
+                        label: 'Total Open Data',
+                        data: [],
+                        borderColor: '#1d4ed8',
+                        backgroundColor: 'rgba(29, 78, 216, 0.18)',
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 1,
+                        pointHoverRadius: 6
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: {
+                    duration: 200 // Faster animation for smooth sliding
+                },
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            color: 'rgba(26, 41, 44, 0.12)',
+                            drawBorder: false
+                        },
+                        ticks: { color: '#1A292C', font: { size: 11 } }
+                    },
+                    y: {
+                        stacked: true,
+                        grid: {
+                            color: 'rgba(26, 41, 44, 0.12)',
+                            drawBorder: false
+                        },
+                        ticks: {
+                            color: '#1A292C',
+                            font: { size: 11 },
+                            callback: function(value) { return value + ' PB'; }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Accumulated Storage (PB)',
+                            color: '#1A292C',
+                            font: { size: 12 }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        enabled: true,
+                        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                        titleColor: '#1A292C',
+                        bodyColor: '#334155',
+                        borderColor: '#cbd5e1',
+                        borderWidth: 1,
+                        padding: 12,
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + Math.round(context.raw) + ' PB';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Update function triggered by the slider
+        function updateView(selectedYear) {
+            const yearVal = parseInt(selectedYear);
+            const sliceIndex = allYears.indexOf(yearVal) + 1; // +1 to include the selected year
+
+            // Update chart data arrays (dynamically adjust the plot's final year)
+            growthChart.data.labels = allYears.slice(0, sliceIndex);
+            growthChart.data.datasets[0].data = totalData.slice(0, sliceIndex);
+            
+            growthChart.update();
+
+            // Get exact values for the selected final year
+            const total = totalData[sliceIndex - 1];
+
+            // Update Dashboard Text
+            displayYear.innerText = yearVal;
+            displayTotal.innerText = Math.round(total).toLocaleString();
+
+            // Update Comparisons
+            compCrawl.innerText = (total / 10).toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1});
+            compNetflix.innerText = (total / 3).toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1});
+        }
+
+        // Listen for slider interaction
+        slider.addEventListener('input', (e) => {
+            updateView(e.target.value);
+        });
+
+        // Initialize dashboard with starting value
+        updateView(slider.value);
+
+    </script>
+</body>
+</html>
