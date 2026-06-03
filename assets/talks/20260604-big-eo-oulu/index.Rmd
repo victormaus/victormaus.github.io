@@ -54,6 +54,157 @@ Vienna University of Economics and Business<br>
 ???
 
 
+<!-- ##################################################### Archived: Data types and sensors -->
+---
+layout: false
+count: true
+# Earth Observation Images
+
+<div class="sensor-cards">
+
+<div class="scard">
+<svg viewBox="0 0 160 120" class="scard-svg">
+  <!-- Sun -->
+  <circle cx="20" cy="20" r="10" fill="#f59e0b"/>
+  <g stroke="#f59e0b" stroke-width="1.5">
+    <line x1="20" y1="4" x2="20" y2="0"/>
+    <line x1="36" y1="20" x2="40" y2="20"/>
+    <line x1="20" y1="36" x2="20" y2="40"/>
+    <line x1="4" y1="20" x2="0" y2="20"/>
+    <line x1="30" y1="8" x2="33" y2="5"/>
+    <line x1="30" y1="32" x2="33" y2="35"/>
+    <line x1="10" y1="32" x2="7" y2="35"/>
+    <line x1="10" y1="8" x2="7" y2="5"/>
+  </g>
+  <!-- Satellite -->
+  <g transform="translate(120, 30)">
+    <rect x="-8" y="-8" width="16" height="16" fill="#444"/>
+    <rect x="-22" y="-3" width="12" height="6" fill="#3399cc"/>
+    <rect x="10" y="-3" width="12" height="6" fill="#3399cc"/>
+  </g>
+  <!-- Sun rays down -->
+  <line x1="30" y1="30" x2="55" y2="95" stroke="#f59e0b" stroke-width="2"/>
+  <!-- Reflected light: 3 broad visible bands (RGB) + 2 grey bands (NIR / SWIR) -->
+  <line x1="54" y1="96" x2="113" y2="36" stroke="#9ca3af" stroke-width="2.5"/>
+  <line x1="58" y1="98" x2="115" y2="38" stroke="#1f9e89" stroke-width="2.5"/>
+  <line x1="62" y1="100" x2="117" y2="40" stroke="#c41e3a" stroke-width="2.5"/>
+  <line x1="66" y1="102" x2="119" y2="42" stroke="#0072B2" stroke-width="2.5"/>
+  <line x1="70" y1="104" x2="121" y2="44" stroke="#6b7280" stroke-width="2.5"/>
+  <!-- Ground -->
+  <path d="M 0,100 L 160,100 L 160,120 L 0,120 Z" fill="#9ca3af"/>
+  <path d="M 40,100 Q 60,92 80,100 Q 100,92 120,100" fill="#7a886e" stroke="none"/>
+</svg>
+<div class="scard-h">Multispectral cameras</div>
+<div class="scard-eg">(e.g. Sentinel-2 · Landsat · Planet)</div>
+</div>
+
+<div class="scard">
+<svg viewBox="0 0 160 120" class="scard-svg">
+  <defs>
+    <marker id="sar-tx-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0072B2"/>
+    </marker>
+    <marker id="sar-rx-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#D55E00"/>
+    </marker>
+  </defs>
+  <!-- Satellite -->
+  <g transform="translate(125, 22)">
+    <rect x="-8" y="-8" width="16" height="16" fill="#444"/>
+    <rect x="-22" y="-3" width="12" height="6" fill="#3399cc"/>
+    <rect x="10" y="-3" width="12" height="6" fill="#3399cc"/>
+  </g>
+  <!-- Clouds (radar sees through) -->
+  <g fill="#d1d5db">
+    <ellipse cx="55" cy="55" rx="20" ry="7"/>
+    <ellipse cx="78" cy="52" rx="16" ry="6"/>
+    <ellipse cx="35" cy="60" rx="13" ry="5"/>
+  </g>
+  <!-- Transmitted pulse: solid blue, arrowhead auto-oriented toward ground -->
+  <line x1="115" y1="32" x2="62" y2="90" stroke="#0072B2" stroke-width="2.8" marker-end="url(#sar-tx-head)"/>
+  <text x="38" y="80" font-size="9" fill="#0072B2" font-weight="700" text-anchor="middle">pulse</text>
+  <!-- Backscatter: dashed orange, arrowhead auto-oriented toward satellite -->
+  <line x1="78" y1="92" x2="128" y2="34" stroke="#D55E00" stroke-width="2.2" stroke-dasharray="4 2" marker-end="url(#sar-rx-head)"/>
+  <text x="128" y="82" font-size="9" fill="#D55E00" font-weight="700" text-anchor="middle">backscatter</text>
+  <!-- Ground -->
+  <path d="M 0,100 L 160,100 L 160,120 L 0,120 Z" fill="#9ca3af"/>
+</svg>
+<div class="scard-h">Synthetic-aperture radar</div>
+<div class="scard-eg">(e.g. Sentinel-1 · NISAR)</div>
+</div>
+
+<div class="scard">
+<svg viewBox="0 0 160 120" class="scard-svg">
+  <!-- Sun -->
+  <circle cx="20" cy="20" r="9" fill="#f59e0b"/>
+  <g stroke="#f59e0b" stroke-width="1.5">
+    <line x1="20" y1="5" x2="20" y2="1"/>
+    <line x1="35" y1="20" x2="39" y2="20"/>
+    <line x1="20" y1="35" x2="20" y2="39"/>
+    <line x1="5" y1="20" x2="1" y2="20"/>
+  </g>
+  <!-- Satellite -->
+  <g transform="translate(125, 24)">
+    <rect x="-8" y="-8" width="16" height="16" fill="#444"/>
+    <rect x="-22" y="-3" width="12" height="6" fill="#3399cc"/>
+    <rect x="10" y="-3" width="12" height="6" fill="#3399cc"/>
+  </g>
+  <!-- Sun ray down -->
+  <line x1="26" y1="28" x2="56" y2="90" stroke="#f59e0b" stroke-width="2"/>
+  <!-- Reflection going up — dense fan of many narrow contiguous bands -->
+  <g stroke-width="1.3" fill="none">
+    <line x1="60" y1="92" x2="115" y2="32" stroke="#7c3aed"/>
+    <line x1="60" y1="92" x2="118" y2="35" stroke="#3b82f6"/>
+    <line x1="60" y1="92" x2="120" y2="38" stroke="#0891b2"/>
+    <line x1="60" y1="92" x2="121" y2="41" stroke="#10b981"/>
+    <line x1="60" y1="92" x2="122" y2="44" stroke="#84cc16"/>
+    <line x1="60" y1="92" x2="123" y2="47" stroke="#facc15"/>
+    <line x1="60" y1="92" x2="124" y2="50" stroke="#f97316"/>
+    <line x1="60" y1="92" x2="125" y2="53" stroke="#dc2626"/>
+    <line x1="60" y1="92" x2="125" y2="56" stroke="#991b1b"/>
+  </g>
+  <!-- Ground -->
+  <path d="M 0,100 L 160,100 L 160,120 L 0,120 Z" fill="#9ca3af"/>
+  <path d="M 40,100 Q 55,94 70,100" fill="#7a886e" stroke="none"/>
+</svg>
+<div class="scard-h">Hyperspectral imagers</div>
+<div class="scard-eg">(e.g. EnMAP · PRISMA · CHIME (upcoming))</div>
+</div>
+
+<div class="scard">
+<svg viewBox="0 0 160 120" class="scard-svg">
+  <!-- Satellite -->
+  <g transform="translate(80, 18)">
+    <rect x="-8" y="-8" width="16" height="16" fill="#444"/>
+    <rect x="-22" y="-3" width="12" height="6" fill="#3399cc"/>
+    <rect x="10" y="-3" width="12" height="6" fill="#3399cc"/>
+  </g>
+  <!-- Laser pulse down (vertical green beam) -->
+  <line x1="80" y1="32" x2="80" y2="95" stroke="#007857" stroke-width="3"/>
+  <line x1="80" y1="32" x2="80" y2="95" stroke="#82e0aa" stroke-width="1" stroke-dasharray="3 2"/>
+  <!-- Tree silhouettes -->
+  <g fill="#3a5a40">
+    <ellipse cx="40" cy="92" rx="10" ry="14"/>
+    <rect x="38" y="92" width="4" height="10" fill="#5d4037"/>
+    <ellipse cx="115" cy="88" rx="13" ry="18"/>
+    <rect x="113" y="92" width="4" height="14" fill="#5d4037"/>
+  </g>
+  <!-- Ground -->
+  <path d="M 0,103 L 160,103 L 160,120 L 0,120 Z" fill="#9ca3af"/>
+</svg>
+<div class="scard-h">LiDAR altimeters</div>
+<div class="scard-eg">GEDI · ICESat-2</div>
+</div>
+
+</div>
+
+<div class="volumes-takeaway" style="font-size: 28px;">
+<strong>EO data is much more than RGB images.</strong> It includes measurements that reveal different aspects of our planet far beyond visible light.
+</div>
+
+???
+
+
 
 <!-- ============================================================
      PART 1 — BIG-EO DATA DEMOCRATIZATION
@@ -287,156 +438,6 @@ count: true
 
 ???
 
-<!-- ##################################################### Archived: Data types and sensors -->
----
-layout: false
-count: true
-# Earth Observation Images
-
-<div class="sensor-cards">
-
-<div class="scard">
-<svg viewBox="0 0 160 120" class="scard-svg">
-  <!-- Sun -->
-  <circle cx="20" cy="20" r="10" fill="#f59e0b"/>
-  <g stroke="#f59e0b" stroke-width="1.5">
-    <line x1="20" y1="4" x2="20" y2="0"/>
-    <line x1="36" y1="20" x2="40" y2="20"/>
-    <line x1="20" y1="36" x2="20" y2="40"/>
-    <line x1="4" y1="20" x2="0" y2="20"/>
-    <line x1="30" y1="8" x2="33" y2="5"/>
-    <line x1="30" y1="32" x2="33" y2="35"/>
-    <line x1="10" y1="32" x2="7" y2="35"/>
-    <line x1="10" y1="8" x2="7" y2="5"/>
-  </g>
-  <!-- Satellite -->
-  <g transform="translate(120, 30)">
-    <rect x="-8" y="-8" width="16" height="16" fill="#444"/>
-    <rect x="-22" y="-3" width="12" height="6" fill="#3399cc"/>
-    <rect x="10" y="-3" width="12" height="6" fill="#3399cc"/>
-  </g>
-  <!-- Sun rays down -->
-  <line x1="30" y1="30" x2="55" y2="95" stroke="#f59e0b" stroke-width="2"/>
-  <!-- Reflected light: 3 broad visible bands (RGB) + 2 grey bands (NIR / SWIR) -->
-  <line x1="54" y1="96" x2="113" y2="36" stroke="#9ca3af" stroke-width="2.5"/>
-  <line x1="58" y1="98" x2="115" y2="38" stroke="#1f9e89" stroke-width="2.5"/>
-  <line x1="62" y1="100" x2="117" y2="40" stroke="#c41e3a" stroke-width="2.5"/>
-  <line x1="66" y1="102" x2="119" y2="42" stroke="#0072B2" stroke-width="2.5"/>
-  <line x1="70" y1="104" x2="121" y2="44" stroke="#6b7280" stroke-width="2.5"/>
-  <!-- Ground -->
-  <path d="M 0,100 L 160,100 L 160,120 L 0,120 Z" fill="#9ca3af"/>
-  <path d="M 40,100 Q 60,92 80,100 Q 100,92 120,100" fill="#7a886e" stroke="none"/>
-</svg>
-<div class="scard-h">Multispectral cameras</div>
-<div class="scard-eg">(e.g. Sentinel-2 · Landsat · Planet)</div>
-</div>
-
-<div class="scard">
-<svg viewBox="0 0 160 120" class="scard-svg">
-  <defs>
-    <marker id="sar-tx-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0072B2"/>
-    </marker>
-    <marker id="sar-rx-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#D55E00"/>
-    </marker>
-  </defs>
-  <!-- Satellite -->
-  <g transform="translate(125, 22)">
-    <rect x="-8" y="-8" width="16" height="16" fill="#444"/>
-    <rect x="-22" y="-3" width="12" height="6" fill="#3399cc"/>
-    <rect x="10" y="-3" width="12" height="6" fill="#3399cc"/>
-  </g>
-  <!-- Clouds (radar sees through) -->
-  <g fill="#d1d5db">
-    <ellipse cx="55" cy="55" rx="20" ry="7"/>
-    <ellipse cx="78" cy="52" rx="16" ry="6"/>
-    <ellipse cx="35" cy="60" rx="13" ry="5"/>
-  </g>
-  <!-- Transmitted pulse: solid blue, arrowhead auto-oriented toward ground -->
-  <line x1="115" y1="32" x2="62" y2="90" stroke="#0072B2" stroke-width="2.8" marker-end="url(#sar-tx-head)"/>
-  <text x="38" y="80" font-size="9" fill="#0072B2" font-weight="700" text-anchor="middle">pulse</text>
-  <!-- Backscatter: dashed orange, arrowhead auto-oriented toward satellite -->
-  <line x1="78" y1="92" x2="128" y2="34" stroke="#D55E00" stroke-width="2.2" stroke-dasharray="4 2" marker-end="url(#sar-rx-head)"/>
-  <text x="128" y="82" font-size="9" fill="#D55E00" font-weight="700" text-anchor="middle">backscatter</text>
-  <!-- Ground -->
-  <path d="M 0,100 L 160,100 L 160,120 L 0,120 Z" fill="#9ca3af"/>
-</svg>
-<div class="scard-h">Synthetic-aperture radar</div>
-<div class="scard-eg">(e.g. Sentinel-1 · NISAR)</div>
-</div>
-
-<div class="scard">
-<svg viewBox="0 0 160 120" class="scard-svg">
-  <!-- Sun -->
-  <circle cx="20" cy="20" r="9" fill="#f59e0b"/>
-  <g stroke="#f59e0b" stroke-width="1.5">
-    <line x1="20" y1="5" x2="20" y2="1"/>
-    <line x1="35" y1="20" x2="39" y2="20"/>
-    <line x1="20" y1="35" x2="20" y2="39"/>
-    <line x1="5" y1="20" x2="1" y2="20"/>
-  </g>
-  <!-- Satellite -->
-  <g transform="translate(125, 24)">
-    <rect x="-8" y="-8" width="16" height="16" fill="#444"/>
-    <rect x="-22" y="-3" width="12" height="6" fill="#3399cc"/>
-    <rect x="10" y="-3" width="12" height="6" fill="#3399cc"/>
-  </g>
-  <!-- Sun ray down -->
-  <line x1="26" y1="28" x2="56" y2="90" stroke="#f59e0b" stroke-width="2"/>
-  <!-- Reflection going up — dense fan of many narrow contiguous bands -->
-  <g stroke-width="1.3" fill="none">
-    <line x1="60" y1="92" x2="115" y2="32" stroke="#7c3aed"/>
-    <line x1="60" y1="92" x2="118" y2="35" stroke="#3b82f6"/>
-    <line x1="60" y1="92" x2="120" y2="38" stroke="#0891b2"/>
-    <line x1="60" y1="92" x2="121" y2="41" stroke="#10b981"/>
-    <line x1="60" y1="92" x2="122" y2="44" stroke="#84cc16"/>
-    <line x1="60" y1="92" x2="123" y2="47" stroke="#facc15"/>
-    <line x1="60" y1="92" x2="124" y2="50" stroke="#f97316"/>
-    <line x1="60" y1="92" x2="125" y2="53" stroke="#dc2626"/>
-    <line x1="60" y1="92" x2="125" y2="56" stroke="#991b1b"/>
-  </g>
-  <!-- Ground -->
-  <path d="M 0,100 L 160,100 L 160,120 L 0,120 Z" fill="#9ca3af"/>
-  <path d="M 40,100 Q 55,94 70,100" fill="#7a886e" stroke="none"/>
-</svg>
-<div class="scard-h">Hyperspectral imagers</div>
-<div class="scard-eg">(e.g. EnMAP · PRISMA · CHIME (upcoming))</div>
-</div>
-
-<div class="scard">
-<svg viewBox="0 0 160 120" class="scard-svg">
-  <!-- Satellite -->
-  <g transform="translate(80, 18)">
-    <rect x="-8" y="-8" width="16" height="16" fill="#444"/>
-    <rect x="-22" y="-3" width="12" height="6" fill="#3399cc"/>
-    <rect x="10" y="-3" width="12" height="6" fill="#3399cc"/>
-  </g>
-  <!-- Laser pulse down (vertical green beam) -->
-  <line x1="80" y1="32" x2="80" y2="95" stroke="#007857" stroke-width="3"/>
-  <line x1="80" y1="32" x2="80" y2="95" stroke="#82e0aa" stroke-width="1" stroke-dasharray="3 2"/>
-  <!-- Tree silhouettes -->
-  <g fill="#3a5a40">
-    <ellipse cx="40" cy="92" rx="10" ry="14"/>
-    <rect x="38" y="92" width="4" height="10" fill="#5d4037"/>
-    <ellipse cx="115" cy="88" rx="13" ry="18"/>
-    <rect x="113" y="92" width="4" height="14" fill="#5d4037"/>
-  </g>
-  <!-- Ground -->
-  <path d="M 0,103 L 160,103 L 160,120 L 0,120 Z" fill="#9ca3af"/>
-</svg>
-<div class="scard-h">LiDAR altimeters</div>
-<div class="scard-eg">GEDI · ICESat-2</div>
-</div>
-
-</div>
-
-<div class="volumes-takeaway" style="font-size: 28px;">
-<strong>EO data is much more than RGB images.</strong> It includes measurements that reveal different aspects of our planet far beyond visible light.
-</div>
-
-???
-
 
 <!-- ##################################################### Foundation models / TESSERA -->
 ---
@@ -448,33 +449,31 @@ count: true
 <div class="fm-slide">
 
 <div class="fm-flow">
-<svg viewBox="0 0 600 330" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="-70 0 720 330" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="fm-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#666"/>
     </marker>
   </defs>
 
-  <!-- Input 1: Sentinel-2 stack -->
+  <!-- Input 1: Optical / multispectral stack -->
   <g transform="translate(40, 60)">
     <rect x="-8" y="-8" width="56" height="46" fill="#cfe7fb" stroke="#0072B2" stroke-width="1.5"/>
     <rect x="-4" y="-4" width="56" height="46" fill="#a9d3f3" stroke="#0072B2" stroke-width="1.5"/>
     <rect x="0"  y="0"  width="56" height="46" fill="#7fbfe9" stroke="#0072B2" stroke-width="1.5"/>
-    <text x="28" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#0072B2">Sentinel-2</text>
-    <text x="28" y="76" text-anchor="middle" font-size="11" fill="#0072B2">10 bands &middot; 10 m</text>
+    <text x="28" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#0072B2">Optical</text>
+    <text x="28" y="76" text-anchor="middle" font-size="11" fill="#0072B2">multispectral / hyperspectral</text>
   </g>
 
-  <!-- Input 2: Sentinel-1 stack -->
+  <!-- Input 2: Radar (SAR) stack -->
   <g transform="translate(40, 200)">
     <rect x="-8" y="-8" width="56" height="46" fill="#fbd8b6" stroke="#D55E00" stroke-width="1.5"/>
     <rect x="-4" y="-4" width="56" height="46" fill="#f4b079" stroke="#D55E00" stroke-width="1.5"/>
     <rect x="0"  y="0"  width="56" height="46" fill="#ec8a47" stroke="#D55E00" stroke-width="1.5"/>
-    <text x="28" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#D55E00">Sentinel-1</text>
-    <text x="28" y="76" text-anchor="middle" font-size="11" fill="#D55E00">VV &middot; VH SAR</text>
+    <text x="28" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#D55E00">Radar</text>
+    <text x="28" y="76" text-anchor="middle" font-size="11" fill="#D55E00">SAR &middot; active microwave</text>
   </g>
 
-  <!-- Multi-year hint -->
-  <text x="70" y="305" text-anchor="middle" font-size="11" fill="#666" font-style="italic">multi-year time series</text>
 
   <!-- Arrows into encoder -->
   <line x1="105" y1="90"  x2="190" y2="150" stroke="#666" stroke-width="2" marker-end="url(#fm-arr)"/>
@@ -560,6 +559,38 @@ count: true
 .cc-bottom-left.font-light[Map: <a href="http://maps.elie.ucl.ac.be/CCI/viewer/">ESA CCI Land Cover viewer</a> &mdash; Caraj&aacute;s iron-ore complex, Brazil]
 
 ???
+
+
+<!-- ---
+layout: false
+class:
+count: true
+# Does time exist?
+
+.pull-left.center[
+<div style="margin-top: 1.5em;">
+<div class="rovelli-cover">
+<div class="rc-series">Piccola Biblioteca &middot; 705</div>
+<div class="rc-author">CARLO ROVELLI</div>
+<div class="rc-title"><em>L&rsquo;ordine<br/>del tempo</em></div>
+<div class="rc-publisher">adelphi</div>
+</div>
+<div style="margin-top: 14px; font-size: 13px; color: #555;">Carlo Rovelli, <em>L&rsquo;ordine del tempo</em><br/>Adelphi, 2017</div>
+</div>
+]
+
+.pull-right[
+<div style="margin-top: 2em; padding: 0 1.5em;">
+<div style="font-size: 26px; font-style: italic; line-height: 1.35; color: #1A292C;">
+&ldquo;L&rsquo;emozione del tempo &egrave; precisamente ci&ograve; che per noi &egrave; il tempo. <strong>Il tempo siamo noi.</strong>&rdquo;
+</div>
+<div style="font-size: 16px; color: #555; margin-top: 18px; line-height: 1.4;">
+&ldquo;The emotion of time is precisely what time is for us. <strong>Time is us.</strong>&rdquo;
+</div>
+</div>
+] -->
+
+
 
 <!-- ##################################################### Annual-embedding bias (calendar vs phenology) -->
 ---
@@ -743,8 +774,8 @@ count: true
 
 <img src="./img/MINE-THE-GAP-innovation.png" height="170" style="position: absolute; top: 14em; left: 50%; transform: translate(-50%, 0%);" alt="MINE-THE-GAP innovation — multi-sensor satellite EO + AI" />
 
-<div class="mtg-aim-key">
-Integrate multi-sensor satellite Earth observation data using Artificial Intelligence to produce new mining indicators at global scale
+<div class="volumes-takeaway" style="font-size: 28px;">
+Develop new methods to integrate multi-sensor satellite EO data to produce mining indicators that scale globally.
 </div>
 
 <div class="mtg-funding">
@@ -761,19 +792,23 @@ Integrate multi-sensor satellite Earth observation data using Artificial Intelli
 layout: false
 class:
 count: true
-# AI algorithms excel at detecting regular patterns
 
 .pull-left.center[
-<img src="./img/dog-by-Tiina-Hayha-CC-BY-SA-4-0.jpg" alt="Spotted dog among autumn leaves" height="500" />
+<img src="./img/dog-by-Tiina-Hayha-CC-BY-SA-4-0.jpg" alt="Spotted dog among autumn leaves" height="450" />
 
 <span style="font-size: 11px; color: #777;">Photo: Tiina H&auml;yh&auml;, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC&nbsp;BY-SA 4.0</a></span>
 ]
 
 .pull-right.center[
-<img src="./img/carajas-mine-satellite-dog.png" alt="Carajás iron-ore mine, satellite view" height="500" />
+<img src="./img/carajas-mine-satellite-dog.png" alt="Carajás iron-ore mine, satellite view" height="450" />
 
 <span style="font-size: 11px; color: #777;">Screenshot: <a href="https://goo.gl/maps/xDkqyGdMAn8ZJTZJ7">Google Maps</a> &mdash; Caraj&aacute;s, Brazil</span>
 ]
+
+<div class="volumes-takeaway" style="font-size: 24px;">
+Computer vision and natural language processing architectures bring inductive biases ill-suited to spectra, time, and irregular geographies.
+</div>
+
 
 ???
 
@@ -785,7 +820,7 @@ count: true
 
 
 <!-- ##################################################### Global mining land footprint -->
----
+<!-- ---
 layout: false
 class: clear, inverse
 background-image: url(./img/global-mining-map.jpg)
@@ -797,11 +832,7 @@ count: true
 
 .citations[`r cite("maus_2022_global_mining")`]
 
-???
-- Global mining land footprint mapped from satellite imagery (Maus et al. 2022).
-- ~100,000 sites worldwide &mdash; open pits, waste rock piles, tailings dams.
-- The geographical scaffolding for the integration argument in this talk.
-
+??? -->
 
 
 <!-- =============================================================
@@ -816,7 +847,7 @@ count: false
 
 .title-card[
 .title[Thank you!]
-.author[Victor Maus]
+.author[Dr. Victor Maus]
 .affiliation[
 [victor.maus@wu.ac.at](mailto:victor.maus@wu.ac.at)]
 .qr-website[[victormaus.github.io](https://victormaus.github.io)]
